@@ -1,0 +1,28 @@
+section#grilla {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 20px;
+}
+section#grilla > a.producto {
+	width: 18%;
+	margin: 0 1% 1%;
+	text-decoration: none;
+}
+section#grilla > a.producto:hover {
+	opacity: .9;
+}
+section#grilla > a.producto > .imagen > img {
+	width: 100%;
+}
+section#grilla > a.producto > h2 {
+	color: black;
+	font-size: .9em;
+	font-weight: 400;
+}
+section#grilla > a.producto > strong {
+	color: var( --precio );
+}
+section#grilla > a.producto > p.fechaentrega {
+	color: black;
+	font-size: .8em;
+}

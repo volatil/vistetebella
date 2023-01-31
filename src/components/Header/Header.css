@@ -1,0 +1,9 @@
+header {
+	display: flex;
+	justify-content: space-around;
+	height: 110px;
+	border-bottom: 1px solid #ccc;
+}
+header > * {
+	width: 33%;
+}

@@ -1,0 +1,18 @@
+section#detalle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section#detalle > h2 {
+	text-align: center;
+	font-size: 4em;
+	margin: 0;
+}
+section#detalle > img {
+	max-height: 600px;
+}
+section#detalle > p.precio {
+	color: var( --precio );
+	font-size: 2em;
+	font-weight: 600;
+}
