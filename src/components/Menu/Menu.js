@@ -7,16 +7,16 @@ function Menu() {
 		<nav>
 			<ul>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/" >Inicio</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/">Inicio</NavLink>
 				</li>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/grilla" >Grilla</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/grilla">Grilla</NavLink>
 				</li>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/soyunerror" >Error404</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/soyunerror">Error404</NavLink>
 				</li>
 			</ul>
 		</nav>
-	)
+	);
 }
 export default Menu;

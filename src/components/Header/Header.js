@@ -11,6 +11,6 @@ function Header() {
 			<Buscador />
 			<Menu />
 		</header>
-	)
+	);
 }
 export default Header;

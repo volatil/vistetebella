@@ -8,6 +8,6 @@ function Barrasuperior() {
 				<p><strong>DESPACHO GRATIS</strong> en compras sobre <strong>$ 15.000</strong></p>
 			</NavLink>
 		</section>
-	)
+	);
 }
 export default Barrasuperior;

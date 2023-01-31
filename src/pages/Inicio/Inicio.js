@@ -6,6 +6,6 @@ function Inicio() {
 		<section id="inicio">
 			<Carrusel />
 		</section>
-	)
+	);
 }
 export default Inicio;
