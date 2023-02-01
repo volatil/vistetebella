@@ -8,8 +8,7 @@ export function despedir( nombre ) {
 	console.debug( `Chao ${nombre}` );
 }
 
-export function armonizarURL( param ) {
-	console.debug( `Param: ${param}` );
+export function armonizarURL() {
 	let fixurl = location.pathname.split("/")[3];
 	fixurl = decodeURIComponent(fixurl);
 	fixurl = fixurl.replaceAll(" ", "-");

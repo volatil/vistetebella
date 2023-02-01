@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Elhelmet from "../Elhelmet/Elhelmet";
 import { DB, COMETA } from "../../assets/js/CONST";
 
 import Loading from "../Loading/Loading";
@@ -37,22 +38,25 @@ function Grilla() {
 	}, []);
 
 	return (
-		<section id="grilla">
-			{ loading ? <Loading /> : (
-				elproducto?.map((prod) => {
-					return (
-						<Producto
-							key={prod.id}
-							id={prod.id}
-							nombre={prod.nombre}
-							precio={prod.precio}
-							fechaentrega={prod.fechaentrega}
-							imagen={prod.imagen}
-						/>
-					);
-				})
-			)}
-		</section>
+		<>
+			<Elhelmet title="Tops" lugar="grilla" />
+			<section id="grilla">
+				{ loading ? <Loading /> : (
+					elproducto?.map((prod) => {
+						return (
+							<Producto
+								key={prod.id}
+								id={prod.id}
+								nombre={prod.nombre}
+								precio={prod.precio}
+								fechaentrega={prod.fechaentrega}
+								imagen={prod.imagen}
+							/>
+						);
+					})
+				)}
+			</section>
+		</>
 	);
 }
 export default Grilla;

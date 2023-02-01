@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Elhelmet from "../../components/Elhelmet/Elhelmet";
 
 import { DB, COMETA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
@@ -12,7 +13,7 @@ function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useLocation().pathname.split("/")[2];
 
-	armonizarURL("hola");
+	armonizarURL();
 
 	useEffect(() => {
 		fetch( DB ).then( (x) => x.json() ).then( (x) => {
@@ -39,11 +40,14 @@ function Detalle() {
 
 	if ( detalle ) {
 		return (
-			<section key={detalle[0].id} id="detalle">
-				<h2>{detalle[0].nombre}</h2>
-				<img src={detalle[0].imagen} alt={detalle[0].nombre} />
-				<p className="precio">$ {detalle[0].precio}</p>
-			</section>
+			<>
+				<Elhelmet title={detalle[0].nombre} lugar="detalle" />
+				<section key={detalle[0].id} id="detalle">
+					<h2>{detalle[0].nombre}</h2>
+					<img src={detalle[0].imagen} alt={detalle[0].nombre} />
+					<p className="precio">$ {detalle[0].precio}</p>
+				</section>
+			</>
 		);
 	}
 	return (<Loading />);
