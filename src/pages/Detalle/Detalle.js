@@ -41,7 +41,7 @@ function Detalle() {
 	if ( detalle ) {
 		return (
 			<>
-				<Elhelmet title={detalle[0].nombre} lugar="detalle" />
+				<Elhelmet title={detalle[0].nombre} lugar="detalle" imagen={detalle[0].imagen} />
 				<section key={detalle[0].id} id="detalle">
 					<h2>{detalle[0].nombre}</h2>
 					<img src={detalle[0].imagen} alt={detalle[0].nombre} />
