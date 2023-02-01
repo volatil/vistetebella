@@ -6,24 +6,17 @@ import Loading from "../../components/Loading/Loading";
 
 import "./Detalle.css";
 
+import { armonizarURL } from "../../assets/js/Functions";
+
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
-	const location = useLocation();
-	let lugar = useLocation().pathname.split("/")[2];
-	lugar = lugar.replaceAll("%20", " ").replaceAll("%C3", "").replaceAll("%B3", "o").replaceAll("%A9", "e");
+	const id = useLocation().pathname.split("/")[2];
 
-	const fixURL = function () {
-		let fixurl = location.pathname.split("/")[3];
-		fixurl = decodeURIComponent(fixurl);
-		fixurl = fixurl.replaceAll(" ", "-");
-		fixurl = fixurl.toLowerCase();
-		window.history.pushState(null, null, fixurl);
-	};
-	fixURL();
+	armonizarURL("hola");
 
 	useEffect(() => {
 		fetch( DB ).then( (x) => x.json() ).then( (x) => {
-			const resumen = x.values[lugar];
+			const resumen = x.values[id];
 			const todo = [];
 
 			if ( typeof resumen === "undefined" ) {
@@ -42,7 +35,7 @@ function Detalle() {
 			});
 			setDetalle( todo );
 		});
-	}, [lugar]);
+	}, [id]);
 
 	if ( detalle ) {
 		return (

@@ -5,8 +5,11 @@ section#detalle {
 }
 section#detalle > h2 {
 	text-align: center;
-	font-size: 4em;
-	margin: 0;
+	font-size: 3em;
+	margin: 10px 0 20px;
+	padding: 0;
+	width: 90%;
+	line-height: 1.2em;
 }
 section#detalle > img {
 	max-height: 600px;
