@@ -2,12 +2,18 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Elhelmet from "../../components/Elhelmet/Elhelmet";
 
-import { DB, COMETA } from "../../assets/js/CONST";
+import {
+	DB,
+	COMETATIENDA,
+	COMETAMELI,
+	IVA,
+} from "../../assets/js/CONST";
+// import Loading from "components/Loading/Loading";
 import Loading from "../../components/Loading/Loading";
 
 import "./Detalle.css";
 
-import { armonizarURL } from "../../assets/js/Functions";
+import { armonizarURL, precio } from "../../assets/js/Functions";
 
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
@@ -23,16 +29,30 @@ function Detalle() {
 			if ( typeof resumen === "undefined" ) {
 				window.location.href = "/";
 			}
+
 			const p = {
 				id: resumen[0],
 				nombre: resumen[1].replaceAll("SHEIN ", ""),
-				precio: (Number(resumen[2]) + COMETA).toLocaleString("es-CL"),
+				precio: () => {
+					return precio( resumen[2] );
+				},
 				fechaentrega: resumen[3],
 				imagen: resumen[4].split(",//")[0],
+				botoncomprar: () => {
+					console.debug( `ID -> ${p.id}` );
+					console.debug( typeof p.id );
+					if ( p.id === "15" ) {
+						console.debug( "Si soy" );
+						const botonHTML = <a rel="noreferrer" href="https://mpago.la/1rmdXJe" target="_blank">COMPRAR</a>;
+						return botonHTML;
+					}
+					console.debug( "No soy" );
+					return null;
+				},
 			};
 
 			todo.push({
-				id: p.id, nombre: p.nombre, precio: p.precio, fechaentrega: p.fechaentrega, imagen: p.imagen,
+				id: p.id, nombre: p.nombre, precio: p.precio(), fechaentrega: p.fechaentrega, imagen: p.imagen, botoncomprar: p.botoncomprar(),
 			});
 			setDetalle( todo );
 		});
@@ -46,6 +66,7 @@ function Detalle() {
 					<h2>{detalle[0].nombre}</h2>
 					<img src={detalle[0].imagen} alt={detalle[0].nombre} />
 					<p className="precio">$ {detalle[0].precio}</p>
+					{ detalle[0].botoncomprar }
 				</section>
 			</>
 		);

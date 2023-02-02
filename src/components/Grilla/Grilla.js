@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Elhelmet from "../Elhelmet/Elhelmet";
-import { DB, COMETA } from "../../assets/js/CONST";
+import { DB, COMETATIENDA } from "../../assets/js/CONST";
 
 import Loading from "../Loading/Loading";
 import Producto from "../Producto/Producto";
+
+import { precio } from "../../assets/js/Functions";
 
 function Grilla() {
 	const [elproducto, setElproducto] = useState();
@@ -20,13 +22,15 @@ function Grilla() {
 				const p = {
 					id: resumen[0],
 					nombre: resumen[1].replaceAll("SHEIN ", ""),
-					precio: (Number(resumen[2]) + COMETA).toLocaleString("es-CL"),
+					precio: () => {
+						return precio( resumen[2] );
+					},
 					fechaentrega: resumen[3],
 					imagen: resumen[4].split(",//")[0],
 				};
 
 				data.push({
-					id: p.id, nombre: p.nombre, precio: p.precio, fechaentrega: p.fechaentrega, imagen: p.imagen,
+					id: p.id, nombre: p.nombre, precio: p.precio(), fechaentrega: p.fechaentrega, imagen: p.imagen,
 				});
 			}
 

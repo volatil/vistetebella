@@ -10,10 +10,7 @@ function Menu() {
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/">Inicio</NavLink>
 				</li>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/grilla">Grilla</NavLink>
-				</li>
-				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/soyunerror">Error404</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/productos">Productos</NavLink>
 				</li>
 			</ul>
 		</nav>
