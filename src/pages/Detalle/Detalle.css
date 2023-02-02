@@ -14,8 +14,22 @@ section#detalle > h2 {
 section#detalle > img {
 	max-height: 600px;
 }
+section#detalle > p {
+	margin: 0;
+}
 section#detalle > p.precio {
 	color: var( --precio );
 	font-size: 2em;
 	font-weight: 600;
+}
+section#detalle > div.imagenes {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 60%;
+	margin: 30px 0 0;
+}
+section#detalle > div.imagenes > img {
+	max-width: 100px;
 }

@@ -1,4 +1,4 @@
-import { COMETATIENDA, COMETAMELI, IVA } from "./CONST";
+import { COMETATIENDA, COMETAMELI, IVA } from "../assets/js/CONST";
 
 export function armonizarURL() {
 	let fixurl = location.pathname.split("/")[3];

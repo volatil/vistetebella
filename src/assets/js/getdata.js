@@ -1,7 +1,7 @@
 /*eslint-disable */
 var p = {
 	nombre: $(".product-intro__head-name").html(),
-	precio: $(".product-intro__head-price.j-expose__product-intro__head-price span").html(),
+	precio: $(".product-intro__head-price.j-expose__product-intro__head-price span").html().replaceAll(".", "").replaceAll("$", ""),
 	entrega: $(".product-intro__freeshipping-time").html(),
 	imagenes: () => {
 		const imagenes = [];
@@ -16,15 +16,13 @@ var p = {
 	},
 	descripcion: () => {
 		const descripcion = [];
-
-		$.each($(".product-intro__description-table > div"), function () {
-			const key = $(this).find(".key").html();
-			const val = $(this).find(".val").html().split(" <span dir=")[0];
-			const elhtml = `<li class='key'>${key}</li><li class='val'>${val}</li>`;
-			descripcion.push(elhtml);
+		$.each( $(".product-intro__description-table .product-intro__description-table-item"), function(){
+			const key = $(this).find(".key").text();
+			const val = $(this).find(".val").text();
+			descripcion.push({ key: key, val: val });
 		});
-
-		return descripcion;
+		const ladescripcion = JSON.stringify(descripcion);
+		return ladescripcion;
 	},
 	tallas: () => {
 		const tallas = [];
@@ -37,6 +35,8 @@ var p = {
 		return tallas;
 	},
 	url: location.href,
+	valoracion: $(".rate-num-small").html(),
+	categoria: $( $(".bread-crumb__item")[2] ).text(),
 	comentario: {
 		cantidad: () => {
 			let elarray = [];
@@ -56,12 +56,31 @@ var p = {
 			
 			return elarray;
 		},
-		
+		comentarios: () => {
+			let comentarios = $(".common-reviews__list.common-reviews__list.j-expose__common-reviews__list").html();
+			return comentarios;
+		},
 	},
 };
 /* eslint-enable */
 
-$("body").prepend(` <textarea class='data'>[\n"${p.nombre}",\n"${p.precio}",\n"${p.entrega}",\n"${p.imagenes()}",\n"${p.descripcion()}",\n"${p.tallas()}",\n"${p.url}",\n"${p.comentario.cantidad()}"\n],</textarea>`);
+$("body").prepend(`
+<textarea class='data'>
+${p.nombre}
+${p.precio}
+${p.entrega}
+${p.imagenes()}
+${p.descripcion()}
+${p.tallas()}
+${p.url}
+${p.valoracion}
+${p.categoria}
+${p.comentario.cantidad()}
+${p.comentario.comentarios()}
+</textarea>
+`);
+
+console.log( p.descripcion() );
 
 const textoACopiar = $("textarea.data");
 textoACopiar.focus();

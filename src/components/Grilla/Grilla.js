@@ -5,7 +5,7 @@ import { DB, NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../Loading/Loading";
 import Producto from "../Producto/Producto";
 
-import { precioMeli } from "../../assets/js/Functions";
+import { precioMeli } from "../../Helpers/Helpers";
 
 function Grilla() {
 	const [elproducto, setElproducto] = useState();
@@ -23,7 +23,8 @@ function Grilla() {
 					id: resumen[0],
 					nombre: resumen[1].replaceAll("SHEIN ", ""),
 					precio: () => {
-						return precioMeli( resumen[2] );
+						// return precioMeli( resumen[2] );
+						return (Number(resumen[2])).toLocaleString("es-CL");
 					},
 					fechaentrega: resumen[3],
 					imagen: resumen[4].split(",//")[0],
