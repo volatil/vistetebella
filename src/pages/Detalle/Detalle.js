@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Elhelmet from "../../components/Elhelmet/Elhelmet";
+import { Helmet } from "react-helmet";
 
-import {
-	DB,
-	COMETATIENDA,
-	COMETAMELI,
-	IVA,
-} from "../../assets/js/CONST";
-// import Loading from "components/Loading/Loading";
+import { DB, NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
 
 import "./Detalle.css";
 
-import { armonizarURL, precio } from "../../assets/js/Functions";
+import { armonizarURL, precioMeli } from "../../assets/js/Functions";
 
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
@@ -34,19 +28,15 @@ function Detalle() {
 				id: resumen[0],
 				nombre: resumen[1].replaceAll("SHEIN ", ""),
 				precio: () => {
-					return precio( resumen[2] );
+					return precioMeli( resumen[2] );
 				},
 				fechaentrega: resumen[3],
 				imagen: resumen[4].split(",//")[0],
 				botoncomprar: () => {
-					console.debug( `ID -> ${p.id}` );
-					console.debug( typeof p.id );
 					if ( p.id === "15" ) {
-						console.debug( "Si soy" );
 						const botonHTML = <a rel="noreferrer" href="https://mpago.la/1rmdXJe" target="_blank">COMPRAR</a>;
 						return botonHTML;
 					}
-					console.debug( "No soy" );
 					return null;
 				},
 			};
@@ -61,7 +51,11 @@ function Detalle() {
 	if ( detalle ) {
 		return (
 			<>
-				<Elhelmet title={detalle[0].nombre} lugar="detalle" imagen={detalle[0].imagen} />
+				<Helmet>
+					<title>{detalle[0].nombre} || { NOMBRETIENDA }</title>
+					<meta property="og:image" content={detalle[0].imagen} />
+					<meta property="twitter:image" content={detalle[0].imagen} />
+				</Helmet>
 				<section key={detalle[0].id} id="detalle">
 					<h2>{detalle[0].nombre}</h2>
 					<img src={detalle[0].imagen} alt={detalle[0].nombre} />

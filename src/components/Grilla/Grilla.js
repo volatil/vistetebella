@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import Elhelmet from "../Elhelmet/Elhelmet";
-import { DB, COMETATIENDA } from "../../assets/js/CONST";
+import { Helmet } from "react-helmet";
+import { DB, NOMBRETIENDA } from "../../assets/js/CONST";
 
 import Loading from "../Loading/Loading";
 import Producto from "../Producto/Producto";
 
-import { precio } from "../../assets/js/Functions";
+import { precioMeli } from "../../assets/js/Functions";
 
 function Grilla() {
 	const [elproducto, setElproducto] = useState();
@@ -23,7 +23,7 @@ function Grilla() {
 					id: resumen[0],
 					nombre: resumen[1].replaceAll("SHEIN ", ""),
 					precio: () => {
-						return precio( resumen[2] );
+						return precioMeli( resumen[2] );
 					},
 					fechaentrega: resumen[3],
 					imagen: resumen[4].split(",//")[0],
@@ -43,7 +43,9 @@ function Grilla() {
 
 	return (
 		<>
-			<Elhelmet title="Tops" lugar="grilla" />
+			<Helmet>
+				<title>Tops || { NOMBRETIENDA }</title>
+			</Helmet>
 			<section id="grilla">
 				{ loading ? <Loading /> : (
 					elproducto?.map((prod) => {

@@ -8,10 +8,10 @@ export function armonizarURL() {
 	window.history.pushState(null, null, fixurl);
 }
 
-export function precio( neto ) {
+export function precioMeli( neto ) {
 	// SUMAR NETO + COMETA MIA
 	const total1 = Number(neto) + Number(COMETATIENDA);
-	// console.debug( total1 );
+
 	// AGREGA Y CALCULA EL % DE MELI
 	const total2 = Math.ceil((Number(total1) * Number(COMETAMELI)) / 10);
 
@@ -22,5 +22,24 @@ export function precio( neto ) {
 	const total4 = Math.ceil((total1 * IVA) / 10);
 	const total5 = (total3 + total4).toLocaleString("es-CL");
 
+	console.debug( `
+	Precio Neto: $ ${Number(neto).toLocaleString("es-CL")}
+	Comision VISTETEBELLA: $ ${Number(COMETATIENDA).toLocaleString("es-CL")}
+	Precio Neto + Comision VISTETEBELLA: $ ${Number(total1).toLocaleString("es-CL")}
+	Precio Neto + Comision VISTETEBELLA + Comision MERCADOLIBRE: $ ${Number(total3).toLocaleString("es-CL")}
+	IVA: $ ${Number(total4).toLocaleString("es-CL")}
+	Precio Neto + Comision VISTETEBELLA + Comision MERCADOLIBRE + IVA: $ ${Number(total5).toLocaleString("es-CL")}
+	` );
+
 	return total5;
+}
+
+export function precioTransbank( neto ) {
+	// Por un producto de $10.000, recibo $9.882
+	// Comision Transbank: 0,99%
+	// IVA: 0,19%
+
+	// PLAZOS
+	// Débito y prepago -> 24 Horas
+	// Tarjetas de crédito -> 48 Horas
 }
