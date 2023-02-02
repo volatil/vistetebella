@@ -43,3 +43,11 @@ export function precioTransbank( neto ) {
 	// Débito y prepago -> 24 Horas
 	// Tarjetas de crédito -> 48 Horas
 }
+
+export function devuelveAlHome( id ) {
+	if ( typeof id === "undefined" ) {
+		setTimeout(() => {
+			window.location.href = "/";
+		}, 2000);
+	}
+}

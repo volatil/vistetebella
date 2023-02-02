@@ -33,3 +33,38 @@ section#detalle > div.imagenes {
 section#detalle > div.imagenes > img {
 	max-width: 100px;
 }
+section#detalle > div.tallas > select {
+	height: 40px;
+	cursor: pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1.2em;
+	letter-spacing: 0.05em;
+}
+section#detalle > div.comentarios {
+	width: 80%;
+	margin: 0 auto;
+}
+section#detalle > div.comentarios > p {}
+section#detalle > div.comentarios > .bloques > .bloque {
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+}
+section#detalle > div.comentarios > .bloques > .bloque > .nombre {
+	font-size: 1.2em;
+}
+section#detalle > div.comentarios > .bloques > .bloque > .comentario {
+	text-transform: capitalize;
+}
+section#detalle > div.comentarios > .bloques > .bloque > .imagenes {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+section#detalle > div.comentarios > .bloques > .bloque > .imagenes > img {
+	max-width: 200px;
+}
