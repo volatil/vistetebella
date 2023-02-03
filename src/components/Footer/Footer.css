@@ -1,0 +1,15 @@
+footer {
+	background: whitesmoke;
+	margin-top: 180px;
+	height: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+footer > a {
+	display: flex;
+	justify-content: center;
+}
+footer > a > img {
+	max-width: 200px;
+}

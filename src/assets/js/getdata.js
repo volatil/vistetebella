@@ -1,4 +1,4 @@
-let p = {
+const p = {
 	nombre: $(".product-intro__head-name").html(),
 	precio: $(".product-intro__head-price.j-expose__product-intro__head-price span").html().replaceAll(".", "").replaceAll("$", ""),
 	entrega: $(".product-intro__freeshipping-time").html(),

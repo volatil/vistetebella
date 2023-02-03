@@ -1,3 +1,4 @@
+import $ from "jquery";
 import { COMETATIENDA, COMETAMELI, IVA } from "../assets/js/CONST";
 
 export function armonizarURL() {
@@ -44,10 +45,27 @@ export function precioTransbank( neto ) {
 	// Tarjetas de crédito -> 48 Horas
 }
 
+export function precio( neto ) {
+	let preciofinal = Number( neto ) + Number( COMETATIENDA );
+	preciofinal = preciofinal.toLocaleString("es-CL");
+	return preciofinal;
+}
+
 export function devuelveAlHome( id ) {
 	if ( typeof id === "undefined" ) {
 		setTimeout(() => {
 			window.location.href = "/";
 		}, 2000);
 	}
+}
+
+export function fechaEntrega() {
+	// 14 a 18 dias
+}
+
+export function cambiarThumb() {
+	$(".imagenes > img").on("click", function () {
+		const src = $(this).attr("src");
+		$(".imagenprincipal").attr("src", src);
+	});
 }

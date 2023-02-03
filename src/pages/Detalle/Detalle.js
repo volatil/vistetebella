@@ -7,13 +7,20 @@ import Loading from "../../components/Loading/Loading";
 
 import "./Detalle.css";
 
-import { armonizarURL, devuelveAlHome } from "../../Helpers/Helpers";
+import {
+	armonizarURL,
+	devuelveAlHome,
+	precio,
+	cambiarThumb,
+} from "../../Helpers/Helpers";
 
 function Thumbnails({ data, nombre }) {
 	return (
 		<div className="imagenes">
 			{ data.todas()?.map(({ laid, imagen }) => {
-				return (<img key={laid} src={imagen} alt={nombre} />);
+				return (
+					<img key={laid} alt={nombre} src={imagen} />
+				);
 			}) }
 		</div>
 	);
@@ -88,15 +95,15 @@ function Detalle() {
 			const todo = [];
 
 			devuelveAlHome( resumen );
+			cambiarThumb();
 
-			// console.debug( `URL: ${resumen[7]}` );
+			console.debug( `URL: ${resumen[7]}` );
 
 			const p = {
 				id: resumen[0],
-				nombre: resumen[1].replaceAll("SHEIN ", ""),
+				nombre: resumen[1].replaceAll("SHEIN ", "").toLowerCase(),
 				precio: () => {
-					// return precioMeli( resumen[2] );
-					return (Number(resumen[2])).toLocaleString("es-CL");
+					return precio( resumen[2] );
 				},
 				fechaentrega: resumen[3],
 				imagen: {
@@ -105,7 +112,6 @@ function Detalle() {
 						const arrtodas = [];
 						const todas = resumen[4];
 						for ( let count = 0; count <= todas.split(",//").length - 2; count++ ) {
-							// imagen.split("_thumbnail")[0].split("/")[imagen.split("_thumbnail")[0].split("/").length - 1]
 							const laimagen = todas.split(",//")[count].replaceAll("//", "");
 							const elid = laimagen.split("_thumbnail")[0].split("/")[laimagen.split("_thumbnail")[0].split("/").length - 1];
 							arrtodas.push({ laid: elid, imagen: `https://${laimagen}` });
@@ -148,7 +154,7 @@ function Detalle() {
 				</Helmet>
 				<section key={res.id} id="detalle">
 					<h2>{res.nombre}</h2>
-					<img src={res.imagen.principal} alt={res.nombre} />
+					<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					<Thumbnails data={res.imagen} nombre={res.nombre} />
 					<p className="precio">$ {res.precio()}</p>
 					<Tallas data={res.tallas()} />

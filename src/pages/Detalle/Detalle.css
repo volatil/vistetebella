@@ -11,6 +11,9 @@ section#detalle > h2 {
 	width: 90%;
 	line-height: 1.2em;
 }
+section#detalle > h2::first-letter {
+	text-transform: capitalize;
+}
 section#detalle > img {
 	max-height: 600px;
 }
@@ -40,12 +43,12 @@ section#detalle > div.tallas > select {
 	padding-right: 10px;
 	font-size: 1.2em;
 	letter-spacing: 0.05em;
+	outline: none;
 }
 section#detalle > div.comentarios {
 	width: 80%;
 	margin: 0 auto;
 }
-section#detalle > div.comentarios > p {}
 section#detalle > div.comentarios > .bloques > .bloque {
 	border: 1px solid #ddd;
 	margin-bottom: 10px;
@@ -56,9 +59,7 @@ section#detalle > div.comentarios > .bloques > .bloque {
 section#detalle > div.comentarios > .bloques > .bloque > .nombre {
 	font-size: 1.2em;
 }
-section#detalle > div.comentarios > .bloques > .bloque > .comentario {
-	text-transform: capitalize;
-}
+section#detalle > div.comentarios > .bloques > .bloque > .comentario {}
 section#detalle > div.comentarios > .bloques > .bloque > .imagenes {
 	display: flex;
 	flex-direction: row;

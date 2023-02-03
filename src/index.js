@@ -17,6 +17,7 @@ import Error from "./pages/Error/Error";
 import "./index.css";
 
 import reportWebVitals from "./reportWebVitals";
+import Footer from "./components/Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,6 +30,7 @@ root.render(
 			<Route path="/detalle/:id/:nombre" element={<Detalle />} />
 			<Route path="*" element={<Error />} />
 		</Routes>
+		<Footer />
 	</Router>,
 );
 
