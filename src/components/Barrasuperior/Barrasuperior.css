@@ -16,3 +16,9 @@
 	font-size: 1.3em;
 	letter-spacing: 0.05em;
 }
+
+@media( max-width: 850px ) {
+	#barrasuperior > a > p {
+		font-size: .8em;
+	}
+}

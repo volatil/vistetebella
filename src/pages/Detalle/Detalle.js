@@ -83,6 +83,14 @@ function Comentarios({ data }) {
 	);
 }
 
+function BarraComprar({ clase }) {
+	return (
+		<nav className={`barracomprar ${clase}`}>
+			<a href="#asdasd" title="Comprar">comprar</a>
+		</nav>
+	);
+}
+
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useLocation().pathname.split("/")[2];
@@ -95,9 +103,10 @@ function Detalle() {
 			const todo = [];
 
 			devuelveAlHome( resumen );
-			cambiarThumb();
 
-			console.debug( `URL: ${resumen[7]}` );
+			setTimeout(() => {
+				console.debug( `URL: ${resumen[7]}` );
+			}, 500);
 
 			const p = {
 				id: resumen[0],
@@ -142,6 +151,10 @@ function Detalle() {
 		});
 	}, [id]);
 
+	useEffect(() => {
+		cambiarThumb();
+	});
+
 	if ( detalle ) {
 		const res = detalle[0];
 
@@ -158,11 +171,13 @@ function Detalle() {
 					<Thumbnails data={res.imagen} nombre={res.nombre} />
 					<p className="precio">$ {res.precio()}</p>
 					<Tallas data={res.tallas()} />
+					<BarraComprar clase="desktop" />
 					<p>{res.fechaentrega}</p>
 					<Descripcion descripcion={res.descripcion} />
 					<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
 					<p className="categoria">Categoria: <strong>{res.categoria}</strong></p>
 					<Comentarios data={res.comentarios.comentario} />
+					<BarraComprar clase="mobile" />
 				</section>
 			</>
 		);

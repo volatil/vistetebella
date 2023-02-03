@@ -26,3 +26,20 @@ section#grilla > a.producto > p.fechaentrega {
 	color: black;
 	font-size: .8em;
 }
+@media( max-width: 850px ) {
+	section#grilla > a.producto {
+		display: flex;
+		flex-wrap: wrap;
+		width: 98%;
+		height: 130px;
+		position: relative;
+	}
+	section#grilla > a.producto > * {
+		margin-left: 140px;
+	}
+	section#grilla > a.producto > .imagen {
+		position: absolute;
+		margin-left: 0;
+		width: 90px;
+	}
+}
