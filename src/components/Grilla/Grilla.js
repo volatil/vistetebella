@@ -37,14 +37,14 @@ function Grilla() {
 			setElproducto(data);
 			setTimeout(() => {
 				setLoading(false);
-			}, 500);
+			}, 200);
 		});
 	}, []);
 
 	return (
 		<>
 			<Helmet>
-				<title>Tops || { NOMBRETIENDA }</title>
+				<title>Tienda || { NOMBRETIENDA }</title>
 			</Helmet>
 			<section id="grilla">
 				{ loading ? <Loading /> : (

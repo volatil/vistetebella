@@ -26,7 +26,7 @@ root.render(
 		<Header />
 		<Routes>
 			<Route exact path="/" element={<Inicio />} />
-			<Route path="/productos" element={<Grilla />} />
+			<Route path="/tienda" element={<Grilla />} />
 			<Route path="/detalle/:id/:nombre" element={<Detalle />} />
 			<Route path="*" element={<Error />} />
 		</Routes>

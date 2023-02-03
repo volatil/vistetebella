@@ -18,6 +18,7 @@ nav > ul > li > a {
 	color: black;
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
+	text-transform: capitalize;
 }
 nav > ul > li > a:hover ,
 nav > ul > li > a.tamoactivo {

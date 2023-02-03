@@ -12,7 +12,7 @@ function Producto({
 				<img src={imagen} alt={NOMBRETIENDA} />
 			</div>
 			<h2>{nombre}</h2>
-			<strong>$ {precio}</strong>
+			<p className="precio">$ {precio}</p>
 		</NavLink>
 	);
 }
