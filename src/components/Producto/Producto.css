@@ -30,6 +30,8 @@ section#grilla > a.producto > p.precio {
 	color: var( --precio );
 	margin-top: 0;
 	font-size: .9em;
+	color: black;
+	font-weight: 800;
 }
 section#grilla > a.producto > p.fechaentrega {
 	color: black;
