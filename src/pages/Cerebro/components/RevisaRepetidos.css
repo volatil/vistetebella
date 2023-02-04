@@ -1,0 +1,6 @@
+.cerebrito.repetidos > span::after {
+	content: ", "
+}
+.cerebrito.repetidos > span:last-of-type::after {
+	content: "";
+}
