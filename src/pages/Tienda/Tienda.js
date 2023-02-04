@@ -16,7 +16,8 @@ function Tienda() {
 			setLoading(true);
 			const data = [];
 
-			for ( let count = 1; count <= db.values.length - 1; count++ ) {
+			// for ( let count = 1; count <= db.values.length - 1; count++ ) {
+			for ( let count = db.values.length - 1; count >= 1; count-- ) {
 				const resumen = db.values[count];
 
 				const p = {
