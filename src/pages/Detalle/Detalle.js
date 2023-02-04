@@ -140,8 +140,7 @@ function Detalle() {
 				valoracion: resumen[8],
 				categoria: resumen[9],
 				comentarios: {
-					cantidad: resumen[10],
-					comentario: resumen[11],
+					comentario: resumen[10],
 				},
 			};
 
