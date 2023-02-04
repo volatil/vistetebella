@@ -10,7 +10,7 @@ import {
 import Header from "./components/Header/Header";
 import Barrasuperior from "./components/Barrasuperior/Barrasuperior";
 import Inicio from "./pages/Inicio/Inicio";
-import Grilla from "./components/Grilla/Grilla";
+import Tienda from "./pages/Tienda/Tienda";
 import Detalle from "./pages/Detalle/Detalle";
 import Error from "./pages/Error/Error";
 
@@ -26,7 +26,7 @@ root.render(
 		<Header />
 		<Routes>
 			<Route exact path="/" element={<Inicio />} />
-			<Route path="/tienda" element={<Grilla />} />
+			<Route path="/tienda" element={<Tienda />} />
 			<Route path="/detalle/:id/:nombre" element={<Detalle />} />
 			<Route path="*" element={<Error />} />
 		</Routes>

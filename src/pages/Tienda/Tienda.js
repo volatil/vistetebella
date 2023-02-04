@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { DB, NOMBRETIENDA } from "../../assets/js/CONST";
 
-import Loading from "../Loading/Loading";
-import Producto from "../Producto/Producto";
+import Loading from "../../components/Loading/Loading";
+import Producto from "../../components/Producto/Producto";
 
 import { precio } from "../../Helpers/Helpers";
 
-function Grilla() {
+function Tienda() {
 	const [elproducto, setElproducto] = useState();
 	const [loading, setLoading] = useState();
 
@@ -35,9 +35,10 @@ function Grilla() {
 			}
 
 			setElproducto(data);
-			setTimeout(() => {
-				setLoading(false);
-			}, 200);
+			setLoading(false);
+			// setTimeout(() => {
+			// 	setLoading(false);
+			// }, 200);
 		});
 	}, []);
 
@@ -65,4 +66,4 @@ function Grilla() {
 		</>
 	);
 }
-export default Grilla;
+export default Tienda;
