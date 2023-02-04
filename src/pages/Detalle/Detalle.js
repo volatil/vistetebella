@@ -142,7 +142,13 @@ function Detalle() {
 				comentarios: {
 					comentario: resumen[10],
 				},
-				color: resumen[11],
+				color: () => {
+					let color = resumen[11];
+					if ( !color ) {
+						color = "No especificado";
+					}
+					return color;
+				},
 			};
 
 			todo.push( p );
@@ -176,7 +182,7 @@ function Detalle() {
 					<Descripcion descripcion={res.descripcion} />
 					<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
 					<p className="categoria">Categoria: <strong>{res.categoria}</strong></p>
-					<p className="categoria">Color: <strong>{res.color}</strong></p>
+					<p className="categoria">Color: <strong>{res.color()}</strong></p>
 					<Comentarios data={res.comentarios.comentario} />
 					<BarraComprar clase="mobile" />
 				</section>
