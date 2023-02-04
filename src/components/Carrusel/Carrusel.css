@@ -1,0 +1,4 @@
+section#carrusel {}
+section#carrusel > img {
+	width: 100%;
+}

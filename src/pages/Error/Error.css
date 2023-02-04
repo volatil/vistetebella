@@ -1,0 +1,21 @@
+section#error > p {
+	width: 100%;
+	text-align: center;
+}
+section#error > p.titulo {
+	font-size: 10em;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+}
+section#error > p.titulo > span.azul {
+	color: #28375a;
+}
+section#error > p.titulo > span.rojo {
+	color: #cc1433;
+}
+section#error > p.bajada {
+	color: #28375a;
+	font-size: 2em;
+	margin: 0;
+}

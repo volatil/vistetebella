@@ -1,0 +1,12 @@
+#logo {
+	display: flex;
+	align-items: center;
+}
+#logo > a {
+	width: 310px;
+	display: inline-block;
+	margin: 10px 0 10px 20px;
+}
+#logo > a > img {
+	width: 100%;
+}
