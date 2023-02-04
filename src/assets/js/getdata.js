@@ -37,23 +37,6 @@ const p = {
 	valoracion: $(".rate-num-small").html(),
 	categoria: $( $(".bread-crumb__item")[2] ).text(),
 	comentario: {
-		cantidad: () => {
-			let elarray = [];
-			const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-			const cantidad = $(".product-intro__head-reviews-text").html();
-
-			for ( let count = 0; count <= cantidad.split("").length - 1; count++ ) {
-				let letra = cantidad.split("")[count];
-
-				for (let contador = 0; contador <= numeros.length - 1; contador++ ) {
-					letra = numeros[contador] ? elarray.push(letra) : "";
-				}
-			}
-			elarray = elarray.filter( (ela) => ela !== " " );
-			elarray = String(elarray).replaceAll(",", "");
-
-			return elarray;
-		},
 		comentarios: () => {
 			const comentarios = $(".common-reviews__list.common-reviews__list.j-expose__common-reviews__list").html();
 			const arrcoment = [];
@@ -89,7 +72,6 @@ ${p.tallas()}\n
 ${p.url}\n
 ${p.valoracion}\n
 ${p.categoria}\n
-${p.comentario.cantidad()}\n
 ${p.comentario.comentarios()}\n
 </textarea>
 `);
