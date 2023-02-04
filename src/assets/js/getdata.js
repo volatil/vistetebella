@@ -59,6 +59,7 @@ const p = {
 			return loscomentarios;
 		},
 	},
+	color: $(".color-block > span").text().length >= 1 ? $(".color-block > span").text().toLowerCase() : "no especifica",
 };
 
 $("body").prepend(`
@@ -73,6 +74,7 @@ ${p.url}\n
 ${p.valoracion}\n
 ${p.categoria}\n
 ${p.comentario.comentarios()}\n
+${p.color}\n
 </textarea>
 `);
 
