@@ -44,11 +44,5 @@ module.exports = {
 		"react/jsx-indent": [2, "tab"],
 		"react/jsx-indent-props": [2, "tab"],
 		"import/no-extraneous-dependencies": ["error", { devDependencies: true }],
-
-		"jsx-a11y/media-has-caption": [2, {
-			audio: ["Audio"],
-			video: ["Video"],
-			track: ["Track"],
-		}],
 	},
 };
