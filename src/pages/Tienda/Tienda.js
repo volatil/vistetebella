@@ -28,10 +28,17 @@ function Tienda() {
 					},
 					fechaentrega: resumen[3],
 					imagen: resumen[4].split(",//")[0],
+					color: () => {
+						let color = resumen[11];
+						if ( !color ) {
+							color = "no especifica";
+						}
+						return color;
+					},
 				};
 
 				data.push({
-					id: p.id, nombre: p.nombre, precio: p.precio(), fechaentrega: p.fechaentrega, imagen: p.imagen,
+					id: p.id, nombre: p.nombre, precio: p.precio(), fechaentrega: p.fechaentrega, imagen: p.imagen, color: p.color(),
 				});
 			}
 
@@ -58,6 +65,7 @@ function Tienda() {
 								nombre={prod.nombre}
 								precio={prod.precio}
 								fechaentrega={prod.fechaentrega}
+								color={prod.color}
 								imagen={prod.imagen}
 							/>
 						);
