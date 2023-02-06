@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { DB } from "../../../assets/js/CONST";
-import "./RevisaRepetidos.css";
+import "./RevisaLinksRepetidos.css";
 
-function RevisaRepetidos() {
+function RevisaLinksRepetidos() {
 	const [losrepetidos, setLosrepetidos] = useState();
 	const [cantidad, setCantidad] = useState();
 
@@ -43,4 +43,4 @@ function RevisaRepetidos() {
 		</div>
 	);
 }
-export default RevisaRepetidos;
+export default RevisaLinksRepetidos;

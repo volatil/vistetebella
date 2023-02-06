@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import { NOMBRETIENDA } from "../../assets/js/CONST";
 
-import RevisaRepetidos from "./components/RevisaRepetidos";
+import RevisaLinksRepetidos from "./components/RevisaLinksRepetidos";
 
 import "./Cerebro.css";
 
@@ -13,7 +13,7 @@ function Cerebro() {
 			</Helmet>
 			<section id="cerebro">
 				<h1>CEREBRO</h1>
-				<RevisaRepetidos />
+				<RevisaLinksRepetidos />
 			</section>
 		</>
 	);
