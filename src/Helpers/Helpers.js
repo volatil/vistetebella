@@ -1,12 +1,12 @@
 import $ from "jquery";
 import { COMETATIENDA, COMETAMELI, IVA } from "../assets/js/CONST";
 
-export function armonizarURL() {
+export function armonizarURL(url) {
 	let fixurl = location.pathname.split("/")[3];
 	fixurl = decodeURIComponent(fixurl);
 	fixurl = fixurl.replaceAll(" ", "-");
 	fixurl = fixurl.toLowerCase();
-	window.history.pushState(null, null, fixurl);
+	window.history.replaceState(null, null, fixurl);
 }
 
 export function precioMeli( neto ) {

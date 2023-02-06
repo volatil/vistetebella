@@ -96,6 +96,9 @@ function Detalle() {
 	const id = useLocation().pathname.split("/")[2];
 
 	armonizarURL();
+	// const paginaAnterior = document.referrer;
+	// const newUrl = "asdasd.cl";
+	// window.history.replaceState(null, null, newUrl);
 
 	useEffect(() => {
 		fetch( DB ).then( (x) => x.json() ).then( (x) => {
