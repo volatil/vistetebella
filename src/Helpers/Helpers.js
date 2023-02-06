@@ -59,8 +59,20 @@ export function devuelveAlHome( id ) {
 	}
 }
 
-export function fechaEntrega() {
-	// 14 a 18 dias
+export function lafechaEntrega() {
+	const mesSET = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+	const diaSET = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+	const data = [];
+	const fechaMaxima = new Date();
+	fechaMaxima.setDate(fechaMaxima.getDate() + 18);
+	const fechaMinima = new Date();
+	fechaMinima.setDate(fechaMinima.getDate() + 14);
+	const fecha = {
+		maxima: `${diaSET[fechaMaxima.getDay()]} ${fechaMaxima.getDate()} de ${mesSET[fechaMaxima.getMonth()]}`,
+		minima: `${diaSET[fechaMinima.getDay()]} ${fechaMinima.getDate()} de ${mesSET[fechaMinima.getMonth()]}`,
+	};
+	data.push({ minima: fecha.minima, maxima: fecha.maxima });
+	return data;
 }
 
 export function cambiarThumb() {

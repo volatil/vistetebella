@@ -12,7 +12,21 @@ import {
 	devuelveAlHome,
 	precio,
 	cambiarThumb,
+	lafechaEntrega,
 } from "../../Helpers/Helpers";
+
+function FechaEntrega() {
+	return (
+		<div>
+			{
+				lafechaEntrega().map((lafecha) => {
+					// return (<p key={lafecha.minima}>{lafecha.minima}</p>);
+					return (<p key={lafecha.minima}>Si lo compras <strong>HOY</strong> lo recibiras entre el <strong>{lafecha.minima}</strong> al <strong>{lafecha.maxima}</strong>.</p>);
+				})
+			}
+		</div>
+	);
+}
 
 function Thumbnails({ data, nombre }) {
 	return (
@@ -96,20 +110,16 @@ function Detalle() {
 	const id = useLocation().pathname.split("/")[2];
 
 	armonizarURL();
-	// const paginaAnterior = document.referrer;
-	// const newUrl = "asdasd.cl";
-	// window.history.replaceState(null, null, newUrl);
+	lafechaEntrega();
 
 	useEffect(() => {
 		fetch( DB ).then( (x) => x.json() ).then( (x) => {
 			const resumen = x.values[id];
 			const todo = [];
 
-			devuelveAlHome( resumen );
+			// console.table( resumen );
 
-			setTimeout(() => {
-				console.debug( `URL: ${resumen[7]}` );
-			}, 500);
+			devuelveAlHome( resumen );
 
 			const p = {
 				id: resumen[0],
@@ -117,7 +127,7 @@ function Detalle() {
 				precio: () => {
 					return precio( resumen[2] );
 				},
-				fechaentrega: resumen[3],
+				fechaentrega: lafechaEntrega(),
 				imagen: {
 					principal: resumen[4].split(",//")[0],
 					todas: () => {
@@ -175,20 +185,25 @@ function Detalle() {
 					<meta property="twitter:image" content={res.imagenprincipal} />
 				</Helmet>
 				<section key={res.id} id="detalle">
-					<h2>{res.nombre}</h2>
-					<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
-					<Thumbnails data={res.imagen} nombre={res.nombre} />
-					<p className="precio">$ {res.precio()}</p>
-					<Tallas data={res.tallas()} />
-					<BarraComprar clase="desktop" />
-					<p>{res.fechaentrega}</p>
-					<Descripcion descripcion={res.descripcion} />
-					<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
-					<p className="categoria">Categoria: <strong>{res.categoria}</strong></p>
-					<p className="categoria">Color: <strong>{res.color()}</strong></p>
-					<Comentarios data={res.comentarios.comentario} />
-					<BarraComprar clase="mobile" />
+					<div className="thumbnails">
+						<Thumbnails data={res.imagen} nombre={res.nombre} />
+					</div>
+					<div className="principal">
+						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
+					</div>
+					<div className="informacion">
+						<h2>{res.nombre}</h2>
+						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
+						<p className="categoria">{res.categoria}</p>
+						<p className="precio">$ {res.precio()}</p>
+						<Tallas data={res.tallas()} />
+						<BarraComprar clase="desktop" />
+						<FechaEntrega />
+						<BarraComprar clase="mobile" />
+					</div>
 				</section>
+				<Descripcion descripcion={res.descripcion} />
+				<Comentarios data={res.comentarios.comentario} />
 			</>
 		);
 	}

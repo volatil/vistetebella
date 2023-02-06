@@ -30,7 +30,8 @@ module.exports = {
 		"prefer-destructuring": 0,
 		"no-restricted-globals": ["error", "event", "fdescribe"], // Quita el error para cuando usas 'location'
 		"template-curly-spacing": 0, // Desactiva el espacio dentro de los parentesis before y after
-		"no-console": ["error", { allow: ["debug"] }], // acepta solo el console.debug
+		// "no-console": ["error", { allow: ["debug"] }], // acepta solo el console.debug
+		"no-console": ["error", { allow: ["debug", "table"] }], // acepta solo el console.debug
 		"max-len": ["error", 240],
 
 		"react/jsx-uses-react": "off",

@@ -1,46 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
+
 section#detalle {
 	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+}
+section#detalle .thumbnails .imagenes {
+	display: flex;
 	flex-direction: column;
+	flex-wrap: nowrap;
 	align-items: center;
 }
-section#detalle > h2 {
-	text-align: center;
-	font-size: 3em;
-	margin: 10px 0 20px;
-	padding: 0;
-	width: 90%;
-	line-height: 1.2em;
+section#detalle .thumbnails .imagenes > img {
+	cursor: pointer;
+	width: 110px;
 }
-section#detalle > h2::first-letter {
+section#detalle .informacion {
+	margin-left: 20px;
+}
+section#detalle .informacion h2 {
+	font-family: 'Baskervville', serif;
+	font-size: 3em;
+	margin: 0 0 20px;
+	font-weight: 100;
+	text-align: left;
+	line-height: 1em;
+}
+section#detalle .informacion h2::first-letter {
 	text-transform: capitalize;
 }
-section#detalle > img {
-	max-height: 600px;
-}
-section#detalle > p {
+section#detalle .informacion p {
 	margin: 0;
 }
-section#detalle > p.precio {
-	color: var( --precio );
+section#detalle .informacion p.precio {
 	font-size: 2em;
 	font-weight: 600;
+	color: black;
 }
-section#detalle > div.imagenes {
-	display: flex;
-	justify-content: space-around;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 60%;
-	margin: 30px 0 0;
-}
-section#detalle > div.imagenes > img {
-	max-width: 100px;
-	cursor: pointer;
-}
-section#detalle > div.imagenes > img:hover {
-	opacity: .9;
-}
-section#detalle > div.tallas > select {
+section#detalle .informacion div.tallas > select {
 	height: 40px;
 	cursor: pointer;
 	padding-left: 10px;
@@ -48,29 +45,6 @@ section#detalle > div.tallas > select {
 	font-size: 1.2em;
 	letter-spacing: 0.05em;
 	outline: none;
-}
-section#detalle > div.comentarios {
-	width: 80%;
-	margin: 0 auto;
-}
-section#detalle > div.comentarios > .bloques > .bloque {
-	border: 1px solid #ddd;
-	margin-bottom: 10px;
-	padding: 10px;
-	display: flex;
-	flex-direction: column;
-}
-section#detalle > div.comentarios > .bloques > .bloque > .nombre {
-	font-size: 1.2em;
-}
-section#detalle > div.comentarios > .bloques > .bloque > .imagenes {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-section#detalle > div.comentarios > .bloques > .bloque > .imagenes > img {
-	max-width: 200px;
 }
 section#detalle nav.barracomprar.mobile {
 	display: none;
@@ -90,7 +64,7 @@ section#detalle nav.barracomprar.desktop > a {
 	line-height: 1.8em;
 	width: 240px;
 	display: block;
-	margin: 10px;
+	margin: 10px 0 20px;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition:    all 0.2s ease-out;
 	-o-transition:      all 0.2s ease-out;
@@ -100,22 +74,12 @@ section#detalle nav.barracomprar.desktop > a:hover {
 	background: #333;
 }
 
+
+
+
+
+
 @media( max-width: 850px ) {
-	section#detalle > h2 {
-		font-size: 1.3em;
-	}
-	section#detalle > img {
-		width: 98%;
-	}
-	section#detalle > div.imagenes {
-		width: 98%;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	section#detalle > div.imagenes > img {
-		margin: 4px;
-	}
 	section#detalle nav.barracomprar.desktop {
 		display: none;
 	}

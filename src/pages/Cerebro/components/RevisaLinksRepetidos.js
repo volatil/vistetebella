@@ -19,7 +19,6 @@ function RevisaLinksRepetidos() {
 			const repetidos = function ( array ) {
 				return array.filter((currentValue, currentIndex) => array.indexOf(currentValue) !== currentIndex);
 			};
-			console.debug( lasurls );
 			const algo = repetidos(lasurls);
 			const lacan = algo.length;
 			setLosrepetidos( algo );
