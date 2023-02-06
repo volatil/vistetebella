@@ -3,7 +3,11 @@
 section#detalle {
 	display: flex;
 	flex-direction: row;
-	margin-top: 20px;
+	width: 98%;
+	margin: 20px auto 0;
+}
+section#detalle .thumbnails {
+	margin-right: 20px;
 }
 section#detalle .thumbnails .imagenes {
 	display: flex;
@@ -14,6 +18,11 @@ section#detalle .thumbnails .imagenes {
 section#detalle .thumbnails .imagenes > img {
 	cursor: pointer;
 	width: 110px;
+	margin-bottom: 10px;
+	border: 1px solid transparent;
+}
+section#detalle .thumbnails .imagenes > img.activo {
+	border: 1px solid black;
 }
 section#detalle .informacion {
 	margin-left: 20px;
@@ -36,6 +45,7 @@ section#detalle .informacion p.precio {
 	font-size: 2em;
 	font-weight: 600;
 	color: black;
+	margin: 10px 0 30px;
 }
 section#detalle .informacion div.tallas > select {
 	height: 40px;
@@ -73,6 +83,107 @@ section#detalle nav.barracomprar.desktop > a {
 section#detalle nav.barracomprar.desktop > a:hover {
 	background: #333;
 }
+
+
+
+
+
+section#tabsDetalle {
+	margin-top: 30px;
+}
+section#tabsDetalle > ul.tabs-titulo {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+section#tabsDetalle > .tabs-titulo > li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: white;
+	padding: 10px;
+	margin-left: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: 1px solid #ddd;
+	border-bottom: 1px solid transparent;
+	cursor: pointer;
+}
+section#tabsDetalle > .tabs-titulo > li:hover {
+	border-top: 3px solid #ccc;
+}
+section#tabsDetalle > .tabs-titulo > li.activo {
+	border-top: 3px solid black;
+}
+section#tabsDetalle > .tabs-contenido > div {
+	display: none;
+}
+section#tabsDetalle > .tabs-contenido > div:first-of-type {
+	display: block;
+}
+section#tabsDetalle > .tabs-contenido > div.descripcion {}
+section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] {}
+section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque {
+	width: 96%;
+	border: 1px solid #ddd;
+	margin: 30px auto 0;
+	padding: 10px;
+}
+section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .nombre {}
+section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .comentario {}
+section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .imagenes {
+	margin-top: 20px;
+	width: 100%;
+	display: block;
+}
+section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .imagenes > img {
+	max-width: 160px;
+	margin-right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

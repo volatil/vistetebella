@@ -13,6 +13,7 @@ import {
 	precio,
 	cambiarThumb,
 	lafechaEntrega,
+	tabs,
 } from "../../Helpers/Helpers";
 
 function FechaEntrega() {
@@ -42,16 +43,13 @@ function Thumbnails({ data, nombre }) {
 
 function Descripcion({ descripcion }) {
 	return (
-		<div className="descripcion">
-			<strong>DESCRIPCION:</strong>
-			<ul>
-				{
-					JSON.parse(descripcion)?.map((algo) => {
-						return (<li key={algo.key}><strong>{algo.key}</strong> <span>{algo.val}</span></li>);
-					})
-				}
-			</ul>
-		</div>
+		<ul>
+			{
+				JSON.parse(descripcion)?.map((algo) => {
+					return (<li key={algo.key}><strong>{algo.key}</strong> <span>{algo.val}</span></li>);
+				})
+			}
+		</ul>
 	);
 }
 
@@ -74,26 +72,23 @@ function Tallas({ data }) {
 
 function Comentarios({ data }) {
 	return (
-		<div className="comentarios">
-			<h5>COMENTARIOS</h5>
-			<div className="bloques">
-				{
-					JSON.parse(data)?.map((user) => {
-						return (
-							<div key={user.nombre} className="bloque">
-								<strong className="nombre">{user.nombre} </strong>
-								<span className="comentario">{user.comentario} </span>
-								<span className="imagenes">
-									{
-										user.foto.map((img) => { return (<img key={img} src={img} alt="imagen" />); })
-									}
-								</span>
-							</div>
-						);
-					})
-				}
-			</div>
-		</div>
+		<>
+			{
+				JSON.parse(data).map((user) => {
+					return (
+						<div key={user.nombre} className="bloque">
+							<strong className="nombre">{user.nombre}: </strong>
+							<span className="comentario">{user.comentario} </span>
+							<span className="imagenes">
+								{
+									user.foto.map((img) => { return (<img key={img} src={img} alt="imagen" />); })
+								}
+							</span>
+						</div>
+					);
+				})
+			}
+		</>
 	);
 }
 
@@ -108,9 +103,6 @@ function BarraComprar({ clase }) {
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useLocation().pathname.split("/")[2];
-
-	armonizarURL();
-	lafechaEntrega();
 
 	useEffect(() => {
 		fetch( DB ).then( (x) => x.json() ).then( (x) => {
@@ -171,7 +163,10 @@ function Detalle() {
 	}, [id]);
 
 	useEffect(() => {
+		armonizarURL();
+		lafechaEntrega();
 		cambiarThumb();
+		tabs();
 	});
 
 	if ( detalle ) {
@@ -202,8 +197,20 @@ function Detalle() {
 						<BarraComprar clase="mobile" />
 					</div>
 				</section>
-				<Descripcion descripcion={res.descripcion} />
-				<Comentarios data={res.comentarios.comentario} />
+				<section id="tabsDetalle">
+					<ul className="tabs-titulo">
+						<li data-titulo="descripcion" className="activo">descripcion</li>
+						<li data-titulo="comentarios">comentarios</li>
+					</ul>
+					<div className="tabs-contenido">
+						<div data-contenido="descripcion">
+							<Descripcion descripcion={res.descripcion} />
+						</div>
+						<div data-contenido="comentarios">
+							<Comentarios data={res.comentarios.comentario} />
+						</div>
+					</div>
+				</section>
 			</>
 		);
 	}

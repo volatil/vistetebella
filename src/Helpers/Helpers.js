@@ -76,8 +76,23 @@ export function lafechaEntrega() {
 }
 
 export function cambiarThumb() {
+	$( $(".imagenes > img")[0] ).addClass("activo");
 	$(".imagenes > img").on("click", function () {
 		const src = $(this).attr("src");
 		$(".imagenprincipal").attr("src", src);
+
+		$(".imagenes > img").removeClass("activo");
+		$(this).addClass("activo");
+	});
+}
+
+export function tabs() {
+	$("section#tabsDetalle > .tabs-titulo > li").on("click", function () {
+		$("section#tabsDetalle > .tabs-titulo > li").removeClass("activo");
+		$(this).addClass("activo");
+
+		const nombreTab = $(this).attr("data-titulo");
+		$("section#tabsDetalle > .tabs-contenido > div").hide();
+		$(`section#tabsDetalle > .tabs-contenido > div[data-contenido=${nombreTab}]`).show();
 	});
 }
