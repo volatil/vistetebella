@@ -16,6 +16,7 @@ import Error from "./pages/Error/Error";
 
 import Categoria from "./pages/Categoria/Categoria";
 
+import Dev from "./pages/Dev/Dev";
 import Cerebro from "./pages/Cerebro/Cerebro";
 
 import "./index.css";
@@ -36,6 +37,7 @@ root.render(
 
 			<Route path="/categoria/:categoria" element={<Categoria />} />
 
+			<Route path="/dev/:categoria" element={<Dev />} />
 			<Route path="/cerebro" element={<Cerebro />} />
 		</Routes>
 		<Footer />
