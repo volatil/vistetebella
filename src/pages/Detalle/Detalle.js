@@ -101,12 +101,6 @@ function BarraComprar({ clase }) {
 	);
 }
 
-function Elthumb() {
-	return (
-		<h1>SOY EL THUMB</h1>
-	);
-}
-
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useLocation().pathname.split("/")[2];
