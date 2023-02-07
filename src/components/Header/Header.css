@@ -7,9 +7,13 @@ header {
 header > * {
 	width: 45%;
 }
+#logo > a {
+	display: flex;
+}
 @media( max-width: 850px ) {
 	header {
 		display: flex;
 		justify-content: space-between;
+		height: 50px;
 	}
 }

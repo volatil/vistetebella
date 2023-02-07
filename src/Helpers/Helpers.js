@@ -76,12 +76,12 @@ export function lafechaEntrega() {
 }
 
 export function cambiarThumb() {
-	$( $(".thumbnails .imagenes > img")[0] ).addClass("activo");
-	$(".thumbnails .imagenes > img").on("click", function () {
+	$( $(".thumbnails img")[0] ).addClass("activo");
+	$(".thumbnails img").on("click", function () {
 		const src = $(this).attr("src");
 		$(".imagenprincipal").attr("src", src);
 
-		$(".thumbnails .imagenes > img").removeClass("activo");
+		$(".thumbnails img").removeClass("activo");
 		$(this).addClass("activo");
 	});
 }
@@ -95,4 +95,12 @@ export function tabs() {
 		$("section#tabsDetalle > .tabs-contenido > div").hide();
 		$(`section#tabsDetalle > .tabs-contenido > div[data-contenido=${nombreTab}]`).show();
 	});
+}
+
+export function isMobile() {
+	const anchoPantalla = $("body").width();
+	if ( anchoPantalla <= 850 ) {
+		return true;
+	}
+	return false;
 }

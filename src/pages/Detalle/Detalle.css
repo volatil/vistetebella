@@ -9,19 +9,19 @@ section#detalle {
 section#detalle .thumbnails {
 	margin-right: 20px;
 }
-section#detalle .thumbnails .imagenes {
+section#detalle .thumbnails {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
 }
-section#detalle .thumbnails .imagenes > img {
+section#detalle .thumbnails > img {
 	cursor: pointer;
 	width: 110px;
 	margin-bottom: 10px;
 	border: 1px solid transparent;
 }
-section#detalle .thumbnails .imagenes > img.activo {
+section#detalle .thumbnails > img.activo {
 	border: 1px solid black;
 }
 section#detalle .informacion {
@@ -46,6 +46,9 @@ section#detalle .informacion p.precio {
 	font-weight: 600;
 	color: black;
 	margin: 10px 0 30px;
+}
+section#detalle .informacion div.tallas {
+	margin-bottom: 10px;
 }
 section#detalle .informacion div.tallas > select {
 	height: 40px;
@@ -83,11 +86,6 @@ section#detalle nav.barracomprar.desktop > a {
 section#detalle nav.barracomprar.desktop > a:hover {
 	background: #333;
 }
-
-
-
-
-
 section#tabsDetalle {
 	margin-top: 30px;
 }
@@ -191,6 +189,29 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 
 
 @media( max-width: 850px ) {
+	section#detalle {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0;
+	}
+	section#detalle .principal > img {
+		width: 100%;
+	}
+	section#detalle .thumbnails {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	section#detalle .thumbnails > img {
+		width: 50px;
+	}
+	section#detalle .informacion {
+		margin: 0;
+	}
+	section#detalle .informacion h2 {
+		font-size: 1.3em;
+	}
 	section#detalle nav.barracomprar.desktop {
 		display: none;
 	}
@@ -217,5 +238,8 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		line-height: 1.8em;
+	}
+	section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .imagenes > img {
+		max-width: 90px;
 	}
 }

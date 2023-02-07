@@ -14,6 +14,7 @@ import {
 	cambiarThumb,
 	lafechaEntrega,
 	tabs,
+	isMobile,
 } from "../../Helpers/Helpers";
 
 function FechaEntrega() {
@@ -31,7 +32,7 @@ function FechaEntrega() {
 
 function Thumbnails({ data, nombre }) {
 	return (
-		<div className="imagenes">
+		<div className="thumbnails">
 			{ data.todas()?.map(({ laid, imagen }) => {
 				return (
 					<img key={laid} alt={nombre} src={imagen} />
@@ -97,6 +98,12 @@ function BarraComprar({ clase }) {
 		<nav className={`barracomprar ${clase}`}>
 			<a href="#asdasd" title="Comprar">comprar</a>
 		</nav>
+	);
+}
+
+function Elthumb() {
+	return (
+		<h1>SOY EL THUMB</h1>
 	);
 }
 
@@ -180,12 +187,15 @@ function Detalle() {
 					<meta property="twitter:image" content={res.imagenprincipal} />
 				</Helmet>
 				<section key={res.id} id="detalle">
-					<div className="thumbnails">
-						<Thumbnails data={res.imagen} nombre={res.nombre} />
-					</div>
+
+					{ !isMobile() && <Thumbnails data={res.imagen} nombre={res.nombre} /> }
+
 					<div className="principal">
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					</div>
+
+					{ isMobile() && <Thumbnails data={res.imagen} nombre={res.nombre} /> }
+
 					<div className="informacion">
 						<h2>{res.nombre}</h2>
 						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
