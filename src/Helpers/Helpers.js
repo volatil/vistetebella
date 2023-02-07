@@ -76,12 +76,12 @@ export function lafechaEntrega() {
 }
 
 export function cambiarThumb() {
-	$( $(".imagenes > img")[0] ).addClass("activo");
-	$(".imagenes > img").on("click", function () {
+	$( $(".thumbnails .imagenes > img")[0] ).addClass("activo");
+	$(".thumbnails .imagenes > img").on("click", function () {
 		const src = $(this).attr("src");
 		$(".imagenprincipal").attr("src", src);
 
-		$(".imagenes > img").removeClass("activo");
+		$(".thumbnails .imagenes > img").removeClass("activo");
 		$(this).addClass("activo");
 	});
 }
