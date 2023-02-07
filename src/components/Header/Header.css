@@ -5,7 +5,7 @@ header {
 	border-bottom: 1px solid #ccc;
 }
 header > * {
-	width: 33%;
+	width: 45%;
 }
 @media( max-width: 850px ) {
 	header {

@@ -5,7 +5,7 @@
 #logo > a {
 	width: 310px;
 	display: inline-block;
-	margin: 10px 0 10px 20px;
+	margin: 10px 0 10px 10px;
 }
 #logo > a > img {
 	width: 100%;
