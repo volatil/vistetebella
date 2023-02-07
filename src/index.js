@@ -4,7 +4,6 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
-	// Navigate
 } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -15,6 +14,7 @@ import Detalle from "./pages/Detalle/Detalle";
 import Error from "./pages/Error/Error";
 
 import Categoria from "./pages/Categoria/Categoria";
+import Resultados from "./pages/Resultados/Resultados";
 
 import Dev from "./pages/Dev/Dev";
 import Cerebro from "./pages/Cerebro/Cerebro";
@@ -36,6 +36,7 @@ root.render(
 			<Route path="*" element={<Error />} />
 
 			<Route path="/categoria/:categoria" element={<Categoria />} />
+			<Route path="/resultados/" element={<Resultados />} />
 
 			<Route path="/dev/:categoria" element={<Dev />} />
 			<Route path="/cerebro" element={<Cerebro />} />

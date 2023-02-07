@@ -8,7 +8,7 @@ function Header() {
 	return (
 		<header>
 			<Logo />
-			{/* <Buscador /> */}
+			<Buscador />
 			<Menu />
 		</header>
 	);
