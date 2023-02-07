@@ -19,6 +19,9 @@ nav > ul > li > a {
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
 	text-transform: capitalize;
+	height: 50px;
+	display: flex;
+	align-items: center;
 }
 nav > ul > li > a:hover ,
 nav > ul > li > a.tamoactivo {
