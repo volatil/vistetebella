@@ -13,6 +13,9 @@ import Inicio from "./pages/Inicio/Inicio";
 import Tienda from "./pages/Tienda/Tienda";
 import Detalle from "./pages/Detalle/Detalle";
 import Error from "./pages/Error/Error";
+
+import Categoria from "./pages/Categoria/Categoria";
+
 import Cerebro from "./pages/Cerebro/Cerebro";
 
 import "./index.css";
@@ -28,8 +31,10 @@ root.render(
 		<Routes>
 			<Route exact path="/" element={<Inicio />} />
 			<Route path="/tienda" element={<Tienda />} />
-			<Route path="/detalle/:id/:nombre" element={<Detalle />} />
+			<Route path="/producto/:id/:nombre" element={<Detalle />} />
 			<Route path="*" element={<Error />} />
+
+			<Route path="/categoria/:categoria" element={<Categoria />} />
 
 			<Route path="/cerebro" element={<Cerebro />} />
 		</Routes>

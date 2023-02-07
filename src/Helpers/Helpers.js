@@ -1,8 +1,8 @@
 import $ from "jquery";
 import { COMETATIENDA, COMETAMELI, IVA } from "../assets/js/CONST";
 
-export function armonizarURL(url) {
-	let fixurl = location.pathname.split("/")[3];
+export function armonizarURL(pos) {
+	let fixurl = location.pathname.split("/")[pos];
 	fixurl = decodeURIComponent(fixurl);
 	fixurl = fixurl.replaceAll(" ", "-");
 	fixurl = fixurl.toLowerCase();
@@ -103,4 +103,13 @@ export function isMobile() {
 		return true;
 	}
 	return false;
+}
+
+export function humanizaString( string ) {
+	let elstring = string;
+	elstring = decodeURIComponent(elstring);
+	elstring = elstring.replaceAll("%20", " ");
+	elstring = elstring.toLowerCase();
+	console.debug( `humanizaString -> ${elstring}` );
+	return elstring;
 }

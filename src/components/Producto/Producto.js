@@ -7,7 +7,7 @@ function Producto({
 	id, nombre, precio, imagen, color,
 }) {
 	return (
-		<NavLink key={id} className="producto" to={`/detalle/${id}/${nombre}`} data-color={color} title={nombre}>
+		<NavLink key={id} className="producto" to={`/producto/${id}/${nombre}`} data-color={color} title={nombre}>
 			<div className="imagen">
 				<img src={imagen} alt={NOMBRETIENDA} />
 			</div>

@@ -15,6 +15,7 @@ import {
 	lafechaEntrega,
 	tabs,
 	isMobile,
+	humanizaString,
 } from "../../Helpers/Helpers";
 
 function FechaEntrega() {
@@ -109,9 +110,11 @@ function Breadcrumb({ categoria }) {
 				<li>
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda">tienda</NavLink>
 				</li>
-				<span>\</span>
+				<span>/</span>
 				<li>
-					{categoria}
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to={`/categoria/${categoria}`}>
+						<strong>{categoria}</strong>
+					</NavLink>
 				</li>
 			</ul>
 		</section>
@@ -181,7 +184,7 @@ function Detalle() {
 	}, [id]);
 
 	useEffect(() => {
-		armonizarURL();
+		armonizarURL(3);
 		lafechaEntrega();
 		cambiarThumb();
 		tabs();

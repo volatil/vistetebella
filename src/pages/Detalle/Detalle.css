@@ -20,6 +20,15 @@ section#breadcrumb > ul > li {
 }
 section#breadcrumb > ul > li > a {
 	text-transform: capitalize;
+	text-decoration: none;
+	color: black;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition:    all 0.2s ease-out;
+	-o-transition:      all 0.2s ease-out;
+	transition:         all 0.2s ease-out;
+}
+section#breadcrumb > ul > li > a:hover {
+	text-decoration: underline;
 }
 section#detalle {
 	display: flex;
