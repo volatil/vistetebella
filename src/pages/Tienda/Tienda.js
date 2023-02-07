@@ -42,12 +42,12 @@ function Tienda() {
 			}
 
 			setElproducto(data);
-			setLoading(false);
+			// setLoading(false);
 			// setTimeout(() => {
 			// 	setLoading(false);
 			// }, 200);
 		});
-	}, []);
+	});
 
 	if ( elproducto ) {
 		return (
@@ -56,7 +56,7 @@ function Tienda() {
 					<title>Tienda || { NOMBRETIENDA }</title>
 				</Helmet>
 				<section id="grilla">
-					{ loading ? <Loading /> : (
+					{
 						elproducto?.map((prod) => {
 							return (
 								<Producto
@@ -70,7 +70,7 @@ function Tienda() {
 								/>
 							);
 						})
-					)}
+					}
 				</section>
 			</>
 		);

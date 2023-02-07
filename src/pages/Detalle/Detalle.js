@@ -103,7 +103,6 @@ function BarraComprar({ clase }) {
 }
 
 function Breadcrumb({ categoria }) {
-	console.debug( `algo? ${categoria}` );
 	return (
 		<section id="breadcrumb">
 			<ul>

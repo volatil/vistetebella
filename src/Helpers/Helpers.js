@@ -109,7 +109,7 @@ export function humanizaString( string ) {
 	let elstring = string;
 	elstring = decodeURIComponent(elstring);
 	elstring = elstring.replaceAll("%20", " ");
+	elstring = elstring.replaceAll("-", " ");
 	elstring = elstring.toLowerCase();
-	console.debug( `humanizaString -> ${elstring}` );
 	return elstring;
 }
