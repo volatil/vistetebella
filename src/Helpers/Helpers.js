@@ -51,13 +51,13 @@ export function precio( neto ) {
 	return preciofinal;
 }
 
-export function devuelveAlHome( id ) {
-	if ( typeof id === "undefined" ) {
-		setTimeout(() => {
-			window.location.href = "/";
-		}, 2000);
-	}
-}
+// export function devuelveAlHome( id ) {
+// 	if ( typeof id === "undefined" ) {
+// 		setTimeout(() => {
+// 			window.location.href = "/";
+// 		}, 2000);
+// 	}
+// }
 
 export function lafechaEntrega() {
 	const mesSET = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];

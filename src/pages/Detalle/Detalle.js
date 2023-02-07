@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import eljson from "../../assets/json/inventario.json";
 
-import { DB, NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
 
 import "./Detalle.css";
 
 import {
 	armonizarURL,
-	devuelveAlHome,
 	precio,
 	cambiarThumb,
 	lafechaEntrega,
@@ -31,12 +31,12 @@ function FechaEntrega() {
 	);
 }
 
-function Thumbnails({ data, nombre }) {
+function Thumbnails({ imagenes, nombre }) {
 	return (
 		<div className="thumbnails">
-			{ data.todas()?.map(({ laid, imagen }) => {
+			{ imagenes.map(( imagen ) => {
 				return (
-					<img key={laid} alt={nombre} src={imagen} />
+					<img data-test={imagen.laid} key={imagen.laid} src={imagen.imagen} alt={nombre} />
 				);
 			}) }
 		</div>
@@ -125,61 +125,50 @@ function Detalle() {
 	const id = useLocation().pathname.split("/")[2];
 
 	useEffect(() => {
-		fetch( DB ).then( (x) => x.json() ).then( (x) => {
-			const resumen = x.values[id];
-			const todo = [];
+		const data = [];
 
-			// console.table( resumen );
-
-			devuelveAlHome( resumen );
-
-			const p = {
-				id: resumen[0],
-				nombre: resumen[1].replaceAll("SHEIN ", "").toLowerCase(),
-				precio: () => {
-					return precio( resumen[2] );
-				},
-				fechaentrega: lafechaEntrega(),
-				imagen: {
-					principal: resumen[4].split(",//")[0],
-					todas: () => {
-						const arrtodas = [];
-						const todas = resumen[4];
-						for ( let count = 0; count <= todas.split(",//").length - 2; count++ ) {
-							const laimagen = todas.split(",//")[count].replaceAll("//", "");
-							const elid = laimagen.split("_thumbnail")[0].split("/")[laimagen.split("_thumbnail")[0].split("/").length - 1];
-							arrtodas.push({ laid: elid, imagen: `https://${laimagen}` });
-						}
-						return arrtodas;
-					},
-				},
-				descripcion: resumen[5],
-				tallas: () => {
-					const arrtallas = [];
-					const tallas = resumen[6];
-					for ( let count = 0; count <= tallas.split(",").length - 1; count++ ) {
-						arrtallas.push( tallas.split(",")[count] );
+		const resumen = eljson.values[id];
+		const p = {
+			id: resumen[0],
+			nombre: resumen[1],
+			precio: precio(resumen[2]),
+			imagen: {
+				principal: resumen[4].split(",//")[0],
+				todas: () => {
+					const arrtodas = [];
+					const todas = resumen[4];
+					for ( let count = 0; count <= todas.split(",//").length - 2; count++ ) {
+						const laimagen = todas.split(",//")[count].replaceAll("//", "");
+						const elid = laimagen.split("_thumbnail")[0].split("/")[laimagen.split("_thumbnail")[0].split("/").length - 1];
+						arrtodas.push({ laid: elid, imagen: `https://${laimagen}` });
 					}
-					return arrtallas;
+					return arrtodas;
 				},
-				valoracion: resumen[8],
-				categoria: resumen[9],
-				comentarios: {
-					comentario: resumen[10],
-				},
-				color: () => {
-					let color = resumen[11];
-					if ( !color ) {
-						color = "No especificado";
-					}
-					return color;
-				},
-			};
-
-			todo.push( p );
-
-			setDetalle( todo );
-		});
+			},
+			descripcion: resumen[5],
+			tallas: () => {
+				const arrtallas = [];
+				const tallas = resumen[6];
+				for ( let count = 0; count <= tallas.split(",").length - 1; count++ ) {
+					arrtallas.push( tallas.split(",")[count] );
+				}
+				return arrtallas;
+			},
+			valoracion: resumen[8],
+			comentarios: {
+				comentario: resumen[10],
+			},
+			color: () => {
+				let color = resumen[11];
+				if ( !color ) {
+					color = "No especificado";
+				}
+				return color;
+			},
+			categoria: resumen[9],
+		};
+		data.push( p );
+		setDetalle(data);
 	}, [id]);
 
 	useEffect(() => {
@@ -204,7 +193,7 @@ function Detalle() {
 
 				<section key={res.id} id="detalle">
 
-					{ !isMobile() && <Thumbnails data={res.imagen} nombre={res.nombre} /> }
+					{ !isMobile() && <Thumbnails imagenes={res.imagen.todas()} nombre={res.nombre} /> }
 
 					<div className="principal">
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
@@ -215,13 +204,15 @@ function Detalle() {
 					<div className="informacion">
 						<h2>{res.nombre}</h2>
 						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
-						<p className="precio">$ {res.precio()}</p>
+						<p className="precio">$ {res.precio}</p>
 						<Tallas data={res.tallas()} />
 						<BarraComprar clase="desktop" />
 						<FechaEntrega />
 						<BarraComprar clase="mobile" />
 					</div>
+
 				</section>
+
 				<section id="tabsDetalle">
 					<ul className="tabs-titulo">
 						<li data-titulo="descripcion" className="activo">descripcion</li>
@@ -236,6 +227,7 @@ function Detalle() {
 						</div>
 					</div>
 				</section>
+
 			</>
 		);
 	}
