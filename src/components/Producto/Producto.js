@@ -11,8 +11,10 @@ function Producto({
 			<div className="imagen">
 				<img src={imagen} alt={NOMBRETIENDA} />
 			</div>
-			<h2>{nombre}</h2>
-			<p className="precio">$ {precio}</p>
+			<div className="contenido">
+				<h2>{nombre}</h2>
+				<p className="precio">$ {precio}</p>
+			</div>
 		</NavLink>
 	);
 }

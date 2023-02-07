@@ -49,29 +49,32 @@ function Tienda() {
 		});
 	}, []);
 
-	return (
-		<>
-			<Helmet>
-				<title>Tienda || { NOMBRETIENDA }</title>
-			</Helmet>
-			<section id="grilla">
-				{ loading ? <Loading /> : (
-					elproducto?.map((prod) => {
-						return (
-							<Producto
-								key={prod.id}
-								id={prod.id}
-								nombre={prod.nombre}
-								precio={prod.precio}
-								fechaentrega={prod.fechaentrega}
-								color={prod.color}
-								imagen={prod.imagen}
-							/>
-						);
-					})
-				)}
-			</section>
-		</>
-	);
+	if ( elproducto ) {
+		return (
+			<>
+				<Helmet>
+					<title>Tienda || { NOMBRETIENDA }</title>
+				</Helmet>
+				<section id="grilla">
+					{ loading ? <Loading /> : (
+						elproducto?.map((prod) => {
+							return (
+								<Producto
+									key={prod.id}
+									id={prod.id}
+									nombre={prod.nombre}
+									precio={prod.precio}
+									fechaentrega={prod.fechaentrega}
+									color={prod.color}
+									imagen={prod.imagen}
+								/>
+							);
+						})
+					)}
+				</section>
+			</>
+		);
+	}
+	return (<Loading />);
 }
 export default Tienda;
