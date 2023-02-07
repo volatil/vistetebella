@@ -219,6 +219,9 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 
 
 @media( max-width: 850px ) {
+	section#breadcrumb {
+		margin: 10px 0 10px 10px;
+	}
 	section#detalle {
 		display: flex;
 		flex-direction: column;

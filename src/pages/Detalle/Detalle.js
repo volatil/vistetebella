@@ -189,7 +189,7 @@ function Detalle() {
 					<meta property="twitter:image" content={res.imagenprincipal} />
 				</Helmet>
 
-				{ !isMobile() && <Breadcrumb categoria={res.categoria} />}
+				<Breadcrumb categoria={res.categoria} />
 
 				<section key={res.id} id="detalle">
 
@@ -199,7 +199,7 @@ function Detalle() {
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					</div>
 
-					{ isMobile() && <Thumbnails data={res.imagen} nombre={res.nombre} /> }
+					{ isMobile() && <Thumbnails imagenes={res.imagen.todas()} nombre={res.nombre} /> }
 
 					<div className="informacion">
 						<h2>{res.nombre}</h2>
