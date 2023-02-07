@@ -220,7 +220,10 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 
 @media( max-width: 850px ) {
 	section#breadcrumb {
-		margin: 10px 0 10px 10px;
+		margin: 10px auto;
+		width: 98%;
+		display: block;
+		font-size: .9em;
 	}
 	section#detalle {
 		display: flex;
