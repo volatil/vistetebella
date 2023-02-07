@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
 
+section#breadcrumb {
+	width: 98%;
+	margin: 20px auto 0;
+}
+section#breadcrumb > ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+section#breadcrumb > ul > span {
+	margin: 0 10px;
+}
+section#breadcrumb > ul > li {
+	list-style: none;
+}
+section#breadcrumb > ul > li > a {
+	text-transform: capitalize;
+}
 section#detalle {
 	display: flex;
 	flex-direction: row;

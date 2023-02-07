@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import { DB, NOMBRETIENDA } from "../../assets/js/CONST";
@@ -101,6 +101,23 @@ function BarraComprar({ clase }) {
 	);
 }
 
+function Breadcrumb({ categoria }) {
+	console.debug( `algo? ${categoria}` );
+	return (
+		<section id="breadcrumb">
+			<ul>
+				<li>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda">tienda</NavLink>
+				</li>
+				<span>\</span>
+				<li>
+					{categoria}
+				</li>
+			</ul>
+		</section>
+	);
+}
+
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useLocation().pathname.split("/")[2];
@@ -180,6 +197,9 @@ function Detalle() {
 					<meta property="og:image" content={res.imagenprincipal} />
 					<meta property="twitter:image" content={res.imagenprincipal} />
 				</Helmet>
+
+				{ !isMobile() && <Breadcrumb categoria={res.categoria} />}
+
 				<section key={res.id} id="detalle">
 
 					{ !isMobile() && <Thumbnails data={res.imagen} nombre={res.nombre} /> }
@@ -193,7 +213,6 @@ function Detalle() {
 					<div className="informacion">
 						<h2>{res.nombre}</h2>
 						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
-						<p className="categoria">{res.categoria}</p>
 						<p className="precio">$ {res.precio()}</p>
 						<Tallas data={res.tallas()} />
 						<BarraComprar clase="desktop" />
