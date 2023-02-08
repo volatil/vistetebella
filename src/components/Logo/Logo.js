@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { NOMBRETIENDA } from "../../assets/js/CONST";
 
-import "./Logo.css";
 import logo from "../../assets/imagenes/logo.svg";
 
 function Logo() {

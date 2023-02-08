@@ -6,23 +6,53 @@ header {
 	width: 98%;
 	margin: 0 auto;
 }
-header > * {
-	width: 33%;
-}
-header > #logo {
+header #logo {
 	width: 20%;
 }
-header > #buscador {}
-header > nav {
+header #logo {
+	display: flex;
+	align-items: center;
+}
+header #logo > a {
+	width: 310px;
+	display: inline-block;
+	margin: 10px 0 10px 10px;
+}
+header #logo > a > img {
+	width: 100%;
+}
+header nav {
 	width: 20%;
 }
-#logo > a {
+header #logo > a {
 	display: flex;
 }
 @media( max-width: 850px ) {
 	header {
 		display: flex;
-		justify-content: space-between;
-		height: 50px;
+		flex-direction: column;
+		height: auto;
+	}
+	header #logo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	header #buscador {
+		display: flex;
+		width: 100%;
+		margin: 0 auto;
+		
+	}
+	header #buscador form {
+		width: 100%;
+	}
+	header nav {
+		width: 100%;
+	}
+	header nav ul {
+		width: 100%;
+		display: flex;
+		justify-content: center
 	}
 }
