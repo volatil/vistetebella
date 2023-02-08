@@ -113,3 +113,10 @@ export function humanizaString( string ) {
 	elstring = elstring.toLowerCase();
 	return elstring;
 }
+
+export function paramBusqueda( param ) {
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const parametro = urlParams.get( param );
+	return parametro;
+}
