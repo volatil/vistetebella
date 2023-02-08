@@ -10,7 +10,6 @@ import "./Detalle.css";
 
 import {
 	armonizarURL,
-	precio,
 	cambiarThumb,
 	lafechaEntrega,
 	tabs,

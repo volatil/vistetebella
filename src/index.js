@@ -11,6 +11,7 @@ import Barrasuperior from "./components/Barrasuperior/Barrasuperior";
 import Inicio from "./pages/Inicio/Inicio";
 import Tienda from "./pages/Tienda/Tienda";
 import Detalle from "./pages/Detalle/Detalle";
+import Contacto from "./pages/Contacto/Contacto";
 import Error from "./pages/Error/Error";
 
 import Categoria from "./pages/Categoria/Categoria";
@@ -33,6 +34,7 @@ root.render(
 			<Route exact path="/" element={<Inicio />} />
 			<Route path="/tienda" element={<Tienda />} />
 			<Route path="/producto/:id/:nombre" element={<Detalle />} />
+			<Route path="/contacto" element={<Contacto />} />
 			<Route path="*" element={<Error />} />
 
 			<Route path="/categoria/:categoria" element={<Categoria />} />
