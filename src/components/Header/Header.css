@@ -1,11 +1,20 @@
 header {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	height: 110px;
 	border-bottom: 1px solid #ccc;
+	width: 98%;
+	margin: 0 auto;
 }
 header > * {
-	width: 45%;
+	width: 33%;
+}
+header > #logo {
+	width: 20%;
+}
+header > #buscador {}
+header > nav {
+	width: 20%;
 }
 #logo > a {
 	display: flex;

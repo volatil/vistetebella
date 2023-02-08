@@ -11,8 +11,11 @@ nav > ul {
 }
 nav > ul > li {
 	list-style: none;
-	margin: 0 13%;
+	margin: 0 10% 0 0;
 	text-align: right;
+}
+nav > ul > li:last-of-type {
+	margin-right: 6%;
 }
 nav > ul > li > a {
 	color: black;
