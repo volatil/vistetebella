@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { getAnchoPantalla } from "../../Helpers/Helpers";
 
 import "./Carrusel.css";
 
@@ -17,7 +18,7 @@ function Carrusel() {
 	return (
 		<section id="carrusel">
 			<NavLink to="/tienda/" title={NOMBRETIENDA}>
-				<img style={{ width: "100%" }} src={imagenes[random]} alt={NOMBRETIENDA} />
+				<img width={getAnchoPantalla()} style={{ width: "100%" }} src={imagenes[random]} alt={NOMBRETIENDA} />
 			</NavLink>
 		</section>
 	);

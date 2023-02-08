@@ -171,3 +171,8 @@ export function traeData() {
 	}
 	return data;
 }
+
+export function getAnchoPantalla() {
+	const elancho = $("body").width();
+	return elancho;
+}
