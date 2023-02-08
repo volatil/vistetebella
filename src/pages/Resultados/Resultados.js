@@ -22,7 +22,11 @@ function Resultados() {
 				precio: precio( resumen[2] ),
 				fechaentrega: resumen[3],
 				imagen: resumen[4].split(",//")[0],
+				descripcion: resumen[5],
 				categoria: resumen[9],
+				comentarios: {
+					comentario: resumen[10],
+				},
 				color: () => {
 					let color = resumen[11];
 					if ( !color ) {
@@ -32,7 +36,7 @@ function Resultados() {
 				},
 			};
 
-			const filtroBusqueda = `${p.nombre} ${p.categoria} ${p.color()}`;
+			const filtroBusqueda = `${p.nombre.toLowerCase()} ${p.categoria.toLowerCase()} ${p.color().toLowerCase()} ${p.comentarios.comentario.toLowerCase()} ${p.descripcion.toLowerCase()}`;
 			if ( filtroBusqueda.includes( paramBusqueda("q") ) ) {
 				data.push( p );
 			}

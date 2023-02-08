@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { NavLink } from "react-router-dom";
 import { NOMBRETIENDA } from "../../assets/js/CONST";
-// import eljson from "../../assets/json/inventario.json";
 
 import Carrusel from "../../components/Carrusel/Carrusel";
-import { precio, traeData } from "../../Helpers/Helpers";
+import { traeData } from "../../Helpers/Helpers";
 
 import "./Inicio.css";
 import Producto from "../../components/Producto/Producto";
@@ -14,7 +12,7 @@ function Inicio() {
 	const [elproducto, setElproducto] = useState();
 
 	useEffect(() => {
-		setElproducto( traeData({ especial: "5" }) );
+		setElproducto( traeData() );
 	}, []);
 
 	return (

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import eljson from "../../assets/json/inventario.json";
 
 import { NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
@@ -15,7 +14,7 @@ import {
 	lafechaEntrega,
 	tabs,
 	isMobile,
-	humanizaString,
+	traeData,
 } from "../../Helpers/Helpers";
 
 function FechaEntrega() {
@@ -122,54 +121,11 @@ function Breadcrumb({ categoria }) {
 
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
-	const id = useLocation().pathname.split("/")[2];
+	const id = useParams().id;
 
 	useEffect(() => {
-		const data = [];
-
-		const resumen = eljson.values[id];
-		const p = {
-			id: resumen[0],
-			nombre: resumen[1],
-			precio: precio(resumen[2]),
-			imagen: {
-				principal: resumen[4].split(",//")[0],
-				todas: () => {
-					const arrtodas = [];
-					const todas = resumen[4];
-					for ( let count = 0; count <= todas.split(",//").length - 2; count++ ) {
-						const laimagen = todas.split(",//")[count].replaceAll("//", "");
-						const elid = laimagen.split("_thumbnail")[0].split("/")[laimagen.split("_thumbnail")[0].split("/").length - 1];
-						arrtodas.push({ laid: elid, imagen: `https://${laimagen}` });
-					}
-					return arrtodas;
-				},
-			},
-			descripcion: resumen[5],
-			tallas: () => {
-				const arrtallas = [];
-				const tallas = resumen[6];
-				for ( let count = 0; count <= tallas.split(",").length - 1; count++ ) {
-					arrtallas.push( tallas.split(",")[count] );
-				}
-				return arrtallas;
-			},
-			valoracion: resumen[8],
-			comentarios: {
-				comentario: resumen[10],
-			},
-			color: () => {
-				let color = resumen[11];
-				if ( !color ) {
-					color = "No especificado";
-				}
-				return color;
-			},
-			categoria: resumen[9],
-		};
-		data.push( p );
-		setDetalle(data);
-	}, [id]);
+		setDetalle( traeData() );
+	}, []);
 
 	useEffect(() => {
 		armonizarURL(3);
@@ -179,7 +135,7 @@ function Detalle() {
 	});
 
 	if ( detalle ) {
-		const res = detalle[0];
+		const res = detalle[id - 1];
 
 		return (
 			<>
