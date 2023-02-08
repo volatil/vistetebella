@@ -1,6 +1,8 @@
 import $ from "jquery";
+import eljson from "../assets/json/inventario.json";
 import { COMETATIENDA, COMETAMELI, IVA } from "../assets/js/CONST";
 
+// quita los caracteres feos para tener una amigable url
 export function armonizarURL(pos) {
 	let fixurl = location.pathname.split("/")[pos];
 	fixurl = decodeURIComponent(fixurl);
@@ -9,6 +11,7 @@ export function armonizarURL(pos) {
 	window.history.replaceState(null, null, fixurl);
 }
 
+// calcular el precio si vendiera en MERCADOLIBRE
 export function precioMeli( neto ) {
 	// SUMAR NETO + COMETA MIA
 	const total1 = Number(neto) + Number(COMETATIENDA);
@@ -35,6 +38,7 @@ export function precioMeli( neto ) {
 	return total5;
 }
 
+// calcular el precio si vendiera por TRANSBANK
 export function precioTransbank( neto ) {
 	// Por un producto de $10.000, recibo $9.882
 	// Comision Transbank: 0,99%
@@ -45,20 +49,14 @@ export function precioTransbank( neto ) {
 	// Tarjetas de crédito -> 48 Horas
 }
 
+// calcular el precio
 export function precio( neto ) {
 	let preciofinal = Number( neto ) + Number( COMETATIENDA );
 	preciofinal = preciofinal.toLocaleString("es-CL");
 	return preciofinal;
 }
 
-// export function devuelveAlHome( id ) {
-// 	if ( typeof id === "undefined" ) {
-// 		setTimeout(() => {
-// 			window.location.href = "/";
-// 		}, 2000);
-// 	}
-// }
-
+// calcula la fecha de entrega, minimo 14 dias maximo 18 dias
 export function lafechaEntrega() {
 	const mesSET = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 	const diaSET = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
@@ -75,6 +73,7 @@ export function lafechaEntrega() {
 	return data;
 }
 
+// hace los cambios de imagen entre los thumb y la principal en el detalle de producto
 export function cambiarThumb() {
 	$( $(".thumbnails img")[0] ).addClass("activo");
 	$(".thumbnails img").on("click", function () {
@@ -86,6 +85,7 @@ export function cambiarThumb() {
 	});
 }
 
+// cambio de tabs en el detalle de producto
 export function tabs() {
 	$("section#tabsDetalle > .tabs-titulo > li").on("click", function () {
 		$("section#tabsDetalle > .tabs-titulo > li").removeClass("activo");
@@ -97,6 +97,7 @@ export function tabs() {
 	});
 }
 
+// checa is estas en un ancho de pantalla mobile o no (limite 850px)
 export function isMobile() {
 	const anchoPantalla = $("body").width();
 	if ( anchoPantalla <= 850 ) {
@@ -114,9 +115,59 @@ export function humanizaString( string ) {
 	return elstring;
 }
 
+// trae parametro en la url
 export function paramBusqueda( param ) {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const parametro = urlParams.get( param );
 	return parametro;
+}
+
+export function traeData() {
+	const data = [];
+	for ( let count = 1; count <= eljson.values.length - 1; count++ ) {
+		const resumen = eljson.values[count];
+
+		const p = {
+			id: resumen[0],
+			nombre: resumen[1].replaceAll("SHEIN ", ""),
+			precio: precio(resumen[2]),
+			imagen: {
+				principal: resumen[4].split(",//")[0],
+				todas: () => {
+					const arrtodas = [];
+					const todas = resumen[4];
+					for ( let elcount1 = 0; elcount1 <= todas.split(",//").length - 2; elcount1++ ) {
+						const laimagen = todas.split(",//")[elcount1].replaceAll("//", "");
+						const elid = laimagen.split("_thumbnail")[0].split("/")[laimagen.split("_thumbnail")[0].split("/").length - 1];
+						arrtodas.push({ laid: elid, imagen: `https://${laimagen}` });
+					}
+					return arrtodas;
+				},
+			},
+			descripcion: resumen[5],
+			tallas: () => {
+				const arrtallas = [];
+				const tallas = resumen[6];
+				for ( let elcount2 = 0; elcount2 <= tallas.split(",").length - 1; elcount2++ ) {
+					arrtallas.push( tallas.split(",")[elcount2] );
+				}
+				return arrtallas;
+			},
+			valoracion: resumen[8],
+			comentarios: {
+				comentario: resumen[10],
+			},
+			color: () => {
+				let color = resumen[11];
+				if ( !color ) {
+					color = "No especificado";
+				}
+				return color;
+			},
+			categoria: resumen[9],
+		};
+		data.push( p );
+	}
+	return data;
 }

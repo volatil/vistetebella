@@ -46,6 +46,7 @@ function Resultados() {
 				<Helmet>
 					<title>Busqueda de {paramBusqueda("q")} || {NOMBRETIENDA}</title>
 				</Helmet>
+				<img style={{ width: "100%" }} src="https://media.boohoo.com/i/boohooamplience/Gift_Card_Banner_Valentines2_2" alt="Resultados" />
 				<h2>Resultados para: {paramBusqueda("q")}</h2>
 				<section id="grilla">
 					{
