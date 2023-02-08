@@ -45,6 +45,7 @@ function Tienda() {
 				<Helmet>
 					<title>Tienda || { NOMBRETIENDA }</title>
 				</Helmet>
+				<img style={{ width: "100%" }} src="https://www.forever21.com/dw/image/v2/BFKH_PRD/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw9d21349f/Homepage/2023/DESKTOP.jpg" alt={NOMBRETIENDA} />
 				<section id="grilla">
 					{
 						elproducto?.map((prod) => {
