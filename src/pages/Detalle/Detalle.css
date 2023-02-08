@@ -2,7 +2,7 @@
 
 section#breadcrumb {
 	width: 98%;
-	margin: 20px auto 0;
+	margin: 0 auto 10px;
 }
 section#breadcrumb > ul {
 	display: flex;
