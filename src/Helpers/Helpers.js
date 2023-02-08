@@ -123,6 +123,7 @@ export function paramBusqueda( param ) {
 	return parametro;
 }
 
+// simplifica la traida de data del json
 export function traeData() {
 	const data = [];
 	for ( let count = 1; count <= eljson.values.length - 1; count++ ) {

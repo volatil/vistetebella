@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import Relacionados from "../../components/Relacionados/Relacionados";
 
 import "./Detalle.css";
 
@@ -164,6 +165,8 @@ function Detalle() {
 						</div>
 					</div>
 				</section>
+
+				<Relacionados />
 
 			</>
 		);
