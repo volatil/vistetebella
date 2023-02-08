@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import { NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 import "./Detalle.css";
 
@@ -101,24 +102,6 @@ function BarraComprar({ clase }) {
 	);
 }
 
-function Breadcrumb({ categoria }) {
-	return (
-		<section id="breadcrumb">
-			<ul>
-				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda">tienda</NavLink>
-				</li>
-				<span>/</span>
-				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to={`/categoria/${categoria}`}>
-						<strong>{categoria}</strong>
-					</NavLink>
-				</li>
-			</ul>
-		</section>
-	);
-}
-
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useParams().id;
@@ -156,7 +139,7 @@ function Detalle() {
 					{ isMobile() && <Thumbnails imagenes={res.imagen.todas()} nombre={res.nombre} /> }
 
 					<div className="informacion">
-						{ !isMobile() && <Breadcrumb categoria={res.categoria} /> }
+						{ !isMobile() && <Breadcrumb categoria={res.categoria} nombre={res.nombre} /> }
 						<h2>{res.nombre}</h2>
 						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
 						<p className="precio">$ {res.precio}</p>

@@ -18,7 +18,7 @@ function Carrusel() {
 	return (
 		<section id="carrusel">
 			<NavLink to="/tienda/" title={NOMBRETIENDA}>
-				<img width={getAnchoPantalla()} style={{ width: "100%" }} src={imagenes[random]} alt={NOMBRETIENDA} />
+				<img width={getAnchoPantalla()} src={imagenes[random]} alt={NOMBRETIENDA} />
 			</NavLink>
 		</section>
 	);

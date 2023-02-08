@@ -1,35 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
 
-section#breadcrumb {
-	width: 98%;
-	margin: 0 auto 10px;
-}
-section#breadcrumb > ul {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-	padding: 0;
-	margin: 0;
-}
-section#breadcrumb > ul > span {
-	margin: 0 10px;
-}
-section#breadcrumb > ul > li {
-	list-style: none;
-}
-section#breadcrumb > ul > li > a {
-	text-transform: capitalize;
-	text-decoration: none;
-	color: black;
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition:    all 0.2s ease-out;
-	-o-transition:      all 0.2s ease-out;
-	transition:         all 0.2s ease-out;
-}
-section#breadcrumb > ul > li > a:hover {
-	text-decoration: underline;
-}
 section#detalle {
 	display: flex;
 	flex-direction: row;
@@ -149,16 +119,12 @@ section#tabsDetalle > .tabs-contenido > div {
 section#tabsDetalle > .tabs-contenido > div:first-of-type {
 	display: block;
 }
-section#tabsDetalle > .tabs-contenido > div.descripcion {}
-section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] {}
 section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque {
 	width: 96%;
 	border: 1px solid #ddd;
 	margin: 30px auto 0;
 	padding: 10px;
 }
-section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .nombre {}
-section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .comentario {}
 section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .imagenes {
 	margin-top: 20px;
 	width: 100%;
@@ -169,62 +135,7 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 	margin-right: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media( max-width: 850px ) {
-	section#breadcrumb {
-		margin: 10px auto;
-		width: 98%;
-		display: block;
-		font-size: .9em;
-	}
 	section#detalle {
 		display: flex;
 		flex-direction: column;
