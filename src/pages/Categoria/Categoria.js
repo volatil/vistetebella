@@ -9,12 +9,12 @@ import Producto from "../../components/Producto/Producto";
 import {
 	armonizarURL,
 	precio,
-	// isMobile,
 	humanizaString,
 	paramBusqueda,
 	totalResultados,
 } from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
+import categoriaArrowRight from "../../assets/imagenes/categoria_arrow_right.png";
 
 function Categoria() {
 	const categoria = useLocation().pathname.split("/")[2];
@@ -68,7 +68,7 @@ function Categoria() {
 				<Helmet>
 					<title>{categoriaHumanizada} || { NOMBRETIENDA }</title>
 				</Helmet>
-				<p style={{ marginLeft: "20px" }}><img style={{ width: "13px" }} src="https://static.thenounproject.com/png/89803-200.png" alt="Categoria" /> <strong style={{ textTransform: "uppercase" }}>{categoriaHumanizada}</strong></p>
+				<p style={{ marginLeft: "20px" }}><img style={{ width: "13px" }} src={categoriaArrowRight} alt="Categoria" /> <strong style={{ textTransform: "uppercase" }}>{categoriaHumanizada}</strong></p>
 				<p className="losresultados">{ losresultados }</p>
 				<section id="grilla">
 					{

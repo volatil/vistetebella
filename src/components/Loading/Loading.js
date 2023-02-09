@@ -1,8 +1,9 @@
+import loadingGIF from "../../assets/imagenes/loading.gif";
 import "./Loading.css";
 
 function Loading() {
 	return (
-		<img id="loading" src="https://i.pinimg.com/originals/ea/b7/e1/eab7e1120c9dd628d3bb39a20a94927d.gif" alt="Cargando ..." />
+		<img id="loading" src={loadingGIF} alt="Cargando ..." />
 	);
 }
 export default Loading;
