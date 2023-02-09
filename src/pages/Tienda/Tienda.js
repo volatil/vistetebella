@@ -5,12 +5,12 @@ import { NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
 import Producto from "../../components/Producto/Producto";
 
-import { precio } from "../../Helpers/Helpers";
+import { precio, totalResultados, paramBusqueda } from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
 
 function Tienda() {
 	const [elproducto, setElproducto] = useState();
-	const [loading, setLoading] = useState();
+	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
 		const data = [];
@@ -37,6 +37,7 @@ function Tienda() {
 			data.push( p );
 		}
 		setElproducto(data);
+		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
 	}, []);
 
 	if ( elproducto ) {
@@ -46,6 +47,7 @@ function Tienda() {
 					<title>Tienda || { NOMBRETIENDA }</title>
 				</Helmet>
 				<img style={{ width: "100%" }} src="https://www.forever21.com/dw/image/v2/BFKH_PRD/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw9d21349f/Homepage/2023/DESKTOP.jpg" alt={NOMBRETIENDA} />
+				<p className="losresultados">{ losresultados }</p>
 				<section id="grilla">
 					{
 						elproducto?.map((prod) => {

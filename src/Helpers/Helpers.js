@@ -177,3 +177,15 @@ export function getAnchoPantalla() {
 	const elancho = $("body").width();
 	return elancho;
 }
+
+export function totalResultados( props ) {
+	let htmlResultados = "";
+	if ( props.cantidad >= 2 ) {
+		htmlResultados = `Encontramos ${props.cantidad} resultados.`;
+	} else if ( props.cantidad === 1 ) {
+		htmlResultados = `Encontramos ${props.cantidad} resultado.`;
+	} else {
+		htmlResultados = `No encontramos resultados para ${props.busqueda}`;
+	}
+	return htmlResultados;
+}

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import { NOMBRETIENDA } from "../../assets/js/CONST";
-import { paramBusqueda, precio } from "../../Helpers/Helpers";
+import { paramBusqueda, precio, totalResultados } from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
 
 import Producto from "../../components/Producto/Producto";
 
 function Resultados() {
 	const [elproducto, setElproducto] = useState();
+	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
 		const data = [];
@@ -42,6 +43,8 @@ function Resultados() {
 			}
 			setElproducto( data );
 		}
+
+		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
 	}, []);
 
 	if ( elproducto ) {
@@ -51,7 +54,7 @@ function Resultados() {
 					<title>Busqueda de {paramBusqueda("q")} || {NOMBRETIENDA}</title>
 				</Helmet>
 				<img style={{ width: "100%" }} src="https://media.boohoo.com/i/boohooamplience/Gift_Card_Banner_Valentines2_2" alt="Resultados" />
-				<h2>Resultados para: {paramBusqueda("q")}</h2>
+				<p className="losresultados">{ losresultados }</p>
 				<section id="grilla">
 					{
 						elproducto.map((prod) => {

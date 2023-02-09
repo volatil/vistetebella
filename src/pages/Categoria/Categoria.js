@@ -11,6 +11,8 @@ import {
 	precio,
 	// isMobile,
 	humanizaString,
+	paramBusqueda,
+	totalResultados,
 } from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
 
@@ -18,6 +20,7 @@ function Categoria() {
 	const categoria = useLocation().pathname.split("/")[2];
 	const [elproducto, setElproducto] = useState();
 	const [loading, setLoading] = useState();
+	const [losresultados, setLosresultados] = useState();
 	const categoriaHumanizada = humanizaString(categoria);
 
 	useEffect(() => {
@@ -56,6 +59,7 @@ function Categoria() {
 		setLoading(false);
 
 		armonizarURL(2);
+		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
 	}, [categoria]);
 
 	if ( elproducto ) {
@@ -64,7 +68,8 @@ function Categoria() {
 				<Helmet>
 					<title>{categoriaHumanizada} || { NOMBRETIENDA }</title>
 				</Helmet>
-				<p>Categoria: <strong>{categoriaHumanizada}</strong></p>
+				<p style={{ marginLeft: "20px" }}><img style={{ width: "13px" }} src="https://static.thenounproject.com/png/89803-200.png" alt="Categoria" /> <strong style={{ textTransform: "uppercase" }}>{categoriaHumanizada}</strong></p>
+				<p className="losresultados">{ losresultados }</p>
 				<section id="grilla">
 					{
 						elproducto.map((prod) => {
