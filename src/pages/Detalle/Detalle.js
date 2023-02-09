@@ -166,7 +166,7 @@ function Detalle() {
 					</div>
 				</section>
 
-				<Relacionados />
+				<Relacionados idactual={res.id} />
 
 			</>
 		);

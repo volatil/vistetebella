@@ -6,13 +6,24 @@ import { traeData } from "../../Helpers/Helpers";
 
 import "./Relacionados.css";
 
-function Relacionados() {
+function Relacionados( props ) {
+	const { idactual } = props;
 	const [elproducto, setElproducto] = useState();
+	const [elarr, setElarr] = useState();
+
 	useEffect(() => {
 		setElproducto( traeData() );
+
 		const elmaximo = traeData().length;
-		console.debug( `Rangos: ${Number(elmaximo) - 5}/${elmaximo}` );
-	}, []);
+		const elminimo = Number(elmaximo) - 5;
+		if ( idactual >= elminimo && idactual <= elmaximo ) {
+			const loselegidos = [Number(idactual) - 1, Number(idactual) - 2, Number(idactual) - 3, Number(idactual) - 4, Number(idactual) - 5];
+			setElarr( loselegidos );
+		} else {
+			const loselegidos = [Number(idactual) + 1, Number(idactual) + 2, Number(idactual) + 3, Number(idactual) + 4, Number(idactual) + 5];
+			setElarr( loselegidos );
+		}
+	}, [idactual]);
 
 	return (
 		<section id="relacionados">
@@ -20,10 +31,9 @@ function Relacionados() {
 			<section id="grilla" className="relacionados">
 				{
 					elproducto?.map( ( elprod ) => {
-						const algo = elprod.id;
-						const loselegidos = ["2", "5", "23", "32", "11"];
-						for ( let contador = 0; contador <= loselegidos.length - 1; contador++ ) {
-							if ( algo === loselegidos[contador] ) {
+						const elaid = elprod.id;
+						for ( let contador = 0; contador <= elarr.length - 1; contador++ ) {
+							if ( elaid === String(elarr[contador]) ) {
 								return (
 									<Producto
 										key={elprod.id}
