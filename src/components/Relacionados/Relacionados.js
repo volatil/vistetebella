@@ -10,6 +10,8 @@ function Relacionados() {
 	const [elproducto, setElproducto] = useState();
 	useEffect(() => {
 		setElproducto( traeData() );
+		const elmaximo = traeData().length;
+		console.debug( `Rangos: ${Number(elmaximo) - 5}/${elmaximo}` );
 	}, []);
 
 	return (
