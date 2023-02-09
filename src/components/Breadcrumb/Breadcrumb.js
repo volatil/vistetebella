@@ -26,10 +26,6 @@ function Breadcrumb( props ) {
 						{categoria}
 					</NavLink>
 				</li>
-				{/* <span>/</span> */}
-				{/* <li>
-					<strong>{nombre}</strong>
-				</li> */}
 			</ul>
 		</section>
 	);
