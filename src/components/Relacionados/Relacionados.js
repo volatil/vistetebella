@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
+import $ from "jquery";
 
 import Producto from "../Producto/Producto";
 
 import { traeData } from "../../Helpers/Helpers";
 
 import "./Relacionados.css";
+
+function skrol() {
+	$("#grilla.relacionados").on("click", () => {
+		$("html,body").animate({
+			/* eslint-disable */
+			scrollTop: $("#detalle").offset().top
+			/* eslint-enable */
+		}, "slow");
+	});
+}
 
 function Relacionados( props ) {
 	const { idactual } = props;
@@ -23,6 +34,8 @@ function Relacionados( props ) {
 			const loselegidos = [Number(idactual) + 1, Number(idactual) + 2, Number(idactual) + 3, Number(idactual) + 4, Number(idactual) + 5];
 			setElarr( loselegidos );
 		}
+
+		skrol();
 	}, [idactual]);
 
 	return (
