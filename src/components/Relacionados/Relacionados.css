@@ -1,0 +1,14 @@
+section#relacionados {
+	margin-top: 60px;
+}
+section#relacionados > h2 {
+	border-left: 8px solid black;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+section#relacionados section.relacionados {
+	width: 96%;
+	border: 1px solid #ccc;
+	padding: 1%;
+	margin: 0 auto;
+}
