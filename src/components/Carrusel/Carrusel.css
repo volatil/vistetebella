@@ -1,4 +1,3 @@
-section#carrusel {}
-section#carrusel > img {
+section#carrusel > a > img {
 	width: 100%;
 }
