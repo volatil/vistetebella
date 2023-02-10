@@ -7,6 +7,8 @@ import eljson from "../../assets/json/inventario.json";
 
 import Producto from "../../components/Producto/Producto";
 
+import bannerSuperior from "../../assets/imagenes/202302100319Gift_Card_Banner_Valentines2_2.jfif";
+
 function Resultados() {
 	const [elproducto, setElproducto] = useState();
 	const [losresultados, setLosresultados] = useState();
@@ -53,7 +55,7 @@ function Resultados() {
 				<Helmet>
 					<title>Busqueda de {paramBusqueda("q")} || {NOMBRETIENDA}</title>
 				</Helmet>
-				<img style={{ width: "100%" }} src="https://media.boohoo.com/i/boohooamplience/Gift_Card_Banner_Valentines2_2" alt="Resultados" />
+				<img style={{ width: "100%" }} src={bannerSuperior} alt="Resultados" />
 				<p className="losresultados">{ losresultados }</p>
 				<section id="grilla">
 					{
