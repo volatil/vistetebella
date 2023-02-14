@@ -27,8 +27,10 @@ const p = {
 		const tallas = [];
 
 		$.each($(".product-intro__size-choose > span"), function () {
-			const talla = $(this).find(".product-intro__size-radio-inner").text();
-			tallas.push( talla );
+			if ( !$(this).html().includes("product-intro__size-radio_soldout") ) {
+				const talla = $(this).find(".product-intro__size-radio-inner").text();
+				tallas.push( talla );
+			}
 		});
 
 		return tallas;
