@@ -182,7 +182,7 @@ export function traeCategorias() {
 		const lacat = todo[count].categoria;
 		categorias.push(lacat);
 	}
-	categorias = new Set(...[categorias]);
+	categorias = [...new Set(categorias)];
 	return categorias;
 }
 
@@ -191,6 +191,7 @@ export function getAnchoPantalla() {
 	return elancho;
 }
 
+// Sirve para ver cuando resultados filtró
 export function totalResultados( props ) {
 	let htmlResultados = "";
 	if ( props.cantidad >= 2 ) {
@@ -201,4 +202,15 @@ export function totalResultados( props ) {
 		htmlResultados = `No encontramos resultados para ${props.busqueda}`;
 	}
 	return htmlResultados;
+}
+
+// MENU => efecto X al clickear
+export function deployMenu() {
+	$("nav.mobile").on("click", () => {
+		if ( $("body").is(".menuactivo") ) {
+			$("body").removeClass("menuactivo");
+		} else {
+			$("body").addClass("menuactivo");
+		}
+	});
 }

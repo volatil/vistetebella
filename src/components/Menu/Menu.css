@@ -1,7 +1,7 @@
-nav {
+nav.mobile {
 	display: flex;
 }
-nav > ul {
+nav.mobile > ul {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -9,15 +9,19 @@ nav > ul {
 	width: 100%;
 	justify-content: flex-end;
 }
-nav > ul > li {
+nav.mobile ul {
+	width: 100%;
+	display: none;
+}
+nav.mobile > ul > li {
 	list-style: none;
 	margin: 0 10% 0 0;
 	text-align: right;
 }
-nav > ul > li:last-of-type {
+nav.mobile > ul > li:last-of-type {
 	margin-right: 6%;
 }
-nav > ul > li > a {
+nav.mobile > ul > li > a {
 	color: black;
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
@@ -26,7 +30,43 @@ nav > ul > li > a {
 	display: flex;
 	align-items: center;
 }
-nav > ul > li > a:hover ,
-nav > ul > li > a.tamoactivo {
+nav.mobile > ul > li > a:hover ,
+nav.mobile > ul > li > a.tamoactivo {
 	border-bottom: 3px solid black;
+}
+body.menuactivo header > div nav.mobile .elmenu {
+	z-index: 1;
+	overflow: hidden;
+}
+body.menuactivo header > div nav.mobile .elmenu > div {
+	position: relative;
+}
+body.menuactivo header > div nav.mobile .elmenu > div > span {
+	position: absolute;
+	top: 17px;
+}
+body.menuactivo header > div nav.mobile .elmenu > div > span:nth-child(1) {
+	transform: rotate(-45deg);
+}
+body.menuactivo header > div nav.mobile .elmenu > div > span:nth-child(2) {
+	display: none;
+}
+body.menuactivo header > div nav.mobile .elmenu > div > span:nth-child(3) {
+	transform: rotate(45deg);
+}
+body.menuactivo header > div nav.mobile ul {
+	display: block;
+	position: absolute;
+	background: red;
+	top: 0;
+	height: 100%;
+	right: 0;
+	padding-top: 140px;
+}
+body.menuactivo header > div nav.mobile ul li {
+	margin: 0;
+	padding: 0;
+}
+body.menuactivo header > div nav.mobile ul li a {
+	justify-content: flex-end;
 }
