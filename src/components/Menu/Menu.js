@@ -6,7 +6,7 @@ import "./Menu.css";
 
 function MenuDesktop() {
 	return (
-		<nav>
+		<nav className="desktop">
 			<ul>
 				<li>
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/">inicio</NavLink>
@@ -20,10 +20,7 @@ function MenuDesktop() {
 }
 
 function MenuMobile( props ) {
-	// const { losmenu } = props;
-	// const algo = losmenu;
-	const algo = traeCategorias();
-	console.debug( algo );
+	const categorias = traeCategorias();
 	return (
 		<nav className="mobile">
 			<div className="elmenu">
@@ -34,23 +31,25 @@ function MenuMobile( props ) {
 					<span>&nbsp;</span>
 				</div>
 			</div>
-			<ul>
-				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda">tienda</NavLink>
-				</li>
-				<ul>
-					<li>CATEGORIAS</li>
-					{
-						algo.map((elme) => {
-							return (
-								<li key={elme}>
-									<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to={`/categoria/${elme}`}>{elme}</NavLink>
-								</li>
-							);
-						})
-					}
-				</ul>
-			</ul>
+			<div className="losmenus">
+				<div>
+					<p>CATEGORIAS</p>
+					<ul>
+						{
+							categorias.map((lacategoria) => {
+								return (
+									<li key={lacategoria}>
+										<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to={`/categoria/${lacategoria}`}>{lacategoria}</NavLink>
+									</li>
+								);
+							})
+						}
+						<li>
+							<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda"><strong>VER TODO</strong></NavLink>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</nav>
 	);
 }

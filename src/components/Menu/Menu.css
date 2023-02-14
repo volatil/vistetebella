@@ -1,7 +1,35 @@
 nav.mobile {
 	display: flex;
+	width: 100%;
+	justify-content: flex-end;
 }
-nav.mobile > ul {
+nav.mobile .elmenu {
+	z-index: 1;
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+nav.mobile .elmenu > p {
+	font-weight: 600;
+	margin-right: 10px;
+	font-size: 1.2em;
+}
+nav.mobile .elmenu > div {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+nav.mobile .elmenu > div > span {
+	width: 100%;
+	height: 5px;
+	background: black;
+}
+nav.mobile > .losmenus {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -9,19 +37,19 @@ nav.mobile > ul {
 	width: 100%;
 	justify-content: flex-end;
 }
-nav.mobile ul {
+nav.mobile .losmenus {
 	width: 100%;
 	display: none;
 }
-nav.mobile > ul > li {
+nav.mobile > .losmenus > li {
 	list-style: none;
 	margin: 0 10% 0 0;
 	text-align: right;
 }
-nav.mobile > ul > li:last-of-type {
+nav.mobile > .losmenus > li:last-of-type {
 	margin-right: 6%;
 }
-nav.mobile > ul > li > a {
+nav.mobile > .losmenus > li > a {
 	color: black;
 	border-bottom: 2px solid transparent;
 	text-decoration: none;
@@ -30,43 +58,68 @@ nav.mobile > ul > li > a {
 	display: flex;
 	align-items: center;
 }
-nav.mobile > ul > li > a:hover ,
-nav.mobile > ul > li > a.tamoactivo {
+nav.mobile > .losmenus > li > a:hover ,
+nav.mobile > .losmenus > li > a.tamoactivo {
 	border-bottom: 3px solid black;
 }
-body.menuactivo header > div nav.mobile .elmenu {
-	z-index: 1;
-	overflow: hidden;
-}
-body.menuactivo header > div nav.mobile .elmenu > div {
-	position: relative;
-}
-body.menuactivo header > div nav.mobile .elmenu > div > span {
+body.menuactivo nav.mobile .elmenu > div > span {
 	position: absolute;
 	top: 17px;
+	width: 100%;
+	height: 5px;
+	background: black;
+	display: block;
 }
-body.menuactivo header > div nav.mobile .elmenu > div > span:nth-child(1) {
+body.menuactivo nav.mobile .elmenu > div > span:nth-child(1) {
 	transform: rotate(-45deg);
 }
-body.menuactivo header > div nav.mobile .elmenu > div > span:nth-child(2) {
+body.menuactivo nav.mobile .elmenu > div > span:nth-child(2) {
 	display: none;
 }
-body.menuactivo header > div nav.mobile .elmenu > div > span:nth-child(3) {
+body.menuactivo nav.mobile .elmenu > div > span:nth-child(3) {
 	transform: rotate(45deg);
 }
-body.menuactivo header > div nav.mobile ul {
-	display: block;
+body.menuactivo nav.mobile > .losmenus {
 	position: absolute;
-	background: red;
+	padding-top: 110px;
+}
+body.menuactivo nav.mobile .losmenus {
+	display: block;
+	background: white;
 	top: 0;
 	height: 100%;
 	right: 0;
-	padding-top: 140px;
 }
-body.menuactivo header > div nav.mobile ul li {
+body.menuactivo nav.mobile .losmenus > div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-right: 10px;
+}
+body.menuactivo nav.mobile .losmenus > div p {
+	font-size: 2em;
+	font-weight: 600;
+	margin: 0;
+	margin-bottom: 10px;
+	text-decoration: underline;
+	margin-top: 10px;
+}
+body.menuactivo nav.mobile .losmenus > div ul {
 	margin: 0;
 	padding: 0;
 }
-body.menuactivo header > div nav.mobile ul li a {
+body.menuactivo nav.mobile .losmenus > div ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: right;
+	height: 40px;
+}
+body.menuactivo nav.mobile .losmenus > div ul li a {
 	justify-content: flex-end;
+	color: black;
+	text-decoration: none;
+}
+body.menuactivo nav.mobile .losmenus > div ul li a.tamoactivo {
+	font-weight: 600;
 }
