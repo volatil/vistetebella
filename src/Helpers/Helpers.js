@@ -155,6 +155,7 @@ export function traeData() {
 				}
 				return arrtallas;
 			},
+			url: resumen[7],
 			valoracion: resumen[8],
 			comentarios: {
 				comentario: resumen[10],
