@@ -40,7 +40,7 @@ root.render(
 			<Route path="/categoria/:categoria" element={<Categoria />} />
 			<Route path="/resultados/" element={<Resultados />} />
 
-			<Route path="/dev/:categoria" element={<Dev />} />
+			<Route path="/dev" element={<Dev />} />
 			<Route path="/cerebro" element={<Cerebro />} />
 		</Routes>
 		<Footer />

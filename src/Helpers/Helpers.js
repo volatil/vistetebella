@@ -174,6 +174,18 @@ export function traeData() {
 	return data;
 }
 
+// Trae todas las categorias sin repetir
+export function traeCategorias() {
+	const todo = traeData();
+	let categorias = [];
+	for ( let count = 0; count <= todo.length - 1; count++ ) {
+		const lacat = todo[count].categoria;
+		categorias.push(lacat);
+	}
+	categorias = new Set(...[categorias]);
+	return categorias;
+}
+
 export function getAnchoPantalla() {
 	const elancho = $("body").width();
 	return elancho;
