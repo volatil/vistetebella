@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { isMobile, deployMenu, traeCategorias } from "../../Helpers/Helpers";
 
@@ -13,6 +13,9 @@ function MenuDesktop() {
 				</li>
 				<li>
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda">tienda</NavLink>
+				</li>
+				<li>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/wishlist">wishlist</NavLink>
 				</li>
 			</ul>
 		</nav>
