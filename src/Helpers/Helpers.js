@@ -216,14 +216,13 @@ export function deployMenu() {
 }
 
 // PSSSST! HEY! no te vayas
-export function nomeabandones() {
+export function nomeabandones( param ) {
 	const frase = "PSSSST! HEY! no te vayas!";
-	let previousTitle = document.title;
+	const real = param;
 	window.addEventListener("blur", () => {
-		previousTitle = document.title;
 		document.title = frase;
 	});
 	window.addEventListener("focus", () => {
-		document.title = previousTitle;
+		document.title = real;
 	});
 }

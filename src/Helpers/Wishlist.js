@@ -1,4 +1,4 @@
-export function getDB() {
+export function getWishlist() {
 	const existeDB = Boolean( localStorage.getItem("vistetebella") );
 	if ( existeDB ) {
 		const DB = localStorage.getItem("vistetebella");

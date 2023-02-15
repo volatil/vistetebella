@@ -13,13 +13,13 @@ function Inicio() {
 
 	useEffect(() => {
 		setElproducto( traeData() );
-		nomeabandones();
 	}, []);
 
 	return (
 		<>
 			<Helmet>
 				<title>Bienvenido || { NOMBRETIENDA }</title>
+				{ nomeabandones( `Bienvenido || ${ NOMBRETIENDA }` ) }
 			</Helmet>
 			<section id="inicio">
 				<Carrusel />

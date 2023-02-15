@@ -19,7 +19,6 @@ function Resultados() {
 	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
-		nomeabandones();
 		const data = [];
 
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
@@ -60,6 +59,7 @@ function Resultados() {
 			<>
 				<Helmet>
 					<title>Busqueda de {paramBusqueda("q")} || {NOMBRETIENDA}</title>
+					{ nomeabandones( `Busqueda de ${paramBusqueda("q")} || ${NOMBRETIENDA}` ) }
 				</Helmet>
 				<img style={{ width: "100%" }} src={bannerSuperior} alt="Resultados" />
 				<p className="losresultados">{ losresultados }</p>

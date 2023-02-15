@@ -6,6 +6,7 @@ import { NOMBRETIENDA } from "../../Helpers/Const";
 import Loading from "../../components/Loading/Loading";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Relacionados from "../../components/Relacionados/Relacionados";
+import AgregarQuitarWISHLIST from "../../components/AgregarQuitarWISHLIST/AgregarQuitarWISHLIST";
 
 import "./Detalle.css";
 
@@ -108,7 +109,6 @@ function Detalle() {
 	const id = useParams().id;
 
 	useEffect(() => {
-		nomeabandones();
 		setDetalle( traeData() );
 	}, []);
 
@@ -125,7 +125,8 @@ function Detalle() {
 		return (
 			<>
 				<Helmet>
-					<title>{res.nombre} || { NOMBRETIENDA }</title>
+					<title>{ res.nombre } || { NOMBRETIENDA }</title>
+					{ nomeabandones( `${ res.nombre } || ${ NOMBRETIENDA }` ) }
 					<meta property="og:image" content={res.imagenprincipal} />
 					<meta property="twitter:image" content={res.imagenprincipal} />
 				</Helmet>
@@ -135,6 +136,7 @@ function Detalle() {
 					{ !isMobile() && <Thumbnails imagenes={res.imagen.todas()} nombre={res.nombre} /> }
 
 					<div className="principal">
+						<AgregarQuitarWISHLIST id={id} />
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					</div>
 

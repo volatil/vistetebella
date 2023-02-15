@@ -25,7 +25,6 @@ function Categoria() {
 	const categoriaHumanizada = humanizaString(categoria);
 
 	useEffect(() => {
-		nomeabandones();
 		setLoading(true);
 		const data = [];
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
@@ -69,6 +68,7 @@ function Categoria() {
 			<>
 				<Helmet>
 					<title>{categoriaHumanizada} || { NOMBRETIENDA }</title>
+					{ nomeabandones( `${categoriaHumanizada} || ${ NOMBRETIENDA }` ) }
 				</Helmet>
 				<p style={{ marginLeft: "20px" }}><img style={{ width: "13px" }} src={categoriaArrowRight} alt="Categoria" /> <strong style={{ textTransform: "uppercase" }}>{categoriaHumanizada}</strong></p>
 				<p className="losresultados">{ losresultados }</p>

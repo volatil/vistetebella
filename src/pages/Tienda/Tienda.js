@@ -20,7 +20,6 @@ function Tienda() {
 	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
-		nomeabandones();
 		const data = [];
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
 			const resumen = eljson.values[count];
@@ -53,6 +52,7 @@ function Tienda() {
 			<>
 				<Helmet>
 					<title>Tienda || { NOMBRETIENDA }</title>
+					{ nomeabandones( `Tienda || ${ NOMBRETIENDA }` ) }
 				</Helmet>
 				<img style={{ width: "100%" }} src={bannerSuperior} alt={NOMBRETIENDA} />
 				<p className="losresultados">{ losresultados }</p>

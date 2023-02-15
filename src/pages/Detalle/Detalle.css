@@ -24,6 +24,9 @@ section#detalle .thumbnails > img {
 section#detalle .thumbnails > img.activo {
 	border: 1px solid black;
 }
+section#detalle .principal {
+	position: relative;
+}
 section#detalle .informacion {
 	margin-left: 20px;
 }
