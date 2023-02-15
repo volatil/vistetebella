@@ -55,10 +55,8 @@ function MenuMobile( props ) {
 }
 
 function Menu() {
-	// const [menu, setMenu] = useState();
 	useEffect(() => {
 		deployMenu();
-		// setMenu( traeCategorias() );
 	}, []);
 	return (
 		isMobile() ? <MenuMobile /> : <MenuDesktop />

@@ -16,6 +16,7 @@ import {
 	tabs,
 	isMobile,
 	traeData,
+	nomeabandones,
 } from "../../Helpers/Helpers";
 
 function FechaEntrega() {
@@ -107,6 +108,7 @@ function Detalle() {
 	const id = useParams().id;
 
 	useEffect(() => {
+		nomeabandones();
 		setDetalle( traeData() );
 	}, []);
 

@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import { NOMBRETIENDA } from "../../assets/js/CONST";
-import { paramBusqueda, precio, totalResultados } from "../../Helpers/Helpers";
+import {
+	paramBusqueda,
+	precio,
+	totalResultados,
+	nomeabandones,
+} from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
 
 import Producto from "../../components/Producto/Producto";
@@ -14,6 +19,7 @@ function Resultados() {
 	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
+		nomeabandones();
 		const data = [];
 
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {

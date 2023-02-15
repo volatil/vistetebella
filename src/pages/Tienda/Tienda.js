@@ -5,7 +5,12 @@ import { NOMBRETIENDA } from "../../assets/js/CONST";
 import Loading from "../../components/Loading/Loading";
 import Producto from "../../components/Producto/Producto";
 
-import { precio, totalResultados, paramBusqueda } from "../../Helpers/Helpers";
+import {
+	precio,
+	totalResultados,
+	paramBusqueda,
+	nomeabandones,
+} from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
 
 import bannerSuperior from "../../assets/imagenes/202302100320sale.jpg";
@@ -15,6 +20,7 @@ function Tienda() {
 	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
+		nomeabandones();
 		const data = [];
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
 			const resumen = eljson.values[count];

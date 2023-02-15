@@ -12,6 +12,7 @@ import {
 	humanizaString,
 	paramBusqueda,
 	totalResultados,
+	nomeabandones,
 } from "../../Helpers/Helpers";
 import eljson from "../../assets/json/inventario.json";
 import categoriaArrowRight from "../../assets/imagenes/categoria_arrow_right.png";
@@ -24,6 +25,7 @@ function Categoria() {
 	const categoriaHumanizada = humanizaString(categoria);
 
 	useEffect(() => {
+		nomeabandones();
 		setLoading(true);
 		const data = [];
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {

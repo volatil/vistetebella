@@ -214,3 +214,16 @@ export function deployMenu() {
 		}
 	});
 }
+
+// PSSSST! HEY! no te vayas
+export function nomeabandones() {
+	const frase = "PSSSST! HEY! no te vayas!";
+	let previousTitle = document.title;
+	window.addEventListener("blur", () => {
+		previousTitle = document.title;
+		document.title = frase;
+	});
+	window.addEventListener("focus", () => {
+		document.title = previousTitle;
+	});
+}

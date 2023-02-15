@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { NOMBRETIENDA } from "../../assets/js/CONST";
 
 import Carrusel from "../../components/Carrusel/Carrusel";
-import { traeData } from "../../Helpers/Helpers";
+import { traeData, nomeabandones } from "../../Helpers/Helpers";
 
 import "./Inicio.css";
 import Producto from "../../components/Producto/Producto";
@@ -13,6 +13,7 @@ function Inicio() {
 
 	useEffect(() => {
 		setElproducto( traeData() );
+		nomeabandones();
 	}, []);
 
 	return (
