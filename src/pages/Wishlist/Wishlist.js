@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { nomeabandones, traeData } from "../../Helpers/Helpers";
 import { getDB } from "../../Helpers/Wishlist";
 
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import "./Wishlist.css";
 

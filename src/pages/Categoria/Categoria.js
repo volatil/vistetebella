@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import Loading from "../../components/Loading/Loading";
 import Producto from "../../components/Producto/Producto";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DB } from "../../../assets/js/CONST";
+import { DB } from "../../../Helpers/Const";
 import "./RevisaLinksRepetidos.css";
 
 function RevisaLinksRepetidos() {

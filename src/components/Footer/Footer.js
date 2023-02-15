@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 import "./Footer.css";
 import logo from "../../assets/imagenes/logo.svg";
 

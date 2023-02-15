@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import Carrusel from "../../components/Carrusel/Carrusel";
 import { traeData, nomeabandones } from "../../Helpers/Helpers";

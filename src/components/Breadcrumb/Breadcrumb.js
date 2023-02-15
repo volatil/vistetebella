@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 // import { homeBreadcrumb } from "../../assets/svg/breadcrumb_home.svg";
 import homeBreadcrumb from "../../assets/svg/breadcrumb_home.svg";
 

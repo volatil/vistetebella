@@ -5,7 +5,7 @@ import eljson from "../../assets/json/inventario.json";
 
 import { precio, traeCategorias } from "../../Helpers/Helpers";
 
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 
 function ListaDeProductos( props ) {
 	const {

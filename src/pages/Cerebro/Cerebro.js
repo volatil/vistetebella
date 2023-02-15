@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import RevisaLinksRepetidos from "./components/RevisaLinksRepetidos";
 

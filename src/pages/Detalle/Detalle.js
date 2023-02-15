@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { NOMBRETIENDA } from "../../assets/js/CONST";
+import { NOMBRETIENDA } from "../../Helpers/Const";
 import Loading from "../../components/Loading/Loading";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Relacionados from "../../components/Relacionados/Relacionados";

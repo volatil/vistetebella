@@ -1,6 +1,6 @@
 import $ from "jquery";
 import eljson from "../assets/json/inventario.json";
-import { COMETATIENDA, COMETAMELI, IVA } from "../assets/js/CONST";
+import { COMETATIENDA, COMETAMELI, IVA } from "./Const";
 
 // quita los caracteres feos para tener una amigable url
 export function armonizarURL(pos) {
