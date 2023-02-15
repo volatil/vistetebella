@@ -12,10 +12,11 @@ import Inicio from "./pages/Inicio/Inicio";
 import Tienda from "./pages/Tienda/Tienda";
 import Detalle from "./pages/Detalle/Detalle";
 import Contacto from "./pages/Contacto/Contacto";
-import Error from "./pages/Error/Error";
-
 import Categoria from "./pages/Categoria/Categoria";
 import Resultados from "./pages/Resultados/Resultados";
+import Wishlist from "./pages/Wishlist/Wishlist";
+
+import Error from "./pages/Error/Error";
 
 import Dev from "./pages/Dev/Dev";
 import Cerebro from "./pages/Cerebro/Cerebro";
@@ -35,10 +36,11 @@ root.render(
 			<Route path="/tienda" element={<Tienda />} />
 			<Route path="/producto/:id/:nombre" element={<Detalle />} />
 			<Route path="/contacto" element={<Contacto />} />
-			<Route path="*" element={<Error />} />
-
 			<Route path="/categoria/:categoria" element={<Categoria />} />
 			<Route path="/resultados/" element={<Resultados />} />
+			<Route path="/wishlist/" element={<Wishlist />} />
+
+			<Route path="*" element={<Error />} />
 
 			<Route path="/dev" element={<Dev />} />
 			<Route path="/cerebro" element={<Cerebro />} />
