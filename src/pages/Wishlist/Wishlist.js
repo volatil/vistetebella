@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 
 import Producto from "../../components/Producto/Producto";
 
-import { nomeabandones, traeData } from "../../Helpers/Helpers";
+import {
+	nomeabandones, paramBusqueda, traeData, totalResultados,
+} from "../../Helpers/Helpers";
 import { getWishlist } from "../../Helpers/Wishlist";
 
 import { NOMBRETIENDA } from "../../Helpers/Const";
@@ -29,10 +31,13 @@ function NoHayWishlist() {
 
 function Wishlist() {
 	const [losid, setLosid] = useState();
+	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
 		const algo = JSON.parse( getWishlist() );
+		console.debug( algo.length );
 		setLosid(algo);
+		setLosresultados( totalResultados({ cantidad: algo.length, busqueda: paramBusqueda("q") }) );
 	}, []);
 
 	return (
@@ -44,6 +49,7 @@ function Wishlist() {
 
 			<section id="wishlist">
 				<h2>WISHLIST !</h2>
+				<p className="losresultados">{ losresultados }</p>
 				<section id="grilla">
 					{
 						losid
