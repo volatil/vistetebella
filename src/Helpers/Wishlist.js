@@ -4,8 +4,9 @@ export function getWishlist() {
 		const DB = localStorage.getItem("vistetebella");
 		return DB;
 	}
-	localStorage.setItem("vistetebella", "");
+	localStorage.setItem("vistetebella", false);
 	const DB = localStorage.getItem("vistetebella");
+	console.debug( DB );
 	return DB;
 }
 

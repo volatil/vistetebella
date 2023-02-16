@@ -10,13 +10,21 @@ import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import "./Wishlist.css";
 
+function NoHayWishlist() {
+	return (
+		<div style={{ width: "100%", textAlign: "center" }}>
+			<p>No haz agregado ningun producto a tu <strong>wishlist</strong></p>
+			<p>Da una vuelta por nuestra tienda a ver si te gusta algo.</p>
+		</div>
+	);
+}
+
 function Wishlist() {
 	const [losid, setLosid] = useState();
-	console.debug( traeData()[1] );
 
 	useEffect(() => {
 		const algo = JSON.parse( getWishlist() );
-		setLosid( algo );
+		setLosid(algo);
 	}, []);
 
 	return (
@@ -25,30 +33,33 @@ function Wishlist() {
 				<title>Wishlist || {NOMBRETIENDA}</title>
 				{ nomeabandones( `Wishlist || ${NOMBRETIENDA}` ) }
 			</Helmet>
+
 			<section id="wishlist">
 				<h2>WISHLIST !</h2>
 				<section id="grilla">
 					{
-						losid?.map((elid) => {
-							const idfinal = Number(elid) - 1;
-							const p = {
-								id: traeData()[idfinal].id,
-								nombre: traeData()[idfinal].nombre,
-								principal: traeData()[idfinal].imagen.principal,
-								color: traeData()[idfinal].color(),
-								precio: traeData()[idfinal].precio,
-							};
+						losid
+							? losid.map((jeje) => {
+								const prod = {
+									id: traeData()[jeje].id,
+									nombre: traeData()[jeje].nombre,
+									precio: traeData()[jeje].precio,
+									color: traeData()[jeje].color(),
+									imagen: traeData()[jeje].imagen.principal,
+								};
 
-							return (
-								<Producto
-									key={p.id}
-									id={p.id}
-									nombre={p.nombre}
-									imagen={p.principal}
-									precio={p.precio}
-								/>
-							);
-						})
+								return (
+									<Producto
+										key={prod.id}
+										id={prod.id}
+										nombre={prod.nombre}
+										precio={prod.precio}
+										color={prod.color}
+										imagen={prod.imagen}
+									/>
+								);
+							})
+							: <NoHayWishlist />
 					}
 				</section>
 			</section>
