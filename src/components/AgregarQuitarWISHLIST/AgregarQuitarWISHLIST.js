@@ -1,29 +1,41 @@
 import { useEffect, useState } from "react";
 import $ from "jquery";
-import { getWishlist } from "../../Helpers/Wishlist";
+import { getWishlist, AgregaQuita } from "../../Helpers/Wishlist";
 
 import "./AgregarQuitarWISHLIST.css";
 
 function AgregarQuitarWISHLIST( props ) {
 	const [elwishid, setElwishid] = useState();
 	const { id } = props;
-	let losid = getWishlist();
-	losid = JSON.parse(losid);
-
-	function Agregaquita() {
-		console.debug( "click" );
-	}
 
 	useEffect(() => {
-		for ( let count = 0; count <= losid.length - 1; count++ ) {
-			if ( Number(id) === Number(losid[count]) ) {
-				setElwishid(true);
+		function revisaEstadoWishlist() {
+			let losid = getWishlist();
+			losid = JSON.parse(losid);
+
+			if ( String(losid) === "false" ) {
+				setElwishid(false);
+			} else {
+				for ( let count = 0; count <= losid.length - 1; count++ ) {
+					if ( Number(id) === Number(losid[count]) ) {
+						setElwishid(true);
+						break;
+					} else {
+						setElwishid(false);
+					}
+				}
 			}
 		}
-	}, [id, losid]);
+		revisaEstadoWishlist();
+
+		$("button.estadoWish").on("click", () => {
+			AgregaQuita(id);
+			revisaEstadoWishlist();
+		});
+	}, [id]);
 
 	return (
-		<button type="button" onClick={Agregaquita} className="estadoWish">
+		<button type="button" className="estadoWish">
 			{
 				elwishid
 					? <span className="corazon rojo">&nbsp;</span>
