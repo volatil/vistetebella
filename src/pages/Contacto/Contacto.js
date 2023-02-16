@@ -49,7 +49,6 @@ function Contacto() {
 				Subject: `Formulario de contacto de ${location.href}`,
 				Body: data.todoelmensaje(),
 			},
-			console.debug( "Enviando ..." ),
 			setCorreoenviado(true),
 		).then(
 			null,
