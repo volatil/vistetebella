@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import Producto from "../../components/Producto/Producto";
 
@@ -15,6 +16,13 @@ function NoHayWishlist() {
 		<div style={{ width: "100%", textAlign: "center" }}>
 			<p>No haz agregado ningun producto a tu <strong>wishlist</strong></p>
 			<p>Da una vuelta por nuestra tienda a ver si te gusta algo.</p>
+			<NavLink
+				style={{
+					textDecoration: "underline", color: "black", letterSpacing: "0.05em", fontWeight: "600",
+				}}
+				to="/tienda"
+			>Vitrinear
+			</NavLink>
 		</div>
 	);
 }
