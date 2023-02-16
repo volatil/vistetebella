@@ -23,7 +23,6 @@ function ListaDeProductos( props ) {
 }
 
 function Dev() {
-	console.debug( traeCategorias() );
 	return (
 		<>
 			<Helmet>
