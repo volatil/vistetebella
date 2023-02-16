@@ -49,11 +49,11 @@ function Wishlist() {
 						losid
 							? losid.map((jeje) => {
 								const prod = {
-									id: traeData()[jeje].id,
-									nombre: traeData()[jeje].nombre,
-									precio: traeData()[jeje].precio,
-									color: traeData()[jeje].color(),
-									imagen: traeData()[jeje].imagen.principal,
+									id: traeData()[jeje - 1].id,
+									nombre: traeData()[jeje - 1].nombre,
+									precio: traeData()[jeje - 1].precio,
+									color: traeData()[jeje - 1].color(),
+									imagen: traeData()[jeje - 1].imagen.principal,
 								};
 
 								return (
