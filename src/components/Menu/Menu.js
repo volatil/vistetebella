@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { isMobile, deployMenu, traeCategorias } from "../../Helpers/Helpers";
 
+import carrito from "../../assets/svg/carrito2.svg";
+
 import "./Menu.css";
 
 function MenuDesktop() {
@@ -9,13 +11,18 @@ function MenuDesktop() {
 		<nav className="desktop">
 			<ul>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/">inicio</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/">inicio</NavLink>
 				</li>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/tienda">tienda</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/tienda">tienda</NavLink>
 				</li>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : "none")} to="/wishlist">wishlist</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/wishlist">Wishlist</NavLink>
+				</li>
+				<li>
+					<NavLink className={({ isActive }) => (isActive ? "carrito tamoactivo" : "carrito" )} to="/carrito">
+						<img src={carrito} alt="Carrito" />
+					</NavLink>
 				</li>
 			</ul>
 		</nav>

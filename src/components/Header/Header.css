@@ -21,9 +21,6 @@ header #logo > a {
 header #logo > a > img {
 	width: 100%;
 }
-header nav {
-	width: 20%;
-}
 header #logo > a {
 	display: flex;
 }

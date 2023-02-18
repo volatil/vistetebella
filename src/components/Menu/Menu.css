@@ -1,3 +1,6 @@
+header nav {
+	width: 30%;
+}
 nav.desktop > ul {
 	display: flex;
 	margin: 0;
@@ -24,8 +27,13 @@ nav.desktop > ul > li > a {
 }
 nav.desktop > ul > li > a:hover ,
 nav.desktop > ul > li > a.tamoactivo {
-	/* font-weight: 600; */
 	border-bottom: 4px solid black;
+}
+nav.desktop > ul > li > a.carrito {
+	border-bottom: none;
+}
+nav.desktop > ul > li > a.carrito > img {
+	width: 25px;
 }
 nav.mobile {
 	display: flex;
