@@ -1,4 +1,5 @@
 import Logo from "../Logo/Logo";
+import DireccionesEnvio from "../DIreccionesEnvio/DireccionesEnvio";
 import Buscador from "../Buscador/Buscador";
 import Menu from "../Menu/Menu";
 
@@ -12,7 +13,7 @@ function Header() {
 			{
 				isMobile()
 					? (<><div><Logo /><Menu /></div> <Buscador /></>)
-					: (<><Logo /><Buscador /> <Menu /> </>)
+					: (<><Logo /> <DireccionesEnvio /> <Buscador /> <Menu /> </>)
 			}
 		</header>
 	);

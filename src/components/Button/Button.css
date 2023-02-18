@@ -1,0 +1,22 @@
+.elboton {
+	background: #3483fa;
+	color: white;
+	border-radius: 3px;
+	padding: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: 40px;
+}
+.elboton:hover {
+	background: #2968c8;
+}
+.elboton.disabled {
+	background: #0000001a;
+	color: #00000040;
+	cursor: default;
+}
+.elboton > p {
+	margin: 0;
+	padding: 0 20px;
+}

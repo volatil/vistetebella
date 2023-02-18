@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { isMobile, deployMenu, traeCategorias } from "../../Helpers/Helpers";
 
-import carrito from "../../assets/svg/carrito2.svg";
+import carrito from "../../assets/svg/carrito.svg";
 
 import "./Menu.css";
 
