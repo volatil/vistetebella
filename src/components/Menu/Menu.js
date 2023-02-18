@@ -22,7 +22,7 @@ function MenuDesktop() {
 	);
 }
 
-function MenuMobile( props ) {
+function MenuMobile() {
 	const categorias = traeCategorias();
 	return (
 		<nav className="mobile">

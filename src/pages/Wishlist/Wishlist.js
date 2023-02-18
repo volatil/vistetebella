@@ -35,7 +35,6 @@ function Wishlist() {
 
 	useEffect(() => {
 		const algo = JSON.parse( getWishlist() );
-		console.debug( algo.length );
 		setLosid(algo);
 		setLosresultados( totalResultados({ cantidad: algo.length, busqueda: paramBusqueda("q") }) );
 	}, []);
