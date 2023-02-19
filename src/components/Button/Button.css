@@ -1,6 +1,4 @@
 .elboton {
-	background: #3483fa;
-	color: white;
 	border-radius: 3px;
 	padding: 0;
 	cursor: pointer;
@@ -8,8 +6,19 @@
 	align-items: center;
 	height: 40px;
 }
-.elboton:hover {
+.elboton.primario {
+	background: #3483fa;
+	color: white;
+}
+.elboton.primario:hover {
 	background: #2968c8;
+}
+.elboton.secundario {
+	background-color: #4189e626;
+	color: #3483fa;
+}
+.elboton.secundario:hover {
+	background-color: #4189e633;
 }
 .elboton.disabled {
 	background: #0000001a;
@@ -19,4 +28,5 @@
 .elboton > p {
 	margin: 0;
 	padding: 0 20px;
+	line-height: .9em;
 }

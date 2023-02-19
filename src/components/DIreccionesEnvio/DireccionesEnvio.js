@@ -96,7 +96,7 @@ function DireccionesEnvio() {
 				};
 
 				if ( selectVal.region !== "no" && selectVal.comuna !== "no" ) {
-					setestadoboton("enable");
+					setestadoboton("primario");
 				} else {
 					setestadoboton("disabled");
 				}
