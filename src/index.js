@@ -15,6 +15,7 @@ import Contacto from "./pages/Contacto/Contacto";
 import Categoria from "./pages/Categoria/Categoria";
 import Resultados from "./pages/Resultados/Resultados";
 import Wishlist from "./pages/Wishlist/Wishlist";
+import Domicilios from "./pages/Domicilios/Domicilios";
 
 import Error from "./pages/Error/Error";
 
@@ -39,6 +40,7 @@ root.render(
 			<Route path="/categoria/:categoria" element={<Categoria />} />
 			<Route path="/resultados/" element={<Resultados />} />
 			<Route path="/wishlist/" element={<Wishlist />} />
+			<Route path="/domicilios/" element={<Domicilios />} />
 
 			<Route path="*" element={<Error />} />
 

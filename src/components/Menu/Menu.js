@@ -11,9 +11,6 @@ function MenuDesktop() {
 		<nav className="desktop">
 			<ul>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/">inicio</NavLink>
-				</li>
-				<li>
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/tienda">tienda</NavLink>
 				</li>
 				<li>

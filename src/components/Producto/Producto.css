@@ -30,7 +30,6 @@ section#grilla > a.producto .contenido > h2 {
 	margin-bottom: 0;
 }
 section#grilla > a.producto .contenido > p.precio {
-	color: var( --precio );
 	margin-top: 0;
 	font-size: .9em;
 	color: black;

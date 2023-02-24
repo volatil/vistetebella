@@ -12,8 +12,23 @@ function Header() {
 		<header>
 			{
 				isMobile()
-					? (<><div><Logo /><Menu /></div> <Buscador /></>)
-					: (<><Logo /> <DireccionesEnvio /> <Buscador /> <Menu /> </>)
+					? (
+						<>
+							<div>
+								<Logo />
+								<Menu />
+							</div>
+							<Buscador />
+						</>
+					)
+					: (
+						<>
+							<Logo />
+							<DireccionesEnvio />
+							<Buscador />
+							<Menu />
+						</>
+					)
 			}
 		</header>
 	);

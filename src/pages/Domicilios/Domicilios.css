@@ -1,0 +1,199 @@
+#domicilios {
+	width: 560px;
+	margin: 40px auto 0;
+}
+#domicilios .titulosuperior {
+	display: flex;
+	align-items: stretch;
+}
+#domicilios .titulosuperior img {
+	width: 50px;
+}
+#domicilios .titulosuperior h2 {
+	color: black;
+	font-size: 1.9em;
+	font-weight: 400;
+	margin: 0 0 0 10px;
+}
+#domicilios .bloqueDireccion {
+	margin-top: 40px;
+}
+#domicilios .bloqueDireccion .titulo > h6 {
+	font-size: 1.1em;
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+	letter-spacing: .05em;
+}
+#domicilios .bloqueDireccion .titulo > p {
+	color: #555;
+	margin: 0;
+	padding: 0;
+}
+
+#domicilios .agregardireccion .datosdomicilio {
+	margin-top: 20px;
+}
+#domicilios .agregardireccion .datosdomicilio > div {
+	margin-top: 20px;
+}
+#domicilios .agregardireccion .datosdomicilio div > span ,
+#domicilios .agregardireccion .datosdomicilio div p.label {
+	margin: 0;
+	padding: 0;
+}
+#domicilios .agregardireccion .datosdomicilio div > span {
+	font-size: .8em;
+	color: #666;
+	margin-top: 4px;
+}
+#domicilios .agregardireccion .datosdomicilio div span::first-letter ,
+#domicilios .agregardireccion .datosdomicilio div p.label::first-letter {
+	text-transform: uppercase;
+}
+#domicilios .agregardireccion .datosdomicilio input[type=text] ,
+#domicilios .agregardireccion .datosdomicilio input[type=tel] ,
+#domicilios .agregardireccion .datosdomicilio input[type=number] ,
+#domicilios .agregardireccion .datosdomicilio select ,
+#domicilios .agregardireccion .datosdomicilio textarea {
+	height: 40px;
+	width: 100%;
+	border-radius: 7px;
+	border: 1px solid #bbb;
+	padding: 5px 10px;
+	cursor: pointer;
+	outline: none;
+}
+#domicilios .agregardireccion .datosdomicilio select {
+	height: 50px;
+}
+#domicilios .agregardireccion .datosdomicilio input[type=text]:focus ,
+#domicilios .agregardireccion .datosdomicilio select:focus {
+	border: 1px solid var( --institucionalOscuro );
+}
+#domicilios .agregardireccion .datosdomicilio .nombre {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+}
+#domicilios .agregardireccion .datosdomicilio .nombre input[type=text] ,
+#domicilios .agregardireccion .datosdomicilio .telefono > input {
+	width: 400px;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo {
+	display: flex;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo > div {
+	width: 50%;
+	margin-right: 3%;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo > div:last-of-type {
+	margin-right: 0;
+}
+#domicilios .agregardireccion .datosdomicilio input[type=number] ,
+#domicilios .agregardireccion .datosdomicilio .doblecampo > div input[type=text] {
+	width: 92%
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo {
+	display: flex;
+	flex-direction: column;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > p {
+	margin: 0;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > p::first-letter {
+	text-transform: capitalize;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > div {
+	display: flex;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > div > div {
+	display: flex;
+	margin-right: 10px;
+	flex-direction: row;
+	align-items: center;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > div > div > input[type=radio] {
+	margin-right: 4px;
+	height: 16px;
+	width: 16px;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > div > div p {
+	text-transform: capitalize;
+	display: flex;
+	cursor: pointer;
+}
+#domicilios .agregardireccion .datosdomicilio .doblecampo.casatrabajo > div > div p img {
+	width: 15px;
+	margin-right: 6px;
+}
+#domicilios .agregardireccion .datosdomicilio .referencia > span {
+	text-align: right;
+	display: block;
+}
+#domicilios .editardireccion .datosdomicilio {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+#domicilios .editardireccion .datosdomicilio > div {
+	position: relative;
+	width: 100%;
+	background-color: whitesmoke;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+#domicilios .editardireccion .datosdomicilio > div > p {
+	margin: 0 0 0 30px;
+	font-weight: 300;
+}
+#domicilios .editardireccion .datosdomicilio > div > p.titulo {
+	margin-left: 0;
+}
+#domicilios .editardireccion .datosdomicilio > div > p.titulo strong {
+	font-weight: 500;
+}
+#domicilios .editardireccion .datosdomicilio > div > p.titulo img {
+	width: 20px;
+	margin-right: 10px;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos img {
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+	padding: 8px;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos img:hover {
+	background: #ccc;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos ul {
+	display: none;
+	background: #e6e6e6;
+	margin: 0;
+	padding: 0;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos ul > li {
+	cursor: pointer;
+	list-style: none;
+	margin: 0 40px 0 0;
+	text-transform: capitalize;
+	padding: 5px 0px 5px 8px;
+	text-indent: 10px;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos ul > li:hover {
+	background-color: #ccc;
+}
+#domicilios .editardireccion .datosdomicilio > div > .menupuntitos ul > li:last-of-type {
+	padding-bottom: 5px;
+}

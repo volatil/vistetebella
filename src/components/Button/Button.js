@@ -2,7 +2,7 @@ import "./Button.css";
 
 function Button({ texto, estado }) {
 	return (
-		<div className={`elboton ${estado}`}>
+		<div id="elboton" className={estado}>
 			<p>{texto}</p>
 		</div>
 	);
