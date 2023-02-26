@@ -67,6 +67,13 @@
 #domicilios .agregardireccion .datosdomicilio select {
 	height: 50px;
 }
+#domicilios select.select_region ,
+#domicilios select.select_comuna {
+	height: 50px;
+	margin-right: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+}
 #domicilios .agregardireccion .datosdomicilio input[type=text]:focus ,
 #domicilios .agregardireccion .datosdomicilio select:focus {
 	border: 1px solid var( --institucionalOscuro );

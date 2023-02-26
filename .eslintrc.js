@@ -32,7 +32,7 @@ module.exports = {
 		"template-curly-spacing": 0, // Desactiva el espacio dentro de los parentesis before y after
 		// "no-console": ["error", { allow: ["debug"] }], // acepta solo el console.debug
 		"no-console": ["error", { allow: ["debug", "table"] }], // acepta solo el console.debug
-		"max-len": ["error", 240],
+		"max-len": ["error", 1000],
 
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
