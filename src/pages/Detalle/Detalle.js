@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import $ from "jquery";
 import { Helmet } from "react-helmet";
 
 import { NOMBRETIENDA } from "../../Helpers/Const";
@@ -19,6 +20,12 @@ import {
 	traeData,
 	nomeabandones,
 } from "../../Helpers/Helpers";
+
+function eltest() {
+	$(".barracomprar").on("click", () => {
+		console.debug( "CLICK!" );
+	});
+}
 
 function FechaEntrega() {
 	return (
@@ -99,7 +106,7 @@ function Comentarios({ data }) {
 function BarraComprar({ clase }) {
 	return (
 		<nav className={`barracomprar ${clase}`}>
-			<a href="#asdasd" title="Comprar">comprar</a>
+			<p>Comprar</p>
 		</nav>
 	);
 }
@@ -117,6 +124,7 @@ function Detalle() {
 		lafechaEntrega();
 		cambiarThumb();
 		tabs();
+		eltest();
 	});
 
 	if ( detalle ) {
@@ -148,9 +156,9 @@ function Detalle() {
 						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
 						<p className="precio">$ {res.precio}</p>
 						<Tallas data={res.tallas()} />
-						<BarraComprar clase="desktop" />
+						{ !isMobile() && <BarraComprar clase="desktop" /> }
 						<FechaEntrega />
-						<BarraComprar clase="mobile" />
+						{ isMobile() && <BarraComprar clase="mobile" /> }
 					</div>
 
 				</section>

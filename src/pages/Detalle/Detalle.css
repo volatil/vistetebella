@@ -67,8 +67,9 @@ section#detalle nav.barracomprar.mobile {
 }
 section#detalle nav.barracomprar.desktop {
 	display: block;
+	cursor: pointer;
 }
-section#detalle nav.barracomprar.desktop > a {
+section#detalle nav.barracomprar.desktop > p {
 	background: black;
 	height: 50px;
 	color: white;
@@ -86,7 +87,7 @@ section#detalle nav.barracomprar.desktop > a {
 	-o-transition:      all 0.2s ease-out;
 	transition:         all 0.2s ease-out;
 }
-section#detalle nav.barracomprar.desktop > a:hover {
+section#detalle nav.barracomprar.desktop > p:hover {
 	background: #333;
 }
 section#tabsDetalle {
