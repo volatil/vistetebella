@@ -21,11 +21,7 @@ import {
 	nomeabandones,
 } from "../../Helpers/Helpers";
 
-function eltest() {
-	$(".barracomprar").on("click", () => {
-		console.debug( "CLICK!" );
-	});
-}
+import { agregarAlCarro } from "../../Helpers/Carro";
 
 function FechaEntrega() {
 	return (
@@ -124,7 +120,7 @@ function Detalle() {
 		lafechaEntrega();
 		cambiarThumb();
 		tabs();
-		eltest();
+		agregarAlCarro();
 	});
 
 	if ( detalle ) {
