@@ -1,37 +1,77 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+
 import { getProductosCarro } from "../../Helpers/Carro";
 import { nomeabandones, traeData } from "../../Helpers/Helpers";
 import { NOMBRETIENDA } from "../../Helpers/Const";
+
+import Button from "../../components/Button/Button";
+import carrito from "../../assets/svg/carrito.svg";
+
+import "./Carro.css";
 
 function Carrovacio() {
 	return (<p>No tienes productos en el carrito</p>);
 }
 
 function Productoscarro({ data }) {
-	return (
-		<ul>
-			{
-				data?.map(( producto ) => {
-					console.debug( producto );
-					const prod = {
-						id: traeData()[producto.id - 1].id,
-						nombre: traeData()[producto.id - 1].nombre,
-						precio: traeData()[producto.id - 1].precio,
-						color: traeData()[producto.id - 1].color(),
-						imagen: traeData()[producto.id - 1].imagen.principal,
-					};
+	function precioTotal() {
+		let precio = 0;
+		for ( let count = 0; count <= data.length - 1; count++ ) {
+			precio += Number( traeData()[Number(data[count].id)].precio.replaceAll(".", "") );
+		}
+		precio = `$ ${precio.toLocaleString("es-CL")}`;
+		return precio;
+	}
 
-					return (
-						<div key={prod.id}>
-							<h2>ID: {producto.id} TALLA: {producto.talla}</h2>
-							<img src={prod.imagen} alt={prod.nombre} />
-							<p>Nombre: ${prod.nombre}</p>
-						</div>
-					);
-				})
-			}
-		</ul>
+	return (
+		<>
+			<ul className="barrasuperior">
+				<li>Producto</li>
+				<li>Talla</li>
+				<li>Cantidad</li>
+				<li>Precio</li>
+			</ul>
+			<ul className="listaProductos">
+				{
+					data?.map(( producto ) => {
+						const prod = {
+							id: traeData()[producto.id - 1].id,
+							nombre: traeData()[producto.id - 1].nombre,
+							precio: traeData()[producto.id - 1].precio,
+							imagen: traeData()[producto.id - 1].imagen.principal,
+						};
+
+						return (
+							<li key={prod.id}>
+								<div className="producto">
+									<img src={prod.imagen} alt={prod.nombre} />
+									<p>{prod.nombre}</p>
+								</div>
+								<div className="talla">
+									<p>{producto.talla}</p>
+								</div>
+								<div className="unidades">
+									<p>1 unidad</p>
+								</div>
+								<div className="precio">
+									<p>$ {prod.precio}</p>
+								</div>
+							</li>
+						);
+					})
+				}
+				<li className="numeros">
+					<div />
+					<div />
+					<div />
+					<div className="total">
+						<p>Total: <strong>{precioTotal()}</strong></p>
+					</div>
+				</li>
+				<Button estado="primario" texto="Comprar" />
+			</ul>
+		</>
 	);
 }
 
@@ -45,12 +85,12 @@ function Carro() {
 	return (
 		<>
 			<Helmet>
-				<title>Carro de Compras || {NOMBRETIENDA}</title>
+				<title>Carrito de Compras || {NOMBRETIENDA}</title>
 				{ nomeabandones( `Carro de Compras || ${NOMBRETIENDA}` ) }
 			</Helmet>
 			<section id="carro">
-				<h1>Carro de Compras</h1>
-				<div>
+				<h2><img src={carrito} alt="Carrito" /> Carrito de Compras</h2>
+				<div className="lista">
 					{
 						productosencarro ? <Productoscarro data={productosencarro} /> : <Carrovacio />
 					}

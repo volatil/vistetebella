@@ -1,0 +1,75 @@
+section#carro h2 {
+	margin-left: 20px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 1.8em;
+	position: relative;
+	text-align: center;
+}
+section#carro h2 > img {
+	width: 25px;
+	position: relative;
+	top: 2px;
+}
+section#carro > div.lista {
+	margin-top: 40px;
+}
+section#carro > div.lista > ul.barrasuperior {
+	display: flex;
+	padding: 0;
+}
+section#carro > div.lista > ul.barrasuperior > li {
+	width: 25%;
+	margin: 0 1%;
+	list-style: none;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: #000;
+	letter-spacing: 0.05em;
+	text-align-last: center;
+}
+section#carro > div.lista > ul.listaProductos {
+	margin: 0;
+	padding: 0;
+}
+section#carro > div.lista > ul.listaProductos > li {
+	display: flex;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+}
+section#carro > div.lista > ul.listaProductos > li > div {
+	width: 25%;
+	margin: 0 1%;
+}
+section#carro > div.lista > ul.listaProductos > li > div.producto {
+	display: flex;
+}
+section#carro > div.lista > ul.listaProductos > li > div.producto > img {
+	width: 100px;
+}
+section#carro > div.lista > ul.listaProductos > li > div.producto > p {
+	margin: 0 0 0 10px;
+	font-size: .8em;
+}
+section#carro > div.lista > ul.listaProductos > li > div.talla > p {
+	text-align: center;
+}
+section#carro > div.lista > ul.listaProductos > li > div.unidades > p {
+	text-align: center;
+}
+section#carro > div.lista > ul.listaProductos > li > div.precio > p {
+	text-align: center;
+}
+section#carro > div.lista > ul.listaProductos > li.numeros {
+	border-bottom: none;
+}
+section#carro > div.lista > ul.listaProductos > li.numeros > div.total > p {
+	text-align: center;
+}
+section#carro > div.lista > ul.listaProductos #elboton {
+	width: 150px;
+	float: right;
+	margin-right: 4%;
+}
