@@ -17,7 +17,7 @@ function MenuDesktop() {
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/wishlist">Wishlist</NavLink>
 				</li>
 				<li>
-					<NavLink className={({ isActive }) => (isActive ? "carrito tamoactivo" : "carrito" )} to="/carrito">
+					<NavLink className={({ isActive }) => (isActive ? "carrito tamoactivo" : "carrito" )} to="/carro">
 						<img src={carrito} alt="Carrito" />
 					</NavLink>
 				</li>
