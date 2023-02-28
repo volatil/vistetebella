@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProductos } from "../../Helpers/Carro";
+import { getProductosCarro } from "../../Helpers/Carro";
 
 function Carrovacio() {
 	return (<p>No tienes productos en el carrito</p>);
@@ -18,7 +18,7 @@ function Carro() {
 	const [productosencarro, setproductosencarro] = useState();
 
 	useEffect(() => {
-		getProductos();
+		getProductosCarro();
 	}, []);
 
 	return (

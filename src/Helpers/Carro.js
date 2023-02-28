@@ -2,18 +2,37 @@ import $ from "jquery";
 
 const keyStorage = "vistetebella_carro";
 
-export function agregarAlCarro() {
+export function agregarAlCarro({ id, talla }) {
+	console.debug(`Click! ID: ${id} Talla: ${talla}`);
+	const prod = {
+		id,
+		talla,
+	};
+	// AGREGANDO
+	if ( localStorage.getItem( keyStorage ) ) {
+		const carroAnterior = JSON.parse( localStorage.getItem( keyStorage ) );
+		carroAnterior.push( prod );
+		localStorage.setItem( keyStorage, JSON.stringify( carroAnterior ) );
+	} else {
+		localStorage.setItem( keyStorage, JSON.stringify([prod]) );
+	}
+}
+
+export function clickAgregar( elid ) {
 	$(".barracomprar").on("click", () => {
-		const talla = $("section#detalle .informacion div.tallas select").val();
-		if ( talla === "vacio" ) {
+		const prod = {
+			id: elid,
+			talla: $("section#detalle .informacion div.tallas select").val(),
+		};
+		if ( prod.talla === "vacio" ) {
 			console.debug("Debes seleccionar una talla");
 		} else {
-			console.debug(`Click! Talla: ${talla}`);
+			agregarAlCarro({ id: prod.id, talla: prod.talla });
 		}
 	});
 }
 
-export function getProductos() {
+export function getProductosCarro() {
 	if ( localStorage.getItem( keyStorage ) ) {
 		// asdasd
 	} else {

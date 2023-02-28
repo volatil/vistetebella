@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import $ from "jquery";
 import { Helmet } from "react-helmet";
 
 import { NOMBRETIENDA } from "../../Helpers/Const";
@@ -21,7 +20,7 @@ import {
 	nomeabandones,
 } from "../../Helpers/Helpers";
 
-import { agregarAlCarro } from "../../Helpers/Carro";
+import { clickAgregar } from "../../Helpers/Carro";
 
 function FechaEntrega() {
 	return (
@@ -120,7 +119,7 @@ function Detalle() {
 		lafechaEntrega();
 		cambiarThumb();
 		tabs();
-		agregarAlCarro();
+		clickAgregar( id );
 	});
 
 	if ( detalle ) {
