@@ -34,8 +34,9 @@ export function clickAgregar( elid ) {
 
 export function getProductosCarro() {
 	if ( localStorage.getItem( keyStorage ) ) {
-		// asdasd
-	} else {
-		localStorage.setItem( keyStorage, false);
+		const carro = JSON.parse( localStorage.getItem( keyStorage ) );
+		return carro;
 	}
+
+	return false;
 }
