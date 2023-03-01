@@ -2,8 +2,17 @@ import $ from "jquery";
 
 const keyStorage = "vistetebella_carro";
 
+export function eliminarProducto() {
+	$("section#carro > div.lista > ul.listaProductos > li > div.producto > span.eliminar").on("click", function () {
+		const posicion = $(this).parent().parent().attr("data-posicion");
+		$(this).parent().parent().hide();
+		const carro = JSON.parse( localStorage.getItem( "vistetebella_carro" ) );
+		carro.splice(posicion, 1);
+		localStorage.setItem( "vistetebella_carro", JSON.stringify(carro) );
+	});
+}
+
 export function agregarAlCarro({ id, talla }) {
-	console.debug(`Click! ID: ${id} Talla: ${talla}`);
 	const prod = {
 		id,
 		talla,
