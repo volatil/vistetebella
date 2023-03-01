@@ -91,16 +91,16 @@ section#carro > div.lista > ul.listaProductos > li > a > div.unidades > p {
 section#carro > div.lista > ul.listaProductos > li > a > div.precio > p {
 	text-align: center;
 }
-section#carro > div.lista > ul.listaProductos > li > a.numeros {
+section#carro > div.lista > ul.listaProductos > li.numeros {
 	border-bottom: none;
 	display: flex;
 	justify-content: flex-end;
 	margin-right: 4%;
 }
-section#carro > div.lista > ul.listaProductos > li > a.numeros > div.total {
+section#carro > div.lista > ul.listaProductos > li.numeros > div.total {
 	width: auto;
 }
-section#carro > div.lista > ul.listaProductos > li > a.numeros > div.total > p {
+section#carro > div.lista > ul.listaProductos > li.numeros > div.total > p {
 	text-align: center;
 }
 section#carro > div.lista > ul.listaProductos #elboton {
