@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import Helmet from "react-helmet";
+import { NavLink } from "react-router-dom";
+// import $ from "jquery";
 
-import { getProductosCarro } from "../../Helpers/Carro";
+import { getProductosCarro, eliminarProducto } from "../../Helpers/Carro";
 import { nomeabandones, traeData } from "../../Helpers/Helpers";
 import { NOMBRETIENDA } from "../../Helpers/Const";
 
@@ -35,7 +37,7 @@ function Productoscarro({ data }) {
 			</ul>
 			<ul className="listaProductos">
 				{
-					data?.map(( producto ) => {
+					data?.map(( producto, posicion ) => {
 						const prod = {
 							id: traeData()[producto.id - 1].id,
 							nombre: traeData()[producto.id - 1].nombre,
@@ -44,23 +46,25 @@ function Productoscarro({ data }) {
 						};
 
 						return (
-							<li key={prod.id}>
-								<div className="producto">
-									<span className="eliminar">
-										<img src={simbolocerrar} alt="Eliminar" />
-									</span>
-									<img src={prod.imagen} alt={prod.nombre} />
-									<p>{prod.nombre}</p>
-								</div>
-								<div className="talla">
-									<p>{producto.talla}</p>
-								</div>
-								<div className="unidades">
-									<p>1 unidad</p>
-								</div>
-								<div className="precio">
-									<p>$ {prod.precio}</p>
-								</div>
+							<li data-posicion={posicion} key={prod.id}>
+								<NavLink to={`/producto/${producto.id}/${prod.nombre}`}>
+									<div className="producto">
+										<span className="eliminar">
+											<img src={simbolocerrar} alt="Eliminar" />
+										</span>
+										<img src={prod.imagen} alt={prod.nombre} />
+										<p>{prod.nombre}</p>
+									</div>
+									<div className="talla">
+										<p>{producto.talla}</p>
+									</div>
+									<div className="unidades">
+										<p>1 unidad</p>
+									</div>
+									<div className="precio">
+										<p>$ {prod.precio}</p>
+									</div>
+								</NavLink>
 							</li>
 						);
 					})
@@ -82,6 +86,10 @@ function Carro() {
 	useEffect(() => {
 		setproductosencarro( getProductosCarro() );
 	}, []);
+
+	useEffect(() => {
+		eliminarProducto();
+	});
 
 	return (
 		<>
