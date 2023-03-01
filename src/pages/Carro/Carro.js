@@ -7,6 +7,7 @@ import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import Button from "../../components/Button/Button";
 import carrito from "../../assets/svg/carrito.svg";
+import simbolocerrar from "../../assets/svg/simbolocerrar.svg";
 
 import "./Carro.css";
 
@@ -27,7 +28,7 @@ function Productoscarro({ data }) {
 	return (
 		<>
 			<ul className="barrasuperior">
-				<li>Producto</li>
+				<li className="producto">Producto</li>
 				<li>Talla</li>
 				<li>Cantidad</li>
 				<li>Precio</li>
@@ -45,6 +46,9 @@ function Productoscarro({ data }) {
 						return (
 							<li key={prod.id}>
 								<div className="producto">
+									<span className="eliminar">
+										<img src={simbolocerrar} alt="Eliminar" />
+									</span>
 									<img src={prod.imagen} alt={prod.nombre} />
 									<p>{prod.nombre}</p>
 								</div>
@@ -62,9 +66,6 @@ function Productoscarro({ data }) {
 					})
 				}
 				<li className="numeros">
-					<div />
-					<div />
-					<div />
 					<div className="total">
 						<p>Total: <strong>{precioTotal()}</strong></p>
 					</div>
