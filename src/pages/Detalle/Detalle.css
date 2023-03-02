@@ -41,6 +41,35 @@ section#detalle .informacion h2 {
 section#detalle .informacion h2::first-letter {
 	text-transform: capitalize;
 }
+section#detalle .informacion .valoracion {
+	display: flex;
+	align-items: center;
+}
+section#detalle .informacion .valoracion .icono {
+	background: url("../../assets/imagenes/valoracion.png");
+	width: 96px;
+	height: 18px;
+	display: block;
+	margin-right: 10px;
+	background-size: 6em;
+	background-repeat: no-repeat;
+	/* background-color: cyan; */
+}
+section#detalle .informacion .valoracion .icono.estrella5 {
+	background-position: 0 0;
+}
+section#detalle .informacion .valoracion .icono.estrella4 {
+	background-position: 0 -36px;
+}
+section#detalle .informacion .valoracion .icono.estrella3 {
+	background-position: 0 -72px;
+}
+section#detalle .informacion .valoracion .icono.estrella2 {
+	background-position: 0 -107px;
+}
+section#detalle .informacion .valoracion .icono.estrella1 {
+	background-position: 0 -143px;
+}
 section#detalle .informacion p {
 	margin: 0;
 }

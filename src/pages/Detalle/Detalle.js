@@ -106,6 +106,40 @@ function BarraComprar({ clase }) {
 	);
 }
 
+function Valoracion({ valoracion }) {
+	function laclase( recibe ) {
+		let lavalora = recibe.replaceAll(".", "_");
+		console.debug( lavalora );
+		if ( lavalora.includes("_") ) {
+			lavalora = lavalora.split("_")[0];
+			return lavalora;
+		}
+		return lavalora;
+		// let valoracionFIX = valoracion;
+		// if ( lavalo.includes(".") && lavalo.split(".")[1].length >= 2 ) {
+		// 	const fixvalo = `${lavalo.split(".")[0]}.${(lavalo.split(".")[1]).split("")[0]}`;
+		// 	return fixvalo;
+		// }
+		// const lavaloracion = lavalo.replaceAll(".", "_");
+	}
+
+	// function laclase( lavalo ) {
+	// 	if ( lavalo.includes(".") && lavalo.split(".")[1].length >= 2 ) {
+	// 		const fixvalo = `${lavalo.split(".")[0]}.${(lavalo.split(".")[1]).split("")[0]}`;
+	// 		return fixvalo;
+	// 	}
+	// 	const lavaloracion = lavalo.replaceAll(".", "_");
+	// 	return lavaloracion;
+	// }
+
+	return (
+		<div className="valoracion">
+			<span className={`icono estrella${laclase(valoracion)}`} />
+			<strong>{valoracion}</strong>
+		</div>
+	);
+}
+
 function Detalle() {
 	const [detalle, setDetalle] = useState(null);
 	const id = useParams().id;
@@ -148,7 +182,7 @@ function Detalle() {
 					<div className="informacion">
 						{ !isMobile() && <Breadcrumb categoria={res.categoria} nombre={res.nombre} /> }
 						<h2>{res.nombre}</h2>
-						<div className="valoracion">Valoracion: <strong>{res.valoracion}</strong></div>
+						<Valoracion valoracion={res.valoracion} />
 						<p className="precio">$ {res.precio}</p>
 						<Tallas data={res.tallas()} />
 						{ !isMobile() && <BarraComprar clase="desktop" /> }

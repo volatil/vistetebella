@@ -4,6 +4,9 @@
 	--institucional: #f4e8e8;
 	--institucionalOscuro: #f6cccc;
 }
+::selection {
+	background: var( --institucionalOscuro );
+}
 body {
 	margin: 0;
 	font-family: 'Jost', 'Helvetica Neue', sans-serif;
