@@ -115,22 +115,7 @@ function Valoracion({ valoracion }) {
 			return lavalora;
 		}
 		return lavalora;
-		// let valoracionFIX = valoracion;
-		// if ( lavalo.includes(".") && lavalo.split(".")[1].length >= 2 ) {
-		// 	const fixvalo = `${lavalo.split(".")[0]}.${(lavalo.split(".")[1]).split("")[0]}`;
-		// 	return fixvalo;
-		// }
-		// const lavaloracion = lavalo.replaceAll(".", "_");
 	}
-
-	// function laclase( lavalo ) {
-	// 	if ( lavalo.includes(".") && lavalo.split(".")[1].length >= 2 ) {
-	// 		const fixvalo = `${lavalo.split(".")[0]}.${(lavalo.split(".")[1]).split("")[0]}`;
-	// 		return fixvalo;
-	// 	}
-	// 	const lavaloracion = lavalo.replaceAll(".", "_");
-	// 	return lavaloracion;
-	// }
 
 	return (
 		<div className="valoracion">
