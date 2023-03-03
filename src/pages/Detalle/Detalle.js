@@ -8,6 +8,8 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Relacionados from "../../components/Relacionados/Relacionados";
 import AgregarQuitarWISHLIST from "../../components/AgregarQuitarWISHLIST/AgregarQuitarWISHLIST";
 
+import regla from "../../assets/svg/regla.svg";
+import cuadromedidas from "../../assets/imagenes/cuadromedidas.PNG";
 import "./Detalle.css";
 
 import {
@@ -21,6 +23,7 @@ import {
 } from "../../Helpers/Helpers";
 
 import { clickAgregar } from "../../Helpers/Carro";
+import { showGuiaTallas, hideGuiaTallas, cambiarUnidadMedida } from "../../Helpers/Detalle";
 
 function FechaEntrega() {
 	return (
@@ -56,6 +59,111 @@ function Descripcion({ descripcion }) {
 				})
 			}
 		</ul>
+	);
+}
+
+function Guiadetallas() {
+	return (
+		<>
+			<div className="botonguiadetallas">
+				<img src={regla} alt="Guía de Tallas" />
+				<p>Guía de Tallas</p>
+			</div>
+			<section id="fondoguiadetallas" />
+			<section id="guiadetallas">
+				<span>X</span>
+				<h4>Guia de tallas</h4>
+				<div className="cambiarMedida">
+					<p>Cambiar medida:</p>
+					<ul>
+						<li className="activo">cm</li>
+						<li>in</li>
+					</ul>
+				</div>
+				<table data-medida="cm" cellSpacing="0" cellPadding="0">
+					<tbody>
+						<tr>
+							<td>Talla</td>
+							<td>Contorno caderas</td>
+							<td>Contorno cintura</td>
+							<td>Pecho</td>
+						</tr>
+						<tr>
+							<td>XS</td>
+							<td>87 - 91</td>
+							<td>62 - 66</td>
+							<td>82 - 86</td>
+						</tr>
+						<tr>
+							<td>S</td>
+							<td>91 - 95</td>
+							<td>66 - 70</td>
+							<td>86 - 90</td>
+						</tr>
+						<tr>
+							<td>M</td>
+							<td>95 - 99</td>
+							<td>70 - 74</td>
+							<td>90 - 94</td>
+						</tr>
+						<tr>
+							<td>L</td>
+							<td>99 - 105</td>
+							<td>74 - 80</td>
+							<td>94 - 100</td>
+						</tr>
+						<tr>
+							<td>XL</td>
+							<td>105 - 111</td>
+							<td>80 - 86</td>
+							<td>100 - 106</td>
+						</tr>
+					</tbody>
+				</table>
+				<table data-medida="in" cellSpacing="0" cellPadding="0" style={{ display: "none" }}>
+					<tbody>
+						<tr>
+							<td>Talla</td>
+							<td>Contorno caderas</td>
+							<td>Contorno cintura</td>
+							<td>Pecho</td>
+						</tr>
+						<tr>
+							<td>XS</td>
+							<td>34.3 - 35.8</td>
+							<td>24.4 - 26</td>
+							<td>32.3 - 33.9</td>
+						</tr>
+						<tr>
+							<td>S</td>
+							<td>35.8 - 37.4</td>
+							<td>26 - 27.6</td>
+							<td>33.9 - 35.4</td>
+						</tr>
+						<tr>
+							<td>M</td>
+							<td>37.4 - 39</td>
+							<td>27.6 - 29.1</td>
+							<td>35.4 - 37</td>
+						</tr>
+						<tr>
+							<td>L</td>
+							<td>39 - 41.3</td>
+							<td>29.1 - 31.5</td>
+							<td>37 - 39.4</td>
+						</tr>
+						<tr>
+							<td>XL</td>
+							<td>41.3 - 43.7</td>
+							<td>31.5 - 33.9</td>
+							<td>39.4 - 41.7</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>*Dependiendo de su tipo de cuerpo y hábitos de vestir, los tamaños anteriores son sólo de referencia.</p>
+				<img src={cuadromedidas} alt="Cuadro de Medidas" />
+			</section>
+		</>
 	);
 }
 
@@ -109,7 +217,6 @@ function BarraComprar({ clase }) {
 function Valoracion({ valoracion }) {
 	function laclase( recibe ) {
 		let lavalora = recibe.replaceAll(".", "_");
-		console.debug( lavalora );
 		if ( lavalora.includes("_") ) {
 			lavalora = lavalora.split("_")[0];
 			return lavalora;
@@ -139,10 +246,14 @@ function Detalle() {
 		cambiarThumb();
 		tabs();
 		clickAgregar( id );
+		showGuiaTallas();
+		hideGuiaTallas();
+		cambiarUnidadMedida();
 	});
 
 	if ( detalle ) {
 		const res = detalle[id - 1];
+		// console.debug( res.url );
 
 		return (
 			<>
@@ -169,6 +280,7 @@ function Detalle() {
 						<h2>{res.nombre}</h2>
 						<Valoracion valoracion={res.valoracion} />
 						<p className="precio">$ {res.precio}</p>
+						<Guiadetallas />
 						<Tallas data={res.tallas()} />
 						{ !isMobile() && <BarraComprar clase="desktop" /> }
 						<FechaEntrega />
