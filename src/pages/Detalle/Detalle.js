@@ -253,7 +253,7 @@ function Detalle() {
 
 	if ( detalle ) {
 		const res = detalle[id - 1];
-		// console.debug( res.url );
+		// console.debug( res.precio );
 
 		return (
 			<>

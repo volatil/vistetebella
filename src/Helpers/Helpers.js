@@ -1,6 +1,11 @@
 import $ from "jquery";
 import eljson from "../assets/json/inventario.json";
-import { COMETATIENDA, COMETAMELI, IVA } from "./Const";
+import {
+	COMETATIENDA,
+	COMETAMELI,
+	IVA,
+	PORCENTAJEGANANCIA,
+} from "./Const";
 
 // quita los caracteres feos para tener una amigable url
 export function armonizarURL(pos) {
@@ -50,10 +55,11 @@ export function precioTransbank( neto ) {
 }
 
 // calcular el precio
-export function precio( neto ) {
-	let preciofinal = Number( neto ) + Number( COMETATIENDA );
-	preciofinal = preciofinal.toLocaleString("es-CL");
-	return preciofinal;
+export function precio({ neto }) {
+	const porcentajeFIX = Number(100) + Number(PORCENTAJEGANANCIA);
+	let ganancia = (porcentajeFIX * neto) / 100;
+	ganancia = Number(ganancia.toFixed(0)).toLocaleString("es-CL");
+	return ganancia;
 }
 
 // calcula la fecha de entrega, minimo 14 dias maximo 18 dias
@@ -132,7 +138,7 @@ export function traeData() {
 		const p = {
 			id: resumen[0],
 			nombre: resumen[1].replaceAll("SHEIN ", ""),
-			precio: precio(resumen[2]),
+			precio: precio({ neto: resumen[2] }),
 			imagen: {
 				principal: resumen[4].split(",//")[0],
 				todas: () => {
