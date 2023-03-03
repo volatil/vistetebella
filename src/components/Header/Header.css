@@ -29,6 +29,8 @@ header #logo > a {
 		display: flex;
 		flex-direction: column;
 		height: auto;
+		border-bottom: none;
+		padding-bottom: 20px;
 	}
 	header > div {
 		display: flex;
