@@ -7,7 +7,7 @@
 section#detalle {
 	display: flex;
 	flex-direction: row;
-	width: 98%;
+	width: 70%;
 	margin: 20px auto 0;
 }
 section#detalle .thumbnails {
@@ -290,6 +290,7 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 		display: flex;
 		flex-direction: column;
 		margin-top: 0;
+		width: 98%;
 	}
 	section#detalle .principal > img {
 		width: 100%;
