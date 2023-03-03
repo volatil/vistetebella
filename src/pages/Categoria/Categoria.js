@@ -20,12 +20,10 @@ import categoriaArrowRight from "../../assets/imagenes/categoria_arrow_right.png
 function Categoria() {
 	const categoria = useLocation().pathname.split("/")[2];
 	const [elproducto, setElproducto] = useState();
-	const [loading, setLoading] = useState();
 	const [losresultados, setLosresultados] = useState();
 	const categoriaHumanizada = humanizaString(categoria);
 
 	useEffect(() => {
-		setLoading(true);
 		const data = [];
 		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
 			const resumen = eljson.values[count];
@@ -45,6 +43,7 @@ function Categoria() {
 					return color;
 				},
 			};
+			console.debug( `Precio: ${p.precio}` );
 
 			let tempCategoria = categoria;
 			tempCategoria = tempCategoria.replaceAll("-", " ").replaceAll("%20", " ");
@@ -57,7 +56,6 @@ function Categoria() {
 			}
 		}
 		setElproducto(data);
-		setLoading(false);
 
 		armonizarURL(2);
 		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
