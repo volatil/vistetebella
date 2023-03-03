@@ -40,6 +40,19 @@ function MenuMobile() {
 			</div>
 			<div className="losmenus">
 				<div>
+					<ul>
+						<li>
+							<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/tienda">Tienda</NavLink>
+						</li>
+						<li>
+							<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/wishlist">Wishlist</NavLink>
+						</li>
+						<li>
+							<NavLink className={({ isActive }) => (isActive ? "carrito tamoactivo" : "carrito" )} to="/carro">
+								Carro
+							</NavLink>
+						</li>
+					</ul>
 					<p>CATEGORIAS</p>
 					<ul>
 						{

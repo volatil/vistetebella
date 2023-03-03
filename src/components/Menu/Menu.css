@@ -135,12 +135,10 @@ body.menuactivo nav.mobile .losmenus > div {
 	margin-right: 10px;
 }
 body.menuactivo nav.mobile .losmenus > div p {
-	font-size: 2em;
+	font-size: 1.1em;
 	font-weight: 600;
-	margin: 0;
-	margin-bottom: 10px;
+	margin: 30px 0 10px 0;
 	text-decoration: underline;
-	margin-top: 10px;
 }
 body.menuactivo nav.mobile .losmenus > div ul {
 	margin: 0;
