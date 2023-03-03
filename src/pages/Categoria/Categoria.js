@@ -8,13 +8,12 @@ import Producto from "../../components/Producto/Producto";
 
 import {
 	armonizarURL,
-	precio,
 	humanizaString,
 	paramBusqueda,
 	totalResultados,
+	traeData,
 	nomeabandones,
 } from "../../Helpers/Helpers";
-import eljson from "../../assets/json/inventario.json";
 import categoriaArrowRight from "../../assets/imagenes/categoria_arrow_right.png";
 
 function Categoria() {
@@ -25,37 +24,15 @@ function Categoria() {
 
 	useEffect(() => {
 		const data = [];
-		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
-			const resumen = eljson.values[count];
+		for ( let count = traeData().length - 1; count >= 0; count-- ) {
+			const categoriaDESDElobuscado = categoria.replaceAll("-", " ").replaceAll("%20", " ").toLowerCase();
+			const categoriaDESDEinventario = traeData()[count].categoria.toLowerCase();
 
-			const p = {
-				id: resumen[0],
-				nombre: resumen[1].replaceAll("SHEIN ", ""),
-				precio: precio( resumen[2] ),
-				fechaentrega: resumen[3],
-				imagen: resumen[4].split(",//")[0],
-				categoria: resumen[9],
-				color: () => {
-					let color = resumen[11];
-					if ( !color ) {
-						color = "no especifica";
-					}
-					return color;
-				},
-			};
-			console.debug( `Precio: ${p.precio}` );
-
-			let tempCategoria = categoria;
-			tempCategoria = tempCategoria.replaceAll("-", " ").replaceAll("%20", " ");
-			tempCategoria = tempCategoria.toLowerCase();
-			let tempPCategoria = p.categoria;
-			tempPCategoria = tempPCategoria.toLowerCase();
-
-			if ( tempCategoria === tempPCategoria ) {
-				data.push( p );
+			if ( categoriaDESDElobuscado === categoriaDESDEinventario ) {
+				data.push( traeData()[count] );
 			}
 		}
-		setElproducto(data);
+		setElproducto( data );
 
 		armonizarURL(2);
 		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
@@ -79,7 +56,7 @@ function Categoria() {
 									id={prod.id}
 									nombre={prod.nombre}
 									precio={prod.precio}
-									imagen={prod.imagen}
+									imagen={prod.imagen.principal}
 								/>
 							);
 						})
