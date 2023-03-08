@@ -6,12 +6,11 @@ import Loading from "../../components/Loading/Loading";
 import Producto from "../../components/Producto/Producto";
 
 import {
-	precio,
 	totalResultados,
 	paramBusqueda,
 	nomeabandones,
+	traeData,
 } from "../../Helpers/Helpers";
-import eljson from "../../assets/json/inventario.json";
 
 import bannerSuperior from "../../assets/imagenes/202302100320sale.jpg";
 
@@ -20,31 +19,8 @@ function Tienda() {
 	const [losresultados, setLosresultados] = useState();
 
 	useEffect(() => {
-		const data = [];
-		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
-			const resumen = eljson.values[count];
-
-			const p = {
-				id: resumen[0],
-				nombre: resumen[1].replaceAll("SHEIN ", ""),
-				precio: () => {
-					return precio( resumen[2] );
-				},
-				fechaentrega: resumen[3],
-				imagen: resumen[4].split(",//")[0],
-				color: () => {
-					let color = resumen[11];
-					if ( !color ) {
-						color = "no especifica";
-					}
-					return color;
-				},
-			};
-
-			data.push( p );
-		}
-		setElproducto(data);
-		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
+		setElproducto( traeData() );
+		setLosresultados( totalResultados({ cantidad: traeData().length, busqueda: paramBusqueda("q") }) );
 	}, []);
 
 	if ( elproducto ) {
@@ -59,14 +35,23 @@ function Tienda() {
 				<section id="grilla">
 					{
 						elproducto?.map((prod) => {
+							const elprod = {
+								id: traeData()[prod.id - 1].id,
+								nombre: traeData()[prod.id - 1].nombre,
+								precio: traeData()[prod.id - 1].precio,
+								color: traeData()[prod.id - 1].color(),
+								imagen: traeData()[prod.id - 1].imagen.principal,
+							};
+							// console.debug( elprod.id, elprod.nombre, elprod.imagen );
+
 							return (
 								<Producto
-									key={prod.id}
-									id={prod.id}
-									nombre={prod.nombre}
-									precio={prod.precio()}
-									color={prod.color()}
-									imagen={prod.imagen}
+									key={elprod.id}
+									id={elprod.id}
+									nombre={elprod.nombre}
+									precio={elprod.precio}
+									color={elprod.color}
+									imagen={elprod.imagen}
 								/>
 							);
 						})
