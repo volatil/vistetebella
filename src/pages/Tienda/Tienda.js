@@ -42,7 +42,6 @@ function Tienda() {
 								color: traeData()[prod.id - 1].color(),
 								imagen: traeData()[prod.id - 1].imagen.principal,
 							};
-							// console.debug( elprod.id, elprod.nombre, elprod.imagen );
 
 							return (
 								<Producto
