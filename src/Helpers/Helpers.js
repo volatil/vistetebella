@@ -200,7 +200,9 @@ export function getAnchoPantalla() {
 // Sirve para ver cuando resultados filtró
 export function totalResultados( props ) {
 	let htmlResultados = "";
-	if ( props.cantidad >= 2 ) {
+	if ( !props.busqueda ) {
+		htmlResultados = "Encontramos resultados.";
+	} else if ( props.cantidad >= 2 ) {
 		htmlResultados = `Encontramos ${props.cantidad} resultados.`;
 	} else if ( props.cantidad === 1 ) {
 		htmlResultados = `Encontramos ${props.cantidad} resultado.`;
