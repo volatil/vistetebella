@@ -6,13 +6,13 @@ function Buscador() {
 	const datanombre = [];
 	const datacategoria = [];
 	for ( let count = 0; count <= traeData().length - 1; count++ ) {
-		datacolor.push( traeData()[count].color() );
-		datanombre.push( traeData()[count].nombre.toLowerCase() );
 		datacategoria.push( traeData()[count].categoria.toLowerCase() );
+		datanombre.push( traeData()[count].nombre.toLowerCase() );
+		datacolor.push( traeData()[count].color() );
 	}
 	datacolor = quitaDelArrayLosRepetidos({ array: datacolor });
 	quitaDelArrayUnaKey({ array: datacolor, keyPorQuitar: "no especifica" });
-	const todosLosArray = [...new Set(datacolor), ...new Set(datanombre), ...new Set(datacategoria)];
+	const todosLosArray = [...new Set(datacategoria), ...new Set(datanombre), ...new Set(datacolor)];
 
 	return (
 		<section id="buscador">
