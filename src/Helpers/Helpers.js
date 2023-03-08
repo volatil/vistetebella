@@ -138,7 +138,9 @@ export function traeData() {
 
 		const p = {
 			id: resumen[0],
-			nombre: resumen[1].replaceAll("SHEIN ", ""),
+			nombre: resumen[1].replaceAll("SHEIN ", "").replaceAll("á", "a").replaceAll("é", "e").replaceAll("í", "i")
+				.replaceAll("ó", "o")
+				.replaceAll("ú", "u"),
 			precio: precio({ neto: resumen[2] }),
 			imagen: {
 				principal: resumen[4].split(",//")[0],
