@@ -1,9 +1,18 @@
-import { traeCategorias } from "../../Helpers/Helpers";
+import { traeData, quitaDelArrayUnaKey, quitaDelArrayLosRepetidos } from "../../Helpers/Helpers";
 import "./Buscador.css";
 
 function Buscador() {
-	const lostest = ["Edge", "Firefox", "Chrome", "Opera", "Safari"];
-	const categorias = traeCategorias();
+	let datacolor = [];
+	const datanombre = [];
+	const datacategoria = [];
+	for ( let count = 0; count <= traeData().length - 1; count++ ) {
+		datacolor.push( traeData()[count].color() );
+		datanombre.push( traeData()[count].nombre );
+		datacategoria.push( traeData()[count].categoria );
+	}
+	datacolor = quitaDelArrayLosRepetidos({ array: datacolor });
+	quitaDelArrayUnaKey({ array: datacolor, keyPorQuitar: "no especifica" });
+	const todosLosArray = [...new Set(datacolor), ...new Set(datanombre), ...new Set(datacategoria)];
 
 	return (
 		<section id="buscador">
@@ -11,16 +20,11 @@ function Buscador() {
 				<input list="data" type="text" name="q" placeholder="Buscar" />
 				<button type="submit">Buscar</button>
 				<datalist id="data">
-					{/* {
-						categorias.map((categoria) => {
-							return ( <option value={categoria} key={categoria}>{categoria}</option> );
+					{
+						todosLosArray.map((elcolor) => {
+							return ( <option value={elcolor} key={elcolor}>{elcolor}</option> );
 						})
-					} */}
-					{/* <option value="Edge">Edge</option>
-					<option value="Firefox">Firefox</option>
-					<option value="Chrome">Chrome</option>
-					<option value="Opera">Opera</option>
-					<option value="Safari">Safari</option> */}
+					}
 				</datalist>
 			</form>
 		</section>

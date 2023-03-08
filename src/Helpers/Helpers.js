@@ -232,3 +232,16 @@ export function nomeabandones( param ) {
 		document.title = real;
 	});
 }
+
+export function quitaDelArrayUnaKey({ array, keyPorQuitar }) {
+	for ( let count = 0; count <= array.length - 1; count++ ) {
+		if ( array[count] === keyPorQuitar ) {
+			array.splice(count, 1);
+		}
+	}
+}
+
+export function quitaDelArrayLosRepetidos({ array }) {
+	const nuevoarray = [...new Set(array)];
+	return nuevoarray;
+}
