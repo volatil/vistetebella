@@ -1,10 +1,10 @@
 footer {
 	background: whitesmoke;
 	margin-top: 180px;
-	height: 80px;
+	padding: 20px 0 50px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-around;
 }
 footer > a {
 	display: flex;
@@ -12,4 +12,32 @@ footer > a {
 }
 footer > a > img {
 	max-width: 200px;
+}
+footer .suscripcion {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+footer .suscripcion #contacto form {
+	flex-direction: row;
+	align-items: stretch;
+}
+footer .suscripcion #contacto form input {
+	height: 30px;
+	padding: 3px 10px;
+	margin-right: 5px;
+}
+footer .suscripcion #contacto form button {
+	cursor: pointer;
+	padding: 0 10px;
+	width: auto;
+}
+footer .suscripcion #contacto form .estadoEnvio > p {
+	background: var(--institucional);
+	height: 38px;
+	margin: 0 0 0 10px;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+	border: 2px solid var(--institucionalOscuro);
 }
