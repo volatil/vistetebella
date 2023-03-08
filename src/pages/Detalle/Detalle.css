@@ -245,7 +245,8 @@ section#detalle nav.barracomprar.desktop > p:hover {
 	background: #333;
 }
 section#tabsDetalle {
-	margin-top: 30px;
+	margin: 30px auto 0;
+	width: 70%;
 }
 section#tabsDetalle > ul.tabs-titulo {
 	display: flex;
@@ -317,6 +318,7 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 	}
 	section#detalle .informacion {
 		margin: 0;
+		width: 100%;
 	}
 	section#detalle .informacion h2 {
 		font-size: 1.3em;
@@ -354,6 +356,9 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 	}
 	section#detalle .informacion #guiadetallas table tbody tr td {
 		font-size: .7em;
+	}
+	section#tabsDetalle {
+		width: 94%;
 	}
 	section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque .imagenes > img {
 		max-width: 90px;
