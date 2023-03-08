@@ -216,6 +216,18 @@ section#detalle .informacion div.tallas > select {
 	letter-spacing: 0.05em;
 	outline: none;
 }
+section#detalle .informacion div#cantidad {
+	font-size: .7em;
+}
+section#detalle .informacion div#cantidad > select {
+	height: 40px;
+	cursor: pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1.2em;
+	letter-spacing: 0.05em;
+	outline: none;
+}
 section#detalle nav.barracomprar.mobile {
 	display: none;
 }

@@ -12,11 +12,13 @@ export function eliminarProducto() {
 	});
 }
 
-export function agregarAlCarro({ id, talla }) {
+export function agregarAlCarro({ id, talla, cantidad }) {
 	const prod = {
 		id,
 		talla,
+		cantidad,
 	};
+	console.debug( prod );
 	// AGREGANDO
 	if ( localStorage.getItem( keyStorage ) ) {
 		const carroAnterior = JSON.parse( localStorage.getItem( keyStorage ) );
@@ -32,11 +34,12 @@ export function clickAgregar( elid ) {
 		const prod = {
 			id: elid,
 			talla: $("section#detalle .informacion div.tallas select").val(),
+			cantidad: $("section#detalle .informacion div#cantidad select").val(),
 		};
 		if ( prod.talla === "vacio" ) {
 			console.debug("Debes seleccionar una talla");
 		} else {
-			agregarAlCarro({ id: prod.id, talla: prod.talla });
+			agregarAlCarro({ id: prod.id, talla: prod.talla, cantidad: prod.cantidad });
 		}
 	});
 }

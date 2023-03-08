@@ -44,8 +44,25 @@ function Productoscarro({ data }) {
 							imagen: traeData()[producto.id - 1].imagen.principal,
 						};
 
+						function fixcantidad( lacantidad ) {
+							if ( lacantidad === "1" ) {
+								return (
+									<>
+										<span className="cantidad">1</span>
+										<span> unidad</span>
+									</>
+								);
+							}
+							return (
+								<>
+									<span className="cantidad">{lacantidad}</span>
+									<span> unidades</span>
+								</>
+							);
+						}
+
 						return (
-							<li data-posicion={posicion} key={prod.id}>
+							<li data-posicion={posicion} key={prod.id + producto.cantidad}>
 								<span className="eliminar">
 									<img src={simbolocerrar} alt="Eliminar" />
 								</span>
@@ -58,7 +75,7 @@ function Productoscarro({ data }) {
 										<p>{producto.talla}</p>
 									</div>
 									<div className="unidades">
-										<p>1 unidad</p>
+										<p>{ fixcantidad(producto.cantidad) }</p>
 									</div>
 									<div className="precio">
 										<p>$ {prod.precio}</p>

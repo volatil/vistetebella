@@ -184,6 +184,24 @@ function Tallas({ data }) {
 	);
 }
 
+function Cantidad() {
+	return (
+		<div id="cantidad">
+			<select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+			</select>
+		</div>
+	);
+}
+
 function Comentarios({ data }) {
 	return (
 		<>
@@ -253,7 +271,6 @@ function Detalle() {
 
 	if ( detalle ) {
 		const res = detalle[id - 1];
-		// console.debug( res.precio );
 
 		return (
 			<>
@@ -282,6 +299,7 @@ function Detalle() {
 						<p className="precio">$ {res.precio}</p>
 						<Guiadetallas />
 						<Tallas data={res.tallas()} />
+						<Cantidad />
 						{ !isMobile() && <BarraComprar clase="desktop" /> }
 						<FechaEntrega />
 						{ isMobile() && <BarraComprar clase="mobile" /> }
