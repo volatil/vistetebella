@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { NavLink } from "react-router-dom";
-// import $ from "jquery";
 
 import { getProductosCarro, eliminarProducto } from "../../Helpers/Carro";
 import { nomeabandones, traeData } from "../../Helpers/Helpers";
@@ -47,11 +46,11 @@ function Productoscarro({ data }) {
 
 						return (
 							<li data-posicion={posicion} key={prod.id}>
+								<span className="eliminar">
+									<img src={simbolocerrar} alt="Eliminar" />
+								</span>
 								<NavLink to={`/producto/${producto.id}/${prod.nombre}`}>
 									<div className="producto">
-										<span className="eliminar">
-											<img src={simbolocerrar} alt="Eliminar" />
-										</span>
 										<img src={prod.imagen} alt={prod.nombre} />
 										<p>{prod.nombre}</p>
 									</div>
