@@ -133,6 +133,7 @@ export function paramBusqueda( param ) {
 export function traeData() {
 	const data = [];
 	for ( let count = 1; count <= eljson.values.length - 1; count++ ) {
+	// for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
 		const resumen = eljson.values[count];
 
 		const p = {
@@ -200,9 +201,7 @@ export function getAnchoPantalla() {
 // Sirve para ver cuando resultados filtró
 export function totalResultados( props ) {
 	let htmlResultados = "";
-	if ( !props.busqueda ) {
-		htmlResultados = "Encontramos resultados.";
-	} else if ( props.cantidad >= 2 ) {
+	if ( props.cantidad >= 2 ) {
 		htmlResultados = `Encontramos ${props.cantidad} resultados.`;
 	} else if ( props.cantidad === 1 ) {
 		htmlResultados = `Encontramos ${props.cantidad} resultado.`;
