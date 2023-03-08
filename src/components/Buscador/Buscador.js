@@ -7,8 +7,8 @@ function Buscador() {
 	const datacategoria = [];
 	for ( let count = 0; count <= traeData().length - 1; count++ ) {
 		datacolor.push( traeData()[count].color() );
-		datanombre.push( traeData()[count].nombre );
-		datacategoria.push( traeData()[count].categoria );
+		datanombre.push( traeData()[count].nombre.toLowerCase() );
+		datacategoria.push( traeData()[count].categoria.toLowerCase() );
 	}
 	datacolor = quitaDelArrayLosRepetidos({ array: datacolor });
 	quitaDelArrayUnaKey({ array: datacolor, keyPorQuitar: "no especifica" });
