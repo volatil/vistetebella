@@ -4,11 +4,10 @@ import { Helmet } from "react-helmet";
 import { NOMBRETIENDA } from "../../Helpers/Const";
 import {
 	paramBusqueda,
-	precio,
 	totalResultados,
 	nomeabandones,
+	traeData,
 } from "../../Helpers/Helpers";
-import eljson from "../../assets/json/inventario.json";
 
 import Producto from "../../components/Producto/Producto";
 
@@ -21,35 +20,13 @@ function Resultados() {
 	useEffect(() => {
 		const data = [];
 
-		for ( let count = eljson.values.length - 1; count >= 1; count-- ) {
-			const resumen = eljson.values[count];
-
-			const p = {
-				id: resumen[0],
-				nombre: resumen[1].replaceAll("SHEIN ", ""),
-				precio: precio( resumen[2] ),
-				fechaentrega: resumen[3],
-				imagen: resumen[4].split(",//")[0],
-				descripcion: resumen[5],
-				categoria: resumen[9],
-				comentarios: {
-					comentario: resumen[10],
-				},
-				color: () => {
-					let color = resumen[11];
-					if ( !color ) {
-						color = "no especifica";
-					}
-					return color;
-				},
-			};
-
-			const filtroBusqueda = `${p.nombre.toLowerCase()} ${p.categoria.toLowerCase()} ${p.color().toLowerCase()} ${p.comentarios.comentario.toLowerCase()} ${p.descripcion.toLowerCase()}`;
+		for ( let count = traeData().length - 1; count >= 0; count-- ) {
+			const filtroBusqueda = `${traeData()[count].nombre.toLowerCase()} ${traeData()[count].categoria.toLowerCase()} ${traeData()[count].color().toLowerCase()} ${traeData()[count].comentarios.comentario.toLowerCase()} ${traeData()[count].descripcion.toLowerCase()}`;
 			if ( filtroBusqueda.includes( paramBusqueda("q") ) ) {
-				data.push( p );
+				data.push( traeData()[count] );
 			}
-			setElproducto( data );
 		}
+		setElproducto( data );
 
 		setLosresultados( totalResultados({ cantidad: data.length, busqueda: paramBusqueda("q") }) );
 	}, []);
@@ -72,7 +49,7 @@ function Resultados() {
 									id={prod.id}
 									nombre={prod.nombre}
 									precio={prod.precio}
-									imagen={prod.imagen}
+									imagen={prod.imagen.principal}
 								/>
 							);
 						})
