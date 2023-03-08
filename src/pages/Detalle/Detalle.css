@@ -12,6 +12,7 @@ section#detalle {
 }
 section#detalle .thumbnails {
 	margin-right: 20px;
+	width: 5%;
 }
 section#detalle .thumbnails {
 	display: flex;
@@ -21,7 +22,7 @@ section#detalle .thumbnails {
 }
 section#detalle .thumbnails > img {
 	cursor: pointer;
-	width: 110px;
+	width: 100%;
 	margin-bottom: 10px;
 	border: 1px solid transparent;
 }
@@ -30,13 +31,19 @@ section#detalle .thumbnails > img.activo {
 }
 section#detalle .principal {
 	position: relative;
+	width: 50%;
+}
+section#detalle .principal > img {
+	width: 100%;
 }
 section#detalle .informacion {
 	margin-left: 20px;
+	width: 45%;
 }
 section#detalle .informacion h2 {
 	font-family: 'Baskervville', serif;
 	font-size: 3em;
+	font-size: 2em;
 	margin: 0 0 20px;
 	font-weight: 100;
 	text-align: left;
@@ -198,6 +205,7 @@ section#detalle .informacion #guiadetallas > img {
 }
 section#detalle .informacion div.tallas {
 	margin-bottom: 10px;
+	font-size: .7em;
 }
 section#detalle .informacion div.tallas > select {
 	height: 40px;
@@ -291,6 +299,9 @@ section#tabsDetalle > .tabs-contenido > div[data-contenido=comentarios] .bloque 
 		flex-direction: column;
 		margin-top: 0;
 		width: 98%;
+	}
+	section#detalle .principal {
+		width: 100%;
 	}
 	section#detalle .principal > img {
 		width: 100%;
