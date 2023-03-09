@@ -64,6 +64,8 @@ section#carro > div.lista > ul.listaProductos > li > div.producto > a.imagen > i
 }
 section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre {
 	text-decoration: none;
+	display: block;
+	margin-bottom: 10px;
 }
 section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre p {
 	margin: 0 0 0 10px;
@@ -79,7 +81,7 @@ section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > d
 	margin: 0 0 0 10px;
 }
 section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > div.detallemenor > p {
-	margin: 0;
+	margin: 0 10px 0 0;
 }
 section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > div.detallemenor > p.color {
 	text-transform: capitalize;
@@ -150,5 +152,18 @@ section#carro > div.lista > ul.listaProductos #elboton {
 	}
 	section#carro > div.lista > ul.listaProductos > li > a > div.producto {
 		width: 100%;
+	}
+	section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre {
+		display: block;
+		margin-bottom: 10px;
+	}
+	section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre p > strong {
+		font-weight: 500;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+				line-clamp: 2; 
+		-webkit-box-orient: vertical;
 	}
 }
