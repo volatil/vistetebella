@@ -40,27 +40,7 @@ section#carro > div.lista > ul.listaProductos > li {
 	display: flex;
 	align-items: center;
 }
-section#carro > div.lista > ul.listaProductos > li > span.eliminar {
-	background: var( --institucionalOscuro );
-	margin-left: 10px;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition:    all 0.2s ease-out;
-	-o-transition:      all 0.2s ease-out;
-	transition:         all 0.2s ease-out;
-}
-section#carro > div.lista > ul.listaProductos > li > span.eliminar:hover {
-	background: var( --institucional );
-}
-section#carro > div.lista > ul.listaProductos > li > span.eliminar > img {
-	width: 10px;
-	padding: 6px;
-}
-section#carro > div.lista > ul.listaProductos > li > a {
+section#carro > div.lista > ul.listaProductos > li {
 	display: flex;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #ddd;
@@ -69,42 +49,72 @@ section#carro > div.lista > ul.listaProductos > li > a {
 	text-decoration: none;
 	width: 100%;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div {
+section#carro > div.lista > ul.listaProductos > li > div {
 	width: 10%;
 	margin: 0 1%;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto {
+section#carro > div.lista > ul.listaProductos > li > div.producto {
 	width: 70%;
-}
-section#carro > div.lista > ul.listaProductos > li > a > div.producto {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > .imagen > img {
+section#carro > div.lista > ul.listaProductos > li > div.producto > a.imagen > img {
 	width: 100px;
 	margin-left: 10px;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle p {
+section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre {
+	text-decoration: none;
+}
+section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre p {
 	margin: 0 0 0 10px;
 	font-size: 1em;
 	font-weight: 300;
+	color: black;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle p > strong {
+section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre p > strong {
 	font-weight: 500;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle > div {
+section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > div.detallemenor {
 	display: flex;
+	margin: 0 0 0 10px;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle > div > p.color {
+section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > div.detallemenor > p {
+	margin: 0;
+}
+section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > div.detallemenor > p.color {
 	text-transform: capitalize;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.talla > p {
+section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar {
+	/* background: var( --institucionalOscuro ); */
+	margin-left: 10px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition:    all 0.2s ease-out;
+	-o-transition:      all 0.2s ease-out;
+	transition:         all 0.2s ease-out;
+}
+section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar:hover {
+	/* background: var( --institucional ); */
+}
+section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar > img {
+	width: 10px;
+	padding: 6px;
+}
+section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar > p {
+	font-size: .8em;
+}
+section#carro > div.lista > ul.listaProductos > li > div.talla > p {
 	text-align: center;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.unidades > p {
+section#carro > div.lista > ul.listaProductos > li > div.unidades > p {
 	text-align: center;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.precio > p {
+section#carro > div.lista > ul.listaProductos > li > div.precio > p {
 	text-align: center;
 }
 section#carro > div.lista > ul.listaProductos > li.numeros {

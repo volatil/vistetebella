@@ -13,9 +13,14 @@ export function refrescarCantidadProductosEnCarro() {
 }
 
 export function eliminarProducto() {
-	$("section#carro > div.lista > ul.listaProductos > li > span.eliminar").on("click", function () {
-		const posicion = $(this).parent().attr("data-posicion");
-		$(this).parent().hide();
+	$("section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar").on("click", function () {
+		const posicion = $(this).parent().parent().parent()
+			.parent()
+			.attr("data-posicion");
+		console.debug( `Posicion -> ${posicion}` );
+		$(this).parent().parent().parent()
+			.parent()
+			.hide();
 		const carro = JSON.parse( localStorage.getItem( "vistetebella_carro" ) );
 		carro.splice(posicion, 1);
 		localStorage.setItem( "vistetebella_carro", JSON.stringify(carro) );

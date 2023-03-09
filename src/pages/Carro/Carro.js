@@ -8,7 +8,7 @@ import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import Button from "../../components/Button/Button";
 import carrito from "../../assets/svg/carrito.svg";
-import simbolocerrar from "../../assets/svg/simbolocerrar.svg";
+import basurero from "../../assets/svg/basurero.svg";
 
 import "./Carro.css";
 
@@ -63,31 +63,32 @@ function Productoscarro({ data }) {
 
 						return (
 							<li data-posicion={posicion} key={prod.id + producto.cantidad + producto.talla}>
-								<span className="eliminar">
-									<img src={simbolocerrar} alt="Eliminar" />
-								</span>
-								<NavLink to={`/producto/${producto.id}/${prod.nombre}`}>
-									<div className="producto">
-										<div className="imagen">
-											<img src={prod.imagen} alt={prod.nombre} />
-										</div>
-										<div className="detalle">
+								<div className="producto">
+									<NavLink className="imagen" to={`/producto/${producto.id}/${prod.nombre}`}>
+										<img src={prod.imagen} alt={prod.nombre} />
+									</NavLink>
+									<div className="detalle">
+										<NavLink className="nombre" to={`/producto/${producto.id}/${prod.nombre}`}>
 											<p>
 												<strong>{prod.nombre}</strong>
 											</p>
-											<div>
-												<p>Talla: <strong>{producto.talla}</strong></p>
-												<p className="color">Color: <strong>{prod.colordescripcion}</strong></p>
-											</div>
+										</NavLink>
+										<div className="detallemenor">
+											<p>Talla: <strong>{producto.talla}</strong></p>
+											<p className="color">Color: <strong>{prod.colordescripcion}</strong></p>
+										</div>
+										<div className="eliminar">
+											<img src={basurero} alt="Eliminar" />
+											<p>Quitar del carro</p>
 										</div>
 									</div>
-									<div className="unidades">
-										<p>{ fixcantidad(producto.cantidad) }</p>
-									</div>
-									<div className="precio">
-										<p>$ {prod.precio}</p>
-									</div>
-								</NavLink>
+								</div>
+								<div className="unidades">
+									<p>{ fixcantidad(producto.cantidad) }</p>
+								</div>
+								<div className="precio">
+									<p>$ {prod.precio}</p>
+								</div>
 							</li>
 						);
 					})
