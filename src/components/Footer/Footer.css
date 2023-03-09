@@ -41,3 +41,13 @@ footer .suscripcion #contacto form .estadoEnvio > p {
 	align-items: center;
 	border: 2px solid var(--institucionalOscuro);
 }
+
+@media( max-width: 850px ) {
+	footer {
+		display: flex;
+		flex-direction: column;
+	}
+	footer > * {
+		margin-bottom: 20px;
+	}
+}
