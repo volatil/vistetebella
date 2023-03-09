@@ -297,6 +297,7 @@ function Detalle() {
 						<h2>{res.nombre}</h2>
 						<Valoracion valoracion={res.valoracion} />
 						<p className="precio">$ {res.precio}</p>
+						<p className="colorescondido" style={{ display: "none" }}>{res.colordescripcion()}</p>
 						<Guiadetallas />
 						<Tallas data={res.tallas()} />
 						<Cantidad />

@@ -29,8 +29,7 @@ function Productoscarro({ data }) {
 	return (
 		<>
 			<ul className="barrasuperior">
-				<li className="producto">Producto</li>
-				<li>Talla</li>
+				<li className="producto">Detalle Producto</li>
 				<li>Cantidad</li>
 				<li>Precio</li>
 			</ul>
@@ -42,6 +41,7 @@ function Productoscarro({ data }) {
 							nombre: traeData()[producto.id - 1].nombre,
 							precio: traeData()[producto.id - 1].precio,
 							imagen: traeData()[producto.id - 1].imagen.principal,
+							colordescripcion: traeData()[producto.id - 1].colordescripcion(),
 						};
 
 						function fixcantidad( lacantidad ) {
@@ -62,17 +62,24 @@ function Productoscarro({ data }) {
 						}
 
 						return (
-							<li data-posicion={posicion} key={prod.id + producto.cantidad}>
+							<li data-posicion={posicion} key={prod.id + producto.cantidad + producto.talla}>
 								<span className="eliminar">
 									<img src={simbolocerrar} alt="Eliminar" />
 								</span>
 								<NavLink to={`/producto/${producto.id}/${prod.nombre}`}>
 									<div className="producto">
-										<img src={prod.imagen} alt={prod.nombre} />
-										<p>{prod.nombre}</p>
-									</div>
-									<div className="talla">
-										<p>{producto.talla}</p>
+										<div className="imagen">
+											<img src={prod.imagen} alt={prod.nombre} />
+										</div>
+										<div className="detalle">
+											<p>
+												<strong>{prod.nombre}</strong>
+											</p>
+											<div>
+												<p>Talla: <strong>{producto.talla}</strong></p>
+												<p className="color">Color: <strong>{prod.colordescripcion}</strong></p>
+											</div>
+										</div>
 									</div>
 									<div className="unidades">
 										<p>{ fixcantidad(producto.cantidad) }</p>

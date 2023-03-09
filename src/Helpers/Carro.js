@@ -23,11 +23,14 @@ export function eliminarProducto() {
 	});
 }
 
-export function agregarAlCarro({ id, talla, cantidad }) {
+export function agregarAlCarro({
+	id, talla, cantidad, color,
+}) {
 	const prod = {
 		id,
 		talla,
 		cantidad,
+		color,
 	};
 	console.debug( prod );
 	// AGREGANDO
@@ -46,11 +49,14 @@ export function clickAgregar( elid ) {
 			id: elid,
 			talla: $("section#detalle .informacion div.tallas select").val(),
 			cantidad: $("section#detalle .informacion div#cantidad select").val(),
+			color: $("section#detalle .informacion p.colorescondido").html(),
 		};
 		if ( prod.talla === "vacio" ) {
 			console.debug("Debes seleccionar una talla");
 		} else {
-			agregarAlCarro({ id: prod.id, talla: prod.talla, cantidad: prod.cantidad });
+			agregarAlCarro({
+				id: prod.id, talla: prod.talla, cantidad: prod.cantidad, color: prod.color,
+			});
 			refrescarCantidadProductosEnCarro();
 		}
 	});

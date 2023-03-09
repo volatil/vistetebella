@@ -80,13 +80,23 @@ section#carro > div.lista > ul.listaProductos > li > a > div.producto {
 	display: flex;
 	align-items: center;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > img {
+section#carro > div.lista > ul.listaProductos > li > a > div.producto > .imagen > img {
 	width: 100px;
 	margin-left: 10px;
 }
-section#carro > div.lista > ul.listaProductos > li > a > div.producto > p {
+section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle p {
 	margin: 0 0 0 10px;
-	font-size: .8em;
+	font-size: 1em;
+	font-weight: 300;
+}
+section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle p > strong {
+	font-weight: 500;
+}
+section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle > div {
+	display: flex;
+}
+section#carro > div.lista > ul.listaProductos > li > a > div.producto > .detalle > div > p.color {
+	text-transform: capitalize;
 }
 section#carro > div.lista > ul.listaProductos > li > a > div.talla > p {
 	text-align: center;

@@ -177,6 +177,15 @@ export function traeData() {
 				return color;
 			},
 			categoria: resumen[9],
+			colordescripcion: () => {
+				let colordescripcion = "?";
+				colordescripcion = "no rojo";
+				// console.debug( resumen[5] );
+				colordescripcion = JSON.parse( resumen[5] );
+				colordescripcion = colordescripcion[0].val.toLowerCase();
+				// console.debug( colordescripcion );
+				return colordescripcion;
+			},
 		};
 		data.push( p );
 	}
