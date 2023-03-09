@@ -124,3 +124,21 @@ section#carro > div.lista > ul.listaProductos #elboton {
 	float: right;
 	margin-right: 4%;
 }
+@media( max-width: 850px ) {
+	section#carro > div.lista > ul.barrasuperior {
+		display: none;
+	}
+	/* section#carro > div.lista > ul.listaProductos > li > span.eliminar {
+		display: none;
+	} */
+	section#carro > div.lista > ul.listaProductos > li > a {
+		display: flex;
+		flex-direction: row;
+	}
+	section#carro > div.lista > ul.listaProductos > li > a > div {
+		width: 40%;
+	}
+	section#carro > div.lista > ul.listaProductos > li > a > div.producto {
+		width: 100%;
+	}
+}
