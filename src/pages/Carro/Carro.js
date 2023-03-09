@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { NavLink } from "react-router-dom";
 
-import { getProductosCarro, eliminarProducto } from "../../Helpers/Carro";
-import { nomeabandones, traeData } from "../../Helpers/Helpers";
+import { getProductosCarro, eliminarProducto, modificaCantidadUnidades } from "../../Helpers/Carro";
+import { isMobile, nomeabandones, traeData } from "../../Helpers/Helpers";
 import { NOMBRETIENDA } from "../../Helpers/Const";
 
 import Button from "../../components/Button/Button";
@@ -44,21 +44,18 @@ function Productoscarro({ data }) {
 							colordescripcion: traeData()[producto.id - 1].colordescripcion(),
 						};
 
-						function fixcantidad( lacantidad ) {
-							if ( lacantidad === "1" ) {
-								return (
-									<>
-										<span className="cantidad">1</span>
-										<span> unidad</span>
-									</>
-								);
-							}
-							return (
-								<>
-									<span className="cantidad">{lacantidad}</span>
-									<span> unidades</span>
-								</>
+						function modificaCantidad( cantidad ) {
+							const html = (
+								<div className="cambiaCantidad">
+									<div className="cantidades">
+										<button type="button" className="restar">-</button>
+										<input value={cantidad} disabled />
+										<button type="button" className="sumar">+</button>
+									</div>
+									<div className="advertencia" />
+								</div>
 							);
+							return html;
 						}
 
 						return (
@@ -83,12 +80,29 @@ function Productoscarro({ data }) {
 										</div>
 									</div>
 								</div>
-								<div className="unidades">
-									<p>{ fixcantidad(producto.cantidad) }</p>
-								</div>
+								{
+									isMobile()
+										? (
+											<div>
+												<div className="unidades">{ modificaCantidad( producto.cantidad ) }</div>
+												<div className="precio">
+													<p>$ {prod.precio}</p>
+												</div>
+											</div>
+										)
+										: (
+											<>
+												<div className="unidades">{ modificaCantidad( producto.cantidad ) }</div>
+												<div className="precio">
+													<p>$ {prod.precio}</p>
+												</div>
+											</>
+										)
+								}
+								{/* <div className="unidades">{ modificaCantidad( producto.cantidad ) }</div>
 								<div className="precio">
 									<p>$ {prod.precio}</p>
-								</div>
+								</div> */}
 							</li>
 						);
 					})
@@ -113,6 +127,7 @@ function Carro() {
 
 	useEffect(() => {
 		eliminarProducto();
+		modificaCantidadUnidades();
 	});
 
 	return (

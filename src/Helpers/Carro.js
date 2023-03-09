@@ -73,3 +73,31 @@ export function getProductosCarro() {
 
 	return false;
 }
+
+export function modificaCantidadUnidades() {
+	$(".cambiaCantidad button").on("click", function () {
+		const accion = $(this).attr("class");
+		let lacantidad = Number( $(this).parent().find("input").val() );
+		if ( accion === "sumar" ) {
+			lacantidad += 1;
+			if ( lacantidad >= 10 ) {
+				$(this).parent().parent().find("div.advertencia")
+					.html("<p>No contamos con más de 9 unidades</p>");
+				setTimeout(() => {
+					$(this).parent().parent().find("div.advertencia")
+						.html("");
+				}, 3000);
+			} else {
+				$(this).parent().find("input").val(lacantidad);
+			}
+		} else {
+			lacantidad -= 1;
+			if ( lacantidad <= 0 ) {
+				// $(this).parent().parent().find("div.advertencia").html( `<p>me pase! ${lacantidad}</p>` );
+			} else {
+				$(this).parent().find("input").val(lacantidad);
+			}
+		}
+		console.debug( `Apretaste: ${accion}, cantidad: ${lacantidad}` );
+	});
+}

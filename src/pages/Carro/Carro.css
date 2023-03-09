@@ -34,20 +34,20 @@ section#carro > div.lista > ul.barrasuperior > li.producto {
 }
 section#carro > div.lista > ul.listaProductos {
 	margin: 0;
-	padding: 0;
+	padding: 10px 0 0 0;
+	background: rgb(237, 237, 237);
 }
 section#carro > div.lista > ul.listaProductos > li {
+	background-color: white;
 	display: flex;
 	align-items: center;
-}
-section#carro > div.lista > ul.listaProductos > li {
-	display: flex;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #ddd;
 	padding-bottom: 10px;
 	color: black;
 	text-decoration: none;
-	width: 100%;
+	width: 98%;
+	margin: 0 auto 10px;
 }
 section#carro > div.lista > ul.listaProductos > li > div {
 	width: 10%;
@@ -66,6 +66,7 @@ section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.n
 	text-decoration: none;
 	display: block;
 	margin-bottom: 10px;
+	padding-top: 6px;
 }
 section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre p {
 	margin: 0 0 0 10px;
@@ -86,7 +87,7 @@ section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > d
 section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle > div.detallemenor > p.color {
 	text-transform: capitalize;
 }
-section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar {
+section#carro > div.lista > ul.listaProductos > li > div.producto div.eliminar {
 	/* background: var( --institucionalOscuro ); */
 	margin-left: 10px;
 	border-radius: 50%;
@@ -100,23 +101,57 @@ section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar {
 	-o-transition:      all 0.2s ease-out;
 	transition:         all 0.2s ease-out;
 }
-section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar:hover {
-	/* background: var( --institucional ); */
-}
-section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar > img {
+section#carro > div.lista > ul.listaProductos > li > div.producto div.eliminar > img {
 	width: 10px;
 	padding: 6px;
 }
-section#carro > div.lista > ul.listaProductos > li > .producto div.eliminar > p {
+section#carro > div.lista > ul.listaProductos > li > div.producto div.eliminar > p {
 	font-size: .8em;
 }
-section#carro > div.lista > ul.listaProductos > li > div.talla > p {
-	text-align: center;
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad {
+	display: flex;
+	flex-direction: column;
 }
-section#carro > div.lista > ul.listaProductos > li > div.unidades > p {
-	text-align: center;
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div {
+	display: flex;
 }
-section#carro > div.lista > ul.listaProductos > li > div.precio > p {
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.cantidades > button {
+	width: 40px;
+	background-color: white;
+	border: 1px solid #ccc;
+	font-size: 1.2em;
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition:    all 0.2s ease-out;
+	-o-transition:      all 0.2s ease-out;
+	transition:         all 0.2s ease-out;
+}
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.cantidades > button:hover {
+	background-color: #eee;
+}
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.cantidades > input {
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	font-size: 1em;
+	border: none;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.advertencia {
+	height: 78px;
+}
+section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.advertencia > p {
+	background: var(--colorBordeGuiaTallas);
+	border: 1px solid var(--institucionalOscuro);
+	text-align: center;
+	width: 100%;
+	margin: 5px 0 0 0;
+	display: flex;
+	align-items: center;
+	line-height: 1.2em;
+}
+section#carro > div.lista > ul.listaProductos > li div.precio > p {
 	text-align: center;
 }
 section#carro > div.lista > ul.listaProductos > li.numeros {
@@ -140,17 +175,16 @@ section#carro > div.lista > ul.listaProductos #elboton {
 	section#carro > div.lista > ul.barrasuperior {
 		display: none;
 	}
-	/* section#carro > div.lista > ul.listaProductos > li > span.eliminar {
-		display: none;
-	} */
-	section#carro > div.lista > ul.listaProductos > li > a {
+	section#carro > div.lista > ul.listaProductos > li {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 	}
-	section#carro > div.lista > ul.listaProductos > li > a > div {
-		width: 40%;
+	section#carro > div.lista > ul.listaProductos > li > div {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
 	}
-	section#carro > div.lista > ul.listaProductos > li > a > div.producto {
+	section#carro > div.lista > ul.listaProductos > li > div.producto {
 		width: 100%;
 	}
 	section#carro > div.lista > ul.listaProductos > li > div.producto > .detalle a.nombre {
@@ -165,5 +199,21 @@ section#carro > div.lista > ul.listaProductos #elboton {
 		-webkit-line-clamp: 2;
 				line-clamp: 2; 
 		-webkit-box-orient: vertical;
+	}
+	section#carro > div.lista > ul.listaProductos > li div.unidades {
+		margin-left: 10px;
+	}
+	section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.advertencia {
+		height: auto;
+	}
+	section#carro > div.lista > ul.listaProductos > li div.unidades > .cambiaCantidad > div.advertencia > p {
+		padding: 0 10px;
+		width: 70%;
+	}
+	section#carro > div.lista > ul.listaProductos > li div.precio {
+		margin-right: 10px;
+	}
+	section#carro > div.lista > ul.listaProductos > li div.precio > p {
+		margin: 0;
 	}
 }
