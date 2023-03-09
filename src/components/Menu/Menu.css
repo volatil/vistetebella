@@ -29,11 +29,28 @@ nav.desktop > ul > li > a:hover ,
 nav.desktop > ul > li > a.tamoactivo {
 	border-bottom: 4px solid black;
 }
-nav.desktop > ul > li > a.carrito {
-	border-bottom: none;
+nav.desktop > ul > li.carrito {
+	position: relative;
 }
-nav.desktop > ul > li > a.carrito > img {
+nav.desktop > ul > li.carrito > a {
+	border-bottom: none;
+
+}
+nav.desktop > ul > li.carrito > a > img {
 	width: 25px;
+}
+nav.desktop > ul > li.carrito > a span.cantidad {
+	background: #ff4747;
+	color: white;
+	display: flex;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: -10px;
+	right: -19px;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
 }
 nav.mobile {
 	display: flex;

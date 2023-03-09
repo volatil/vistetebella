@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+
+import { refrescarCantidadProductosEnCarro } from "../../Helpers/Carro";
 import { isMobile, deployMenu, traeCategorias } from "../../Helpers/Helpers";
 
 import carrito from "../../assets/svg/carrito.svg";
@@ -16,9 +18,10 @@ function MenuDesktop() {
 				<li>
 					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/wishlist">Wishlist</NavLink>
 				</li>
-				<li>
-					<NavLink className={({ isActive }) => (isActive ? "carrito tamoactivo" : "carrito" )} to="/carro">
+				<li className="carrito">
+					<NavLink className={({ isActive }) => (isActive ? "tamoactivo" : null )} to="/carro">
 						<img src={carrito} alt="Carrito" />
+						<span className="cantidad" />
 					</NavLink>
 				</li>
 			</ul>
@@ -77,6 +80,7 @@ function MenuMobile() {
 function Menu() {
 	useEffect(() => {
 		deployMenu();
+		refrescarCantidadProductosEnCarro();
 	}, []);
 	return (
 		isMobile() ? <MenuMobile /> : <MenuDesktop />

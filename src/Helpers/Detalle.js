@@ -6,6 +6,7 @@ export function showGuiaTallas() {
 		$("#fondoguiadetallas").toggle();
 	});
 }
+
 export function hideGuiaTallas() {
 	$("#fondoguiadetallas, section#detalle .informacion #guiadetallas > span").on("click", () => {
 		$("#guiadetallas").fadeOut();
