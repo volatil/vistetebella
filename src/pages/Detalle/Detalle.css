@@ -36,7 +36,7 @@ section#detalle .principal {
 section#detalle .principal > img {
 	width: 100%;
 }
-/* section#detalle .principal button.compartirenredes {
+section#detalle .principal button.compartirenredes {
 	margin: 0;
 	padding: 0;
 	background: #ffffff87;
@@ -67,58 +67,58 @@ section#detalle .principal button.compartirenredes > span {
 	top: 1px;
 	left: 0px;
 }
-section#detalle .principal #fondocompartirenredes ,
-section#detalle .principal #modalcompartirenredes {
-	z-index: 3;
+section#detalle .principal #modal .elementos {
+	display: flex;
+	flex-direction: column;
 }
-
-section#detalle .principal #fondocompartirenredes {
-	display: none;
-	background: black;
+section#detalle .principal #modal .elementos > div {
+	display: flex;
+}
+section#detalle .principal #modal .elementos > div.click {
+	display: flex;
+	justify-content: space-evenly;
+}
+section#detalle .principal #modal .elementos > div.click > a ,
+section#detalle .principal #modal .elementos > div.click > .copiarLinkActual {
+	position: relative;
+	width: 32%;
+	cursor: pointer;
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid transparent;
+	text-align: center;
+}
+section#detalle .principal #modal .elementos > div.click > a:hover ,
+section#detalle .principal #modal .elementos > div.click > .copiarLinkActual:hover {
+		opacity: .8;
+}
+section#detalle .principal #modal .elementos > div.click > a > img ,
+section#detalle .principal #modal .elementos > div.click > .copiarLinkActual > img {
+	width: 50px;
+}
+section#detalle .principal #modal .elementos > div.click > a > p {
+	color: black;
+	text-align: center;
+}
+section#detalle .principal #modal .elementos > div.click > .copiarLinkActual > textarea {
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	left: -9999px;
+}
+section#detalle .principal #modal .elementos > div.click > .copiarLinkActual > span.mensaje {
+	position: absolute;
+	border: 1px solid #cecece;
 	width: 100%;
 	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	opacity: .7;
-}
-section#detalle .principal #modalcompartirenredes {
-	padding: 5px 20px 10px;
-	display: none;
 	background: white;
-	width: 600px;
-	position: absolute;
-	top: 50px;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	border-radius: 6px;
-}
-
-section#detalle .principal #modalcompartirenredes > span {
-	cursor: pointer;
-	display: flex;
-	justify-content: flex-end;
-	position: absolute;
-	right: 20px;
-	font-size: 1.2em;
-}
-section#detalle .principal #modalcompartirenredes h4 {
-	font-size: 1.3em;
-	margin: 10px 0;
-	padding: 0;
 	text-align: center;
-	text-transform: uppercase;
+	font-size: .9em;
+	display: flex;
+	align-items: center;
 }
-section#detalle .principal #modalcompartirenredes > p {
-	color: #888;
-	font-size: .8em;
-	margin: 10px 0;
-}
-section#detalle .principal #modalcompartirenredes > img {
-	margin-top: 20px;
-	width: 100%;
-} */
 section#detalle .informacion {
 	margin-left: 20px;
 	width: 45%;

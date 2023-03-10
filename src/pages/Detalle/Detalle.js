@@ -9,6 +9,9 @@ import Relacionados from "../../components/Relacionados/Relacionados";
 import AgregarQuitarWISHLIST from "../../components/AgregarQuitarWISHLIST/AgregarQuitarWISHLIST";
 
 import regla from "../../assets/svg/regla.svg";
+import facebook from "../../assets/svg/facebook.svg";
+import twitter from "../../assets/svg/twitter.svg";
+import copiarportapapeles from "../../assets/svg/copiarportapapeles.svg";
 import cuadromedidas from "../../assets/imagenes/cuadromedidas.PNG";
 import "./Detalle.css";
 
@@ -25,6 +28,7 @@ import {
 	isMobile,
 	traeData,
 	nomeabandones,
+	copiarPortapapeles,
 } from "../../Helpers/Helpers";
 
 import { clickAgregar } from "../../Helpers/Carro";
@@ -34,23 +38,33 @@ import {
 	cambiarUnidadMedida,
 } from "../../Helpers/Detalle";
 
-function HTMLCompartirEnRedes({ url, mensaje }) {
-	const estilos = {
-		contenedorElementos: {
-			display: "flex",
-			flexDirection: "row",
-			justifyContent: "space-evenly",
-		},
-		losa: {
-			background: "red",
-		},
-	};
+function HTMLboton() {
 	return (
-		<div style={estilos.contenedorElementos} className="elementos">
-			<a style={estilos.losa} rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>twitter</a>
-			<a style={estilos.losa} rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?spm=a2g0o.detail.share.1.349c34fe7InlUD&u=${url}`}>facebook</a>
-			<a style={estilos.losa} rel="noreferrer" target="_blank" href="AAAA">Copiar Link</a>
-			<a style={estilos.losa} rel="noreferrer" target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
+		<button type="button" className="botonmostrarmodal compartirenredes">
+			<span />
+		</button>
+	);
+}
+
+function HTMLCompartirEnRedes({ url, mensaje }) {
+	return (
+		<div className="elementos">
+			<div className="click">
+				<a rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>
+					<img src={twitter} alt="compartir en twitter" />
+					<p>Compartir en Twitter</p>
+				</a>
+				<a rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}>
+					<img src={facebook} alt="compartir en facebook" />
+					<p>Compartir en Facebook</p>
+				</a>
+				<div className="copiarLinkActual">
+					<img src={copiarportapapeles} alt="Copiar Link" />
+					<textarea className="linkCopiar" defaultValue={url} />
+					<p>Copiar link</p>
+					<span style={{ display: "none" }} className="mensaje">Link copiado en el portapapeles</span>
+				</div>
+			</div>
 		</div>
 	);
 }
@@ -297,6 +311,7 @@ function Detalle() {
 		showGuiaTallas();
 		hideGuiaTallas();
 		cambiarUnidadMedida();
+		copiarPortapapeles({ btncopiar: "section#detalle .principal #modal .elementos > div.click > .copiarLinkActual", inputacopiar: ".linkCopiar", clasemensaje: "span.mensaje" });
 		// TODO LO QUE ES MODAL
 		showCompartirRedes();
 		hideCompartirRedes();
@@ -322,7 +337,7 @@ function Detalle() {
 					<div className="principal">
 						<AgregarQuitarWISHLIST id={id} />
 						<Modal
-							nombreboton="compartir en redes"
+							htmlboton={<HTMLboton />}
 							titulo="compartir"
 							html={<HTMLCompartirEnRedes url={location.href} mensaje={res.nombre} />}
 						/>
