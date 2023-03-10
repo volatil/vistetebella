@@ -2,7 +2,6 @@ import $ from "jquery";
 
 export function showCompartirRedes() {
 	$(".botonmostrarmodal").on("click", () => {
-		console.debug( "CLICK mostrar" );
 		$("#modal").fadeIn();
 		$("#fondomodal").toggle();
 	});
@@ -10,7 +9,6 @@ export function showCompartirRedes() {
 
 export function hideCompartirRedes() {
 	$("#fondomodal, #modal > span").on("click", () => {
-		console.debug( "CLICK esconder" );
 		$("#modal").fadeOut();
 		setTimeout(() => {
 			$("#fondomodal").toggle();
@@ -19,11 +17,11 @@ export function hideCompartirRedes() {
 }
 
 export function Modal({
-	nombreboton, titulo, html,
+	htmlboton, titulo, html,
 }) {
 	return (
 		<>
-			<p className="botonmostrarmodal">{nombreboton}</p>
+			{htmlboton}
 			<section id="fondomodal" />
 			<section id="modal">
 				<span>X</span>
