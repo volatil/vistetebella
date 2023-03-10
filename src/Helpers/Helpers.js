@@ -257,3 +257,17 @@ export function quitaDelArrayLosRepetidos({ array }) {
 	const nuevoarray = [...new Set(array)];
 	return nuevoarray;
 }
+
+export function copiarPortapapeles({ btncopiar, inputacopiar, clasemensaje }) {
+	$( `${btncopiar}` ).on( "click", () => {
+		const textoACopiar = $(`${inputacopiar}`);
+		textoACopiar.focus();
+		textoACopiar.select();
+		document.execCommand("copy");
+
+		$(`${clasemensaje}`).show();
+		setTimeout(() => {
+			$(`${clasemensaje}`).fadeOut();
+		}, 3000);
+	} );
+}
