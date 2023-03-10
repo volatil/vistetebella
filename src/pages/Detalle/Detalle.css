@@ -36,7 +36,7 @@ section#detalle .principal {
 section#detalle .principal > img {
 	width: 100%;
 }
-section#detalle .principal button.compartirenredes {
+/* section#detalle .principal button.compartirenredes {
 	margin: 0;
 	padding: 0;
 	background: #ffffff87;
@@ -118,7 +118,7 @@ section#detalle .principal #modalcompartirenredes > p {
 section#detalle .principal #modalcompartirenredes > img {
 	margin-top: 20px;
 	width: 100%;
-}
+} */
 section#detalle .informacion {
 	margin-left: 20px;
 	width: 45%;

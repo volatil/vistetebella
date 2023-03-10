@@ -29,8 +29,7 @@ export function Modal({
 				<span>X</span>
 				{titulo ? <h4>{titulo}</h4> : ""}
 				{subtitulo ? <h5>{subtitulo}</h5> : ""}
-				<div className="elementos">
-					<h2>CONTENIDO</h2>
+				<div className="elementosHTML">
 					{html}
 				</div>
 			</section>

@@ -12,6 +12,11 @@ import regla from "../../assets/svg/regla.svg";
 import cuadromedidas from "../../assets/imagenes/cuadromedidas.PNG";
 import "./Detalle.css";
 
+// TODO LO QUE ES EL MODAL
+import { Modal, showCompartirRedes, hideCompartirRedes } from "../../components/Modal/Modal";
+import "../../components/Modal/Modal.css";
+// TODO LO QUE ES EL MODAL
+
 import {
 	armonizarURL,
 	cambiarThumb,
@@ -27,28 +32,18 @@ import {
 	showGuiaTallas,
 	hideGuiaTallas,
 	cambiarUnidadMedida,
-	showCompartirRedes,
-	hideCompartirRedes,
+	// showCompartirRedes,
+	// hideCompartirRedes,
 } from "../../Helpers/Detalle";
 
-function CompartirEnRedes({ url, mensaje }) {
+function HTMLCompartirEnRedes({ url, mensaje }) {
 	return (
-		<>
-			<button type="button" className="compartirenredes">
-				<span className="compartir" />
-			</button>
-			<section id="fondocompartirenredes" />
-			<section id="modalcompartirenredes">
-				<span>X</span>
-				<h4>Compartir</h4>
-				<div className="elementos">
-					<a rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>twitter</a>
-					<a rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?spm=a2g0o.detail.share.1.349c34fe7InlUD&u=${url}`}>facebook</a>
-					<a rel="noreferrer" target="_blank" href="AAAA">Copiar Link</a>
-					<a rel="noreferrer" target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
-				</div>
-			</section>
-		</>
+		<div className="elementos">
+			<a rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>twitter</a>
+			<a rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?spm=a2g0o.detail.share.1.349c34fe7InlUD&u=${url}`}>facebook</a>
+			<a rel="noreferrer" target="_blank" href="AAAA">Copiar Link</a>
+			<a rel="noreferrer" target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
+		</div>
 	);
 }
 
@@ -293,9 +288,11 @@ function Detalle() {
 		clickAgregar( id );
 		showGuiaTallas();
 		hideGuiaTallas();
+		cambiarUnidadMedida();
+		// TODO LO QUE ES MODAL
 		showCompartirRedes();
 		hideCompartirRedes();
-		cambiarUnidadMedida();
+		// TODO LO QUE ES MODAL
 	});
 
 	if ( detalle ) {
@@ -316,7 +313,12 @@ function Detalle() {
 
 					<div className="principal">
 						<AgregarQuitarWISHLIST id={id} />
-						<CompartirEnRedes url={location.href} mensaje={res.nombre} />
+						{/* <CompartirEnRedes url={location.href} mensaje={res.nombre} /> */}
+						<Modal
+							nombreboton="compartir en redes"
+							titulo="compartir"
+							html={<HTMLCompartirEnRedes url={location.href} mensaje={res.nombre} />}
+						/>
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					</div>
 
