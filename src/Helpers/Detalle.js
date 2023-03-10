@@ -16,22 +16,6 @@ export function hideGuiaTallas() {
 	});
 }
 
-// export function showCompartirRedes() {
-// 	$(".compartirenredes").on("click", () => {
-// 		$("#modalcompartirenredes").fadeIn();
-// 		$("#fondocompartirenredes").toggle();
-// 	});
-// }
-
-// export function hideCompartirRedes() {
-// 	$("#fondocompartirenredes, section#detalle .principal #modalcompartirenredes > span").on("click", () => {
-// 		$("#modalcompartirenredes").fadeOut();
-// 		setTimeout(() => {
-// 			$("#fondocompartirenredes").toggle();
-// 		}, 200);
-// 	});
-// }
-
 export function cambiarUnidadMedida() {
 	$("section#detalle .informacion #guiadetallas .cambiarMedida ul li").on("click", function () {
 		const unidad = $(this).html();

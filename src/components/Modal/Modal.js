@@ -19,7 +19,7 @@ export function hideCompartirRedes() {
 }
 
 export function Modal({
-	nombreboton, titulo, subtitulo, html,
+	nombreboton, titulo, html,
 }) {
 	return (
 		<>
@@ -28,10 +28,7 @@ export function Modal({
 			<section id="modal">
 				<span>X</span>
 				{titulo ? <h4>{titulo}</h4> : ""}
-				{subtitulo ? <h5>{subtitulo}</h5> : ""}
-				<div className="elementosHTML">
-					{html}
-				</div>
+				{html}
 			</section>
 		</>
 	);

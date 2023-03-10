@@ -32,17 +32,25 @@ import {
 	showGuiaTallas,
 	hideGuiaTallas,
 	cambiarUnidadMedida,
-	// showCompartirRedes,
-	// hideCompartirRedes,
 } from "../../Helpers/Detalle";
 
 function HTMLCompartirEnRedes({ url, mensaje }) {
+	const estilos = {
+		contenedorElementos: {
+			display: "flex",
+			flexDirection: "row",
+			justifyContent: "space-evenly",
+		},
+		losa: {
+			background: "red",
+		},
+	};
 	return (
-		<div className="elementos">
-			<a rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>twitter</a>
-			<a rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?spm=a2g0o.detail.share.1.349c34fe7InlUD&u=${url}`}>facebook</a>
-			<a rel="noreferrer" target="_blank" href="AAAA">Copiar Link</a>
-			<a rel="noreferrer" target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
+		<div style={estilos.contenedorElementos} className="elementos">
+			<a style={estilos.losa} rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>twitter</a>
+			<a style={estilos.losa} rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?spm=a2g0o.detail.share.1.349c34fe7InlUD&u=${url}`}>facebook</a>
+			<a style={estilos.losa} rel="noreferrer" target="_blank" href="AAAA">Copiar Link</a>
+			<a style={estilos.losa} rel="noreferrer" target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
 		</div>
 	);
 }
@@ -313,7 +321,6 @@ function Detalle() {
 
 					<div className="principal">
 						<AgregarQuitarWISHLIST id={id} />
-						{/* <CompartirEnRedes url={location.href} mensaje={res.nombre} /> */}
 						<Modal
 							nombreboton="compartir en redes"
 							titulo="compartir"
