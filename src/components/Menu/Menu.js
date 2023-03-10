@@ -36,9 +36,9 @@ function MenuMobile() {
 			<div className="elmenu">
 				<p>MENU</p>
 				<div>
-					<span>&nbsp;</span>
-					<span>&nbsp;</span>
-					<span>&nbsp;</span>
+					<span />
+					<span />
+					<span />
 				</div>
 			</div>
 			<div className="losmenus">

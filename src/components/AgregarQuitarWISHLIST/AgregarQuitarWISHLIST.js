@@ -38,8 +38,8 @@ function AgregarQuitarWISHLIST( props ) {
 		<button type="button" className="estadoWish">
 			{
 				elwishid
-					? <span className="corazon rojo">&nbsp;</span>
-					: <span className="corazon">&nbsp;</span>
+					? <span className="corazon rojo" />
+					: <span className="corazon" />
 			}
 		</button>
 	);
