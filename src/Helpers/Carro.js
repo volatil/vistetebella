@@ -8,7 +8,7 @@ export function refrescarCantidadProductosEnCarro() {
 		carro = carro.length;
 		$("nav.desktop > ul > li.carrito > a span.cantidad").html( carro );
 	} else {
-		$("nav.desktop > ul > li.carrito > a span.cantidad").html("?");
+		$("nav.desktop > ul > li.carrito > a span.cantidad").html("0");
 	}
 }
 
