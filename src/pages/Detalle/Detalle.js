@@ -25,6 +25,29 @@ import {
 import { clickAgregar } from "../../Helpers/Carro";
 import { showGuiaTallas, hideGuiaTallas, cambiarUnidadMedida } from "../../Helpers/Detalle";
 
+function CompartirEnRedes() {
+	return (
+		<>
+			<button type="button" className="compartirenredes">
+				<span className="compartir" />
+			</button>
+			<section id="fondocompartirenredes" />
+			<section id="modalcompartirenredes">
+				<span>X</span>
+				<h4>Compartir</h4>
+				<div className="elementos">
+					<ul>
+						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
+						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
+						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
+						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
+					</ul>
+				</div>
+			</section>
+		</>
+	);
+}
+
 function FechaEntrega() {
 	return (
 		<div>
@@ -287,6 +310,7 @@ function Detalle() {
 
 					<div className="principal">
 						<AgregarQuitarWISHLIST id={id} />
+						<CompartirEnRedes />
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					</div>
 
