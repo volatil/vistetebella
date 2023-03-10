@@ -36,12 +36,10 @@ function CompartirEnRedes() {
 				<span>X</span>
 				<h4>Compartir</h4>
 				<div className="elementos">
-					<ul>
-						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
-						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
-						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
-						<li className="AAAAAAAAAAAAA">AAAAAAAAAAAAA</li>
-					</ul>
+					<a target="_blank" href="https://twitter.com/intent/tweet?url={{URL}}&text={{texto}}">twitter</a>
+					<a target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
+					<a target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
+					<a target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
 				</div>
 			</section>
 		</>
