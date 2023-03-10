@@ -23,9 +23,15 @@ import {
 } from "../../Helpers/Helpers";
 
 import { clickAgregar } from "../../Helpers/Carro";
-import { showGuiaTallas, hideGuiaTallas, cambiarUnidadMedida } from "../../Helpers/Detalle";
+import {
+	showGuiaTallas,
+	hideGuiaTallas,
+	cambiarUnidadMedida,
+	showCompartirRedes,
+	hideCompartirRedes,
+} from "../../Helpers/Detalle";
 
-function CompartirEnRedes() {
+function CompartirEnRedes({ url, mensaje }) {
 	return (
 		<>
 			<button type="button" className="compartirenredes">
@@ -36,10 +42,10 @@ function CompartirEnRedes() {
 				<span>X</span>
 				<h4>Compartir</h4>
 				<div className="elementos">
-					<a target="_blank" href="https://twitter.com/intent/tweet?url={{URL}}&text={{texto}}">twitter</a>
-					<a target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
-					<a target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
-					<a target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
+					<a rel="noreferrer" target="_blank" href={`https://twitter.com/intent/tweet?url=${url}&text=${mensaje}`}>twitter</a>
+					<a rel="noreferrer" target="_blank" href={`https://www.facebook.com/sharer/sharer.php?spm=a2g0o.detail.share.1.349c34fe7InlUD&u=${url}`}>facebook</a>
+					<a rel="noreferrer" target="_blank" href="AAAA">Copiar Link</a>
+					<a rel="noreferrer" target="_blank" href="AAAA">AAAAAAAAAAAAA</a>
 				</div>
 			</section>
 		</>
@@ -287,6 +293,8 @@ function Detalle() {
 		clickAgregar( id );
 		showGuiaTallas();
 		hideGuiaTallas();
+		showCompartirRedes();
+		hideCompartirRedes();
 		cambiarUnidadMedida();
 	});
 
@@ -308,7 +316,7 @@ function Detalle() {
 
 					<div className="principal">
 						<AgregarQuitarWISHLIST id={id} />
-						<CompartirEnRedes />
+						<CompartirEnRedes url={location.href} mensaje={res.nombre} />
 						<img className="imagenprincipal" src={res.imagen.principal} alt={res.nombre} />
 					</div>
 
